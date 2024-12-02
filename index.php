@@ -35,21 +35,24 @@
 
     <br><br><br>
     
-    <div id="body" class="rounded margin-left">
+    <div id="body" class="rounded margin-left" style="background-attachment: fixed;
+                                                                    background-image: url(img/bg-estadistica.jpg); 
+                                                                    background-size:cover; 
+                                                                    background-repeat:no-repeat;">
     
-        <div class="text-center rounded container-fluid ps-4 pt-1 pe-4 h-100">
+        <div class="text-center rounded container-fluid bg-dark-trans ps-4 pt-1 pe-4 h-100">
 
-            <p class="text-light fw-light fs-3 mt-5">Jardín de Infancia | "José Antonio Páez"</p>
+            <p class="text-light fw-light fs-3 mt-2">Jardín de Infancia | "José Antonio Páez"</p>
 
             <hr class="border">
 
-            <p class="fw-light text-light display-2 w-50 mx-auto" style="font-family: Georgia, 'Times New Roman', Times, serif;">Sembrando Semillas de Futuro</p>
+            <p class="fw-light text-light display-2 w-75 mx-auto" style="font-family: Georgia, 'Times New Roman', Times, serif;">Sembrando Semillas de Futuro</p>
 
             <br>
 
         </div>
         
-        <div class="d-flex container-fluid ps-4 pt-4 pe-4 h-100">
+        <div class="d-flex container-fluid bg-dark-trans p-4 h-100">
 
             <div class="d-block  w-50 align-items-center bg-dark-trans ps-4 pt-4 pe-4 my-auto rounded text-light">
 
@@ -69,7 +72,7 @@
             </div>
 
             <div class="w-50 h-100 d-flex align-items-center justify-content-center">
-                <img src="img/logoP.png" alt="" style="width: 50vh; height:50vh; filter:drop-shadow(0px 0px 10px white);">
+                <img src="img/logoP.png" alt="" style="width: 40vh; height:40vh; filter:drop-shadow(0px 0px 10px white);">
             </div>
 
             <div class="d-block  w-50 align-items-center bg-dark-trans ps-4 pt-4 pe-4 my-auto rounded text-light">
@@ -96,16 +99,16 @@
     <div id="body1" class="margin-left">
     </div>
 
-<br><br><br><br>
+<br><br>
 
     <div id="body2" class="margin-left" style="border-radius:20px; height:80vh;">
-    
+
         <div class="rounded p-3">
             
             <div id="CarruselDeImagenes" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="text-center carousel-item active" data-bs-interval="4000">
-                        <img  src="img/galeria-1.jpg" class="img-fluid w-100 rounded opacity-50" style="height: 80vh;" alt="..." >
+                        <img  src="img/galeria-1.jpg" class="img-fluid w-100 rounded" style="height: 80vh;" alt="..." >
                         <div class="carousel-caption bg-dark-trans rounded mx-auto p-5 text-center w-100">
                             <h1 class="fw-lighter display-1">Experiencia y Trayectoria</h1>
                             <div>
@@ -117,7 +120,7 @@
                         </div>
                     </div>
                     <div class="text-center carousel-item" data-bs-interval="4000">
-                        <img src="img/galeria-2.jpg" class="img-fluid w-100 rounded opacity-50" style="height: 80vh;" alt="..." >
+                        <img src="img/galeria-2.jpg" class="img-fluid w-100 rounded" style="height: 80vh;" alt="..." >
                         <div class="carousel-caption bg-dark-trans rounded mx-auto p-5 text-center w-100">
                             <h1 class="fw-lighter display-1">Enfoque Integral</h1>
                             <div>
@@ -129,7 +132,7 @@
                         </div>
                     </div>
                     <div class="text-center carousel-item" data-bs-interval="4000">
-                        <img src="img/galeria-3.jpg" class="img-fluid w-100 rounded opacity-50" style="height: 80vh;" alt="..." >
+                        <img src="img/galeria-3.jpg" class="img-fluid w-100 rounded" style="height: 80vh;" alt="..." >
                         <div class="carousel-caption bg-dark-trans rounded mx-auto p-5 text-center w-100">
                             <h1 class="fw-lighter display-1">Actividades Extracurriculares</h1>
                             <div>
@@ -147,11 +150,11 @@
                     <button type="button" data-bs-target="#CarruselDeImagenes" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#CarruselDeImagenes" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon p-4 btn btn-primary" aria-hidden="true"></span>
+                    <span class="carousel-control-prev-icon p-4" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#CarruselDeImagenes" data-bs-slide="next">
-                    <span class="carousel-control-next-icon p-4 btn btn-primary" aria-hidden="true"></span>
+                    <span class="carousel-control-next-icon p-4" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
                 </div>

@@ -1,0 +1,147 @@
+<div class="ms-0 me-3">
+    
+    <!-- NavBar -->
+    <nav id="nav" class="navbar ps-2 mt-1 fixed-top bg-trans margin-left-nav" style="border-radius: 50px; margin-right: 2%;">
+        
+        <a href="javascript:history.back();" class="d-flex dropdown-items ps-3 justify-content-start" style="cursor: pointer;">
+            <img src="icons/flecha-izquierda.svg" style="width: 30px; height:30px;">
+        </a>
+        
+        <div class="dropdown">
+            <button class="navbar-brand d-flex btn dropdown-toggle align-items-center border-none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="icons/user.svg" width="30px" height="30px">
+                <p class="fs-5 ps-2 m-auto text-light fw-light"><?php if(!empty($mensaje)) : echo $mensaje; endif; ?></p>
+            </button>
+            <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser1" style="background-color: white;">
+                <li class="d-flex">
+                    <a class="text-primary dropdown-item" href="datosCuenta.php">
+                        <img class="me-2" src="icons/user-edit.svg" width="20px" height="20px">
+                        Datos de  Usuario
+                    </a>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <a class="text-primary dropdown-item" href="dataBase/logout.php">
+                        <img class="me-2" src="icons/logout.svg" width="20px" height="20px">
+                        Salir
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Menu -->
+    <div class="position-fixed bg-dark-trans ms-0 h-100" style="width:6%; transition: all 0.4s;" id="Menu">
+        
+        <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-primary min-vh-100">
+            
+            <a class="d-flex align-items-center pb-2 mb-md-0 me-md-auto border-bottom text-light text-decoration-none justify-content-between w-100 ps-2">
+                <span id="span" class="visually-hidden  me-5 text-light fs-3 d-none d-sm-inline">Menu</span>
+                <img onclick="menuAction()" src="icons/bars.svg" width="30" height="30" style="cursor:pointer;">
+            </a>
+            
+            <ul class="nav nav-pills me-md-auto ps-2 pt-2 flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                <li class="nav-item">
+                    <a href="index.php" class="nav-link align-middle px-0">
+                        <img src="icons/house.svg" class="<?= $pagAct === 'index.php' ? 'shadowActive' : 'shadowActive1' ?>" width="30" height="30"> 
+                        <span id="span" class="visually-hidden ms-1 text-light fs-5 d-none d-sm-inline">Inicio</span>
+                    </a>
+                </li>
+
+                <hr class="my-1">
+
+                <li>
+                    <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 <?= in_array($pagAct, ['bnsNcn.php','bnsMbls.php','bnsMtls.php']) ? 'show' : '' ?>">
+                        <img src="icons/bandera-edificio.svg" class="<?= in_array($pagAct, ['bnsNcn.php','bnsMbls.php','bnsMtls.php']) ? 'shadowActive' : 'shadowActive1' ?> " width="30" height="30">
+                        <span id="span" class="visually-hidden ms-1 text-light fs-5 d-none d-sm-inline">Bienes Públicos</span> 
+                    </a>
+
+                    <ul class="collapse nav flex-column mt-2 <?= in_array($pagAct, ['bnsNcn.php', 'bnsMbls.php', 'bnsMtls.php']) ? 'show' : '' ?>" id="submenu1" data-bs-parent="#menu">
+
+                        <hr class="my-1">
+
+                        <li class="w-100">
+                            <a href="bnsNcn.php" class="nav-link px-2 py-1 text-light <?= $pagAct === 'bnsNcn.php' ? 'shadowActive2' : '' ?> "> 
+                                <span id="span" class="visually-hidden d-none text-light d-sm-inline ">Bienes Nacionales</span>
+                                BN
+                            </a>
+                        </li>
+
+                        <hr class="my-1">
+
+                        <li class="w-100">
+                            <a href="bnsMbls.php" class="nav-link px-2 py-1 text-light <?= $pagAct === 'bnsMbls.php' ? 'shadowActive2' : '' ?> "> 
+                                <span id="span" class="visually-hidden d-none text-light d-sm-inline">- Bienes Muebles</span>
+                                ·Mu
+                            </a>
+                        </li>
+
+                        <hr class="my-1">
+
+                        <li class="w-100">
+                            <a href="bnsMtls.php" class="nav-link px-2 py-1 text-light <?= $pagAct === 'bnsMtls.php' ? 'shadowActive2' : '' ?> "> 
+                                <span id="span" class="visually-hidden d-none text-light d-sm-inline"> - Bienes Materiales</span>
+                                ·Ma
+                            </a>
+                        </li>
+
+                        <hr class="my-1">
+
+                    </ul>
+                </li>
+
+                <hr class="my-1">
+
+                <li>
+                    <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle <?= in_array($pagAct, ['entid.php','entidDoc.php','entidAlmn.php', 'entidPers.php']) ? 'show' : '' ?>">
+                        <img src="icons/users.svg" class="<?= in_array($pagAct, ['entid.php','entidDoc.php','entidAlmn.php', 'entidPers.php']) ? 'shadowActive' : 'shadowActive1' ?> " width="30" height="30"> 
+                        <span id="span" class="visually-hidden ms-1 text-light fs-5 d-none d-sm-inline">Entidades</span> 
+                    </a>
+
+                    <ul class="collapse nav flex-column mt-2 <?= in_array($pagAct, ['entid.php','entidDoc.php','entidAlmn.php', 'entidPers.php']) ? 'show' : '' ?> " id="submenu2" data-bs-parent="#menu">
+
+                        <hr class="my-1">
+
+                        <li class="w-100">
+                            <a href="entid.php" class="nav-link px-2 py-1 text-light <?= $pagAct === 'entid.php' ? 'shadowActive2' : '' ?> "> 
+                                <span id="span" class="visually-hidden d-none text-light d-sm-inline ">Entidades</span>
+                                ETD
+                            </a>
+                        </li>
+
+                        <hr class="my-1">
+
+                        <li class="w-100">
+                            <a href="#" class="nav-link px-2 py-1 text-light <?= $pagAct === 'entidDoc.php' ? 'shadowActive2' : '' ?>"> 
+                                <span id="span" class="visually-hidden d-none text-light d-sm-inline">- Docentes</span>
+                                ·Doct
+                            </a>
+                        </li>
+
+                        <hr class="my-1">
+
+                        <li>
+                            <a href="#" class="nav-link px-2 py-1 text-light <?= $pagAct === 'entidAlmn.php' ? 'shadowActive2' : '' ?>"> 
+                                <span id="span" class="visually-hidden d-none text-light d-sm-inline">- Alumnos</span>
+                                ·Almn
+                            </a>
+                        </li>
+
+                        <hr class="my-1">
+
+                        <li>
+                            <a href="#" class="nav-link px-2 py-1 text-light <?= $pagAct === 'entidPers.php' ? 'shadowActive2' : '' ?>"> 
+                                <span id="span" class="visually-hidden d-none text-light d-sm-inline">- Personal</span>
+                                ·Psnl
+                            </a>
+                        </li>
+
+                        <hr class="my-1">
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>

@@ -18,7 +18,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienes Nacionales</title>
+    <title>Entidades</title>
+    <link rel="shortcut icon" href="img/logoP.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/dataTables.dataTables.min.css">
     <link rel="stylesheet" href="styles/font-awesome.min.css">
@@ -43,7 +44,7 @@
             <div class="container d-flex justify-content-center pt-5 border-1 border border-start-0 border-end-0 border-bottom-0">
 
                 <div class="items-hover mx-auto bg-trans-items">
-                    <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="#">
+                    <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="entidAlmn.php">
                         <h3 class="pe-4">Alumnos |</h3>
                         <img src="icons/graduacion.svg"  style="width: 70px; height:70px">
                     </a>
@@ -52,7 +53,7 @@
                 <hr class="vr shadow" style="color: white;">
 
                 <div class="items-hover mx-auto bg-trans-items">
-                    <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="#">
+                    <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="entidDoc.php">
                         <h3 class="pe-4">Docentes |</h3>
                         <img src="icons/pizzarron-user.svg"  style="width: 70px; height:70px">
                     </a>
@@ -61,7 +62,7 @@
                 <hr class="vr shadow" style="color: white;">
 
                 <div class="items-hover mx-auto bg-trans-items">
-                    <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="#">
+                    <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="entidPers.php">
                         <h3 class="pe-4">Personal |</h3>
                         <img src="icons/personal.svg"  style="width: 70px; height:70px">
                     </a>

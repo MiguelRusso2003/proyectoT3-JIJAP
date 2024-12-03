@@ -55,6 +55,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienes Muebles</title>
+    <link rel="shortcut icon" href="img/logoP.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/dataTables.dataTables.min.css">
     <link rel="stylesheet" href="styles/font-awesome.min.css">
@@ -66,7 +67,7 @@
 
     <br><br><br>
 
-    <div id="body" class="rounded margin-left" style="background-image:url(img/bandera.jpg); background-size:cover; ">
+    <div id="body" class="rounded margin-left" style="background-image:url(img/bandera.jpg); background-size:cover;background-attachment: fixed; ">
 
         <div class="container-fluid bg-white-trans rounded">
             <div class="container">

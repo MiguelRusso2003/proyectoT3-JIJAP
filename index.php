@@ -23,6 +23,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
+    <link rel="shortcut icon" href="img/logoP.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/dataTables.dataTables.min.css">
@@ -36,9 +37,9 @@
     <br><br><br>
     
     <div id="body" class="rounded margin-left" style="background-attachment: fixed;
-                                                                    background-image: url(img/bg-estadistica.jpg); 
-                                                                    background-size:cover; 
-                                                                    background-repeat:no-repeat;">
+                                                      background-image: url(img/bg-estadistica.jpg); 
+                                                      background-size:cover; 
+                                                      background-repeat:no-repeat;">
     
         <div class="text-center rounded container-fluid bg-dark-trans ps-4 pt-1 pe-4 h-100">
 
@@ -96,19 +97,15 @@
 
 <br><br>
 
-    <div id="body1" class="margin-left">
-    </div>
+    <div id="body2" class="margin-left" style="border-radius:20px; height:90vh;">
 
-<br><br>
-
-    <div id="body2" class="margin-left" style="border-radius:20px; height:80vh;">
-
-        <div class="rounded p-3">
+        <div class="rounded">
             
             <div id="CarruselDeImagenes" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
+
                     <div class="text-center carousel-item active" data-bs-interval="4000">
-                        <img  src="img/galeria-1.jpg" class="img-fluid w-100 rounded" style="height: 80vh;" alt="..." >
+                        <img  src="img/galeria-1.jpg" class="img-fluid w-100 rounded" style="height: 90vh;">
                         <div class="carousel-caption bg-dark-trans rounded mx-auto p-5 text-center w-100">
                             <h1 class="fw-lighter display-1">Experiencia y Trayectoria</h1>
                             <div>
@@ -119,8 +116,9 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="text-center carousel-item" data-bs-interval="4000">
-                        <img src="img/galeria-2.jpg" class="img-fluid w-100 rounded" style="height: 80vh;" alt="..." >
+                        <img src="img/galeria-2.jpg" class="img-fluid w-100 rounded" style="height: 90vh;">
                         <div class="carousel-caption bg-dark-trans rounded mx-auto p-5 text-center w-100">
                             <h1 class="fw-lighter display-1">Enfoque Integral</h1>
                             <div>
@@ -131,8 +129,9 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="text-center carousel-item" data-bs-interval="4000">
-                        <img src="img/galeria-3.jpg" class="img-fluid w-100 rounded" style="height: 80vh;" alt="..." >
+                        <img src="img/galeria-3.jpg" class="img-fluid w-100 rounded" style="height: 90vh;">
                         <div class="carousel-caption bg-dark-trans rounded mx-auto p-5 text-center w-100">
                             <h1 class="fw-lighter display-1">Actividades Extracurriculares</h1>
                             <div>
@@ -143,16 +142,20 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
+
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#CarruselDeImagenes" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#CarruselDeImagenes" data-bs-slide-to="1" aria-label="Slide 2"></button>
                     <button type="button" data-bs-target="#CarruselDeImagenes" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
+
                 <button class="carousel-control-prev" type="button" data-bs-target="#CarruselDeImagenes" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon p-4" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
+
                 <button class="carousel-control-next" type="button" data-bs-target="#CarruselDeImagenes" data-bs-slide="next">
                     <span class="carousel-control-next-icon p-4" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
@@ -161,6 +164,49 @@
             </div>
 
         </div>
+    </div>
+
+<br><br>
+
+    <div id="body1" class="margin-left me-3">
+
+        <div class="text-center rounded container-fluid ps-4 pt-1 pe-4 h-100">
+
+            <p class="text-light fw-light fs-3 mt-2">Conoce a Nuestro Equipo</p>
+            <hr class="border border-primary border-2 w-75 mx-auto">
+            <hr class="border border-primary border-2 w-25 mx-auto">
+            <br>
+
+        </div>
+
+        <div class="container row mx-auto">
+
+            <div class="d-block col-3 h-100 p-3 rounded">
+                <img src="img/equipo/Ejemplo.png" style="filter:drop-shadow(0px 0px 5px #ffffff5a)" class="img-fluid w-100 h-100">
+                <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. Flor Maldonado</p>
+                <p class="text-light fw-light">Directora</p>
+            </div>
+
+            <div class="d-block col-3 h-100 p-3 rounded">
+                <img src="img/equipo/Ejemplo3.png" style="filter:drop-shadow(0px 0px 5px #ffffff5a)" class="img-fluid w-100 h-100">
+                <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Ejemplo</p>
+                <p class="text-light fw-light">Prueba</p>
+            </div>
+
+            <div class="d-block col-3 h-100 p-3 rounded">
+                <img src="img/equipo/Ejemplo4.png" style="filter:drop-shadow(0px 0px 5px #ffffff5a)" class="img-fluid w-100 h-100">
+                <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Ejemplo</p>
+                <p class="text-light fw-light">Prueba</p>
+            </div>
+
+            <div class="d-block col-3 h-100 p-3 rounded">
+                <img src="img/equipo/Ejemplo5.png" style="filter:drop-shadow(0px 0px 5px #ffffff5a)" class="img-fluid w-100 h-100">
+                <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Ejemplo</p>
+                <p class="text-light fw-light">Prueba</p>
+            </div>
+
+        </div>
+
     </div>
 
 <br><br><br>

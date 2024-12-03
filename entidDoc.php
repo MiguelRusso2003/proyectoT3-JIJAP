@@ -1,6 +1,6 @@
 <?php
     include("dataBase/conn.php");
-
+    
     session_start();
 
     $mensaje="";
@@ -33,7 +33,7 @@
     if (isset($_POST['editar'])) {
         $idEdit = $_POST["id"];
 
-        $sqlEdit = "SELECT * FROM bienesMtls WHERE id = :id";
+        $sqlEdit = "SELECT * FROM bienesMbls WHERE id = :id";
         $ejecutarSql = $conn -> prepare($sqlEdit);
         $ejecutarSql -> bindParam(':id', $idEdit);
         $ejecutarSql -> execute();
@@ -41,10 +41,10 @@
         $datosEdit = $ejecutarSql -> fetch(PDO::FETCH_ASSOC); 
     }
 
-    $sql = "SELECT * FROM bienesMtls";
+    $sql = "SELECT * FROM bienesMbls";
     $resultado = $conn -> query($sql);
 
-    $tabla = 'bienesMtls';
+    $tabla = 'bienesMbls';
 
     $pagAct = basename($_SERVER['PHP_SELF']);
 
@@ -54,7 +54,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienes Materiales</title>
+    <title>Docentes</title>
     <link rel="shortcut icon" href="img/logoP.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/dataTables.dataTables.min.css">
@@ -67,31 +67,31 @@
 
     <br><br><br>
 
-    <div id="body" class="rounded margin-left" style="background-image:url(img/bandera.jpg); background-size:cover; background-attachment: fixed;">
-   
+    <div id="body" class="rounded margin-left" style="background-image:url(img/bg-docente2.jpg); background-size:cover;background-attachment: fixed; ">
+
         <div class="container-fluid bg-white-trans rounded">
             <div class="container">
                 
                 <br>
 
                 <div class="d-flex justify-content-between align-items-center px-3">
-                    <h1 class="display-4"><img src="icons/herramientas.svg"  style="width: 70px; height:70px"> | Bienes Materiales</h1>    
-                    <form action="formBnMa.php" method="post">
-                        <button type="button" class="btn btn-outline-success border-3" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Nuevo Registro</button>
+                    <h1 class="display-4"><img src="icons/pizzarron-user.svg"  style="width: 70px; height:70px"> | Docentes </h1>
+                    <form action="formBnMu.php" method="post">
+                        <button type="button" class="btn btn-outline-success border-3" data-bs-toggle="modal" data-bs-target="#modal_insertar">+ Nuevo Registro</button>
                     </form>
                 </div>
-
+                
                 <hr>
-
+                
                 <!-- Tabla DataTable -->
                 <table id="myTable" class="display compact" style="width:80%">
                     
                     <thead>
                         <tr>
-                            <th class="text-start">Cod. Catálogo</th>
-                            <th class="text-start">N° Inventario del Bien</th>
-                            <th class="text-start">Descripción</th>
-                            <th class="text-start">Cantidad</th>
+                            <th class="text-start">Nombre</th>
+                            <th class="text-start">Apellido</th>
+                            <th class="text-start">Cédula</th>
+                            <th class="text-start">Status</th>
                             <th class="text-center">Acción</th>
                         </tr>
                     </thead>
@@ -109,7 +109,6 @@
                                 <div class="ms-1 me-1">
                                     <form action="" method="post">
                                         <input type="hidden" name="id" value="<?php echo $key['id'];?>">
-                                        <input type="hidden" name="ubicacion" value="bnsMtls">
                                         <button name="editar" type="submit" class="btn shadow btn-outline-primary border-3" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Editar">
                                             <img src="icons/editar.svg" style="width: 20px; height: 20px;">  
                                         </button>
@@ -119,7 +118,7 @@
                                     <form action="dataBase/eliminar.php" method="post" id="formDataDelete<?php echo $key['id'];?>">
                                         <input type="hidden" name="id" value="<?php echo $key['id'];?>">
                                         <input type="hidden" name="tabla" value="<?php echo $tabla ?>">
-                                        <input type="hidden" name="ubicacion" value="bnsMtls.php">
+                                        <input type="hidden" name="ubicacion" value="bnsMbls.php">
                                         <button onclick="alertDelete('<?php echo $key['descripcion']; ?>', '<?php echo $key['id']; ?>')" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Eliminar" class="btn shadow btn-outline-primary border-3">
                                             <img src="icons/delete.svg" style="width: 20px; height: 20px;">
                                         </button>
@@ -128,7 +127,7 @@
                                 <div class="ms-1 me-1">
                                     <form action="" method="post">
                                         <input type="hidden" name="id" value="<?php echo $key['id'];?>">
-                                        <button onclick="modalVer('<?php echo $key['id'];?>')" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="ver Precio" class="btn shadow btn-outline-primary border-3">
+                                        <button onclick="modalVer('<?php echo $key['id'];?>')" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Ver Datos" class="btn shadow btn-outline-primary border-3">
                                             <img src="icons/lupa.svg" style="width: 20px; height: 20px;">
                                         </button>
                                     </form>
@@ -165,8 +164,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> 
-                        
+                        </div>
+
                         <?php } ?>
 
                     </tbody>
@@ -178,7 +177,7 @@
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">EDITAR BIEN MATERIAL</h1>
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">EDITAR BIEN MUEBLE</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -205,9 +204,9 @@
                                         </div>
                                         <div class="modal-footer d-flex justify-content-center">
                                             <input type="hidden" name="id" value="<?php echo $datosEdit["id"]; ?>">
-                                            <input type="hidden" name="tipoBn" value="<?php echo 'bienesMtls'; ?>">
-                                            <input type="hidden" name="ubicacion" value="<?php echo 'bnsMtls'; ?>">
-                                            <a class="dropdown-items" href="bnsMtls.php">    
+                                            <input type="hidden" name="tipoBn" value="<?php echo 'bienesMbls'; ?>">
+                                            <input type="hidden" name="ubicacion" value="<?php echo 'bnsMbls'; ?>">
+                                            <a class="dropdown-items" href="bnsMbls.php">    
                                                 <button type="button" class="btn btn-2 shadow border-3 btn-outline-danger">Cancelar</button>
                                             </a>
                                             <button type="submit" class="btn btn-2 shadow border-3 btn-outline-success">Guardar</button>
@@ -220,45 +219,142 @@
                 <?php endif; ?>
 
                 <!-- Modal Insertar -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
+                <div class="modal fade" id="modal_insertar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Registro de Bien Material</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Registro de Docente</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <form method="POST" action="dataBase/insertBns.php">
-                                    <div class="container-fluid d-flex">
-                                        <div class="form-floating mb-4 me-1">
-                                            <input type="number" name="cant" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
-                                            <label class="text-dark" for="floatingInput">Cantidad</label>
+
+                                    <div class="container-fluid d-flex justify-content-center">
+
+                                        <div class="form-floating mb-4 mx-4 w-25">
+                                            <input type="text" name="nombre" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                            <label class="text-dark" for="floatingInput">Nombre</label>
                                         </div>
-                                        <div class="form-floating mb-4">
-                                            <input type="text" name="codCat" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
-                                            <label class="text-dark">Codigo de Catalago</label>
+
+                                        <div class="form-floating mb-4 mx-4 w-25">
+                                            <input type="text" name="apellido" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                            <label class="text-dark">Apellido</label>
                                         </div>
+
+                                        <div class="d-flex mb-4 mx-4 w-25">
+                                            <select class="w-25 form-control me-1 border border-2 border-primary" name="cod_cedula">
+                                                <option value="V-">V-</option>
+                                                <option value="E-">E-</option>
+                                            </select>
+                                            <div class="form-floating w-75">
+                                                <input type="number" name="cedula" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                                <label class="text-dark" for="floatingInput">Numero de Cédula</label>
+                                            </div>
+                                        </div>
+
                                     </div>
-                                    <div class="container-fluid d-flex">
-                                        <div class="form-floating mb-4 me-1">
-                                            <input type="number" name="inv" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
-                                            <label class="text-dark" for="floatingInput">Numero de Inventario</label>
+
+                                    <div class="container-fluid d-flex justify-content-center">
+
+                                        <div class="form-floating mb-4 mx-4 w-25">
+                                            <input type="date" name="fechaNac" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                            <label class="text-dark" for="floatingInput">Fecha de Nacimiento</label>
                                         </div>
-                                        <div class="form-floating mb-4">
-                                            <input type="text" name="precio" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
-                                            <label class="text-dark">Precio Unitario</label>
+
+                                        <div class="form-floating mb-4 mx-4 w-25">
+                                            <input type="email" name="correo" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                            <label class="text-dark">Correo Electrónico</label>
                                         </div>
+
+                                        <div class="d-flex mb-4 mx-4 w-25">
+                                            <select class="w-25 form-control me-1 border border-2 border-primary" name="cod_telefono">
+                                                <option value="0414-">0414-</option>
+                                                <option value="0424-">0424-</option>
+                                                <option value="0416-">0416-</option>
+                                                <option value="0426-">0426-</option>
+                                                <option value="0412-">0412-</option>
+                                                <option value="0275-">0275-</option>
+                                                <option value="0212-">0212-</option>
+                                            </select>
+                                            <div class="form-floating w-75">
+                                                <input type="number" name="telefono" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                                <label class="text-dark" for="floatingInput">Numero de Teléfono</label>
+                                            </div>
+                                        </div>
+
                                     </div>
-                                    <div class="form-floating mb-4 container-fluid d-flex">
-                                        <input type="text" name="desc" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
-                                        <label class="text-dark">Descripcion</label>
+
+                                    <div class="container-fluid d-flex justify-content-center">
+
+                                        <div class="form-floating mb-4 mx-4 w-25">
+                                            <input type="date" name="fechaIngre" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                            <label class="text-dark" for="floatingInput">Fecha de Ingreso</label>
+                                        </div>
+
+                                        <div class="form-floating mb-4 mx-4 w-25">
+                                            <input type="text" name="codDep" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                            <label class="text-dark">Código de Dependencia</label>
+                                        </div>
+
+                                        <div class="form-floating mb-4 mx-4 w-25">
+                                            <input type="text" name="gdoInst" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                            <label class="text-dark">Grado de Instrucción</label>
+                                        </div>
+                                    
                                     </div>
+
+                                    <div class="container-fluid d-flex justify-content-center">
+
+                                        <div class="form-floating mb-4 mx-4 w-25">
+                                            <input type="text" name="seccion" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                            <label class="text-dark" for="floatingInput">Sección</label>
+                                        </div>
+
+                                        <div class="form-floating mb-4 mx-4 w-25">
+                                            <input type="text" name="clasif" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                            <label class="text-dark">Clasificación</label>
+                                        </div>
+
+                                        <div class="form-floating mb-4 mx-4 w-25">
+                                            <input type="number" name="mesesServ" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                            <label class="text-dark">Meses de Servicio</label>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="container-fluid d-flex justify-content-center">
+
+                                        <div class="form-floating mb-4 mx-4 w-25">
+                                            <input type="text" name="horas" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                            <label class="text-dark" for="floatingInput">Horas de Trabajo</label>
+                                        </div>
+
+                                        <div class="form-floating mb-4 mx-4 w-25">
+                                            <input type="text" name="areaForm" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                            <label class="text-dark">Area de Formación</label>
+                                        </div>
+
+                                        <div class="form-floating mb-4 mx-4 w-25">
+                                            <input type="text" name="matricula" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                            <label class="text-dark">Matrícula</label>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="container-fluid d-flex justify-content-center">
+
+                                        <div class="form-floating mb-4 mx-4 w-25">
+                                            <input type="text" name="status" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                            <label class="text-dark" for="floatingInput">Status</label>
+                                        </div>
+
+                                    </div>
+                                    
                                     <div class="modal-footer d-flex justify-content-center">
-                                        <input type="hidden" name="ubicacion" value="bnsMtls">
-                                        <input type="hidden" name="tabla" value="bienesMtls">
                                         <button type="button" class="btn btn-2 shadow border-2 btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
                                         <button type="submit" class="btn btn-2 shadow border-2 btn-outline-success">Guardar</button>
                                     </div>
+                                
                                 </form>
                             </div>
                         </div>
@@ -266,7 +362,7 @@
                 </div>
 
                 <br>
-            
+                
             </div>
         </div>
     </div>
@@ -276,12 +372,11 @@
 
     <?php include("footer.html"); ?>
 
-
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/dataTables.min.js"></script>
     <script>
-        $("#myTable").DataTable();
+        $('#myTable').DataTable();
     </script>
     <script src="js/fontawesome.min.js"></script>
     <script src="js/js.js"></script>
@@ -303,62 +398,49 @@
             $('#modalVer'+idModal).modal('show');
         }
      </script>
-    
+
     <!-- Mensajes Presentes -->
-     
+
     <!-- Eliminado -->
-    <?php
-        if (!empty($mensajeEliminar)) :
-            echo '
-                <script>
-                    window.onload = function mensajeEliminar(){
-                                        swal.fire({
-                                                title: "Registro Eliminado",
-                                                icon: "success",
-                                                showConfirmButton: false,
-                                                timer: 1300
-                                            });
-                                    };
-                    ;
-                </script>
-            '; 
-        endif; 
-    ?>
+    <?php if (!empty($mensajeEliminar)) :?>
+        <script>
+            window.onload = function mensaje(){
+                swal.fire({
+                        title: "Registro Eliminado",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 1300
+                });
+            };
+        </script>
+    <?php endif; ?>
+
     <!-- Editado -->
-    <?php
-        if (!empty($mensajeEdit)) :
-            echo '
-                <script>
-                    window.onload = function mensajeEdit(){
-                                        swal.fire({
-                                                title: "Registro Editado",
-                                                icon: "success",
-                                                showConfirmButton: false,
-                                                timer: 1300
-                                            });
-                                    };
-                    ;
-                </script>
-            '; 
-        endif; 
-    ?>
+    <?php if (!empty($mensajeEdit)) : ?>
+        <script>
+            window.onload = function mensajeEdit(){
+                swal.fire({
+                        title: "Registro Editado",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 1300
+                });
+            };
+        </script>
+    <?php endif; ?>
+
     <!-- Registrado -->
-    <?php
-        if (!empty($mensajeRegistro)) :
-            echo '
-                <script>
-                    window.onload = function mensajeRegistro(){
-                                        swal.fire({
-                                                title: "Datos Registrados Exitosamente",
-                                                icon: "success",
-                                                showConfirmButton: false,
-                                                timer: 1300
-                                            });
-                                    };
-                    ;
-                </script>
-            '; 
-        endif; 
-    ?>
+    <?php if (!empty($mensajeRegistro)) :?>
+        <script>
+            window.onload = function mensajeRegistro(){
+                swal.fire({
+                        title: "Datos Registrados Exitosamente",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 1300
+                });
+            };
+        </script>
+    <?php endif; ?>
 </body>
 </html>

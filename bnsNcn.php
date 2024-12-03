@@ -19,6 +19,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienes Nacionales</title>
+    <link rel="shortcut icon" href="img/logoP.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/dataTables.dataTables.min.css">
     <link rel="stylesheet" href="styles/font-awesome.min.css">

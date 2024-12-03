@@ -1,6 +1,6 @@
 <?php
     include("dataBase/conn.php");
-
+    
     session_start();
 
     $mensaje="";
@@ -33,7 +33,7 @@
     if (isset($_POST['editar'])) {
         $idEdit = $_POST["id"];
 
-        $sqlEdit = "SELECT * FROM bienesMtls WHERE id = :id";
+        $sqlEdit = "SELECT * FROM bienesMbls WHERE id = :id";
         $ejecutarSql = $conn -> prepare($sqlEdit);
         $ejecutarSql -> bindParam(':id', $idEdit);
         $ejecutarSql -> execute();
@@ -41,10 +41,10 @@
         $datosEdit = $ejecutarSql -> fetch(PDO::FETCH_ASSOC); 
     }
 
-    $sql = "SELECT * FROM bienesMtls";
+    $sql = "SELECT * FROM bienesMbls";
     $resultado = $conn -> query($sql);
 
-    $tabla = 'bienesMtls';
+    $tabla = 'bienesMbls';
 
     $pagAct = basename($_SERVER['PHP_SELF']);
 
@@ -54,7 +54,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienes Materiales</title>
+    <title>Personal</title>
     <link rel="shortcut icon" href="img/logoP.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/dataTables.dataTables.min.css">
@@ -67,22 +67,22 @@
 
     <br><br><br>
 
-    <div id="body" class="rounded margin-left" style="background-image:url(img/bandera.jpg); background-size:cover; background-attachment: fixed;">
-   
+    <div id="body" class="rounded margin-left" style="background-image:url(img/bg-personal.jpg); background-size:cover; background-attachment: fixed;">
+
         <div class="container-fluid bg-white-trans rounded">
             <div class="container">
                 
                 <br>
 
                 <div class="d-flex justify-content-between align-items-center px-3">
-                    <h1 class="display-4"><img src="icons/herramientas.svg"  style="width: 70px; height:70px"> | Bienes Materiales</h1>    
-                    <form action="formBnMa.php" method="post">
+                    <h1 class="display-4"><img src="icons/personal.svg"  style="width: 70px; height:70px"> | Personal</h1>
+                    <form action="formBnMu.php" method="post">
                         <button type="button" class="btn btn-outline-success border-3" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Nuevo Registro</button>
                     </form>
                 </div>
-
+                
                 <hr>
-
+                
                 <!-- Tabla DataTable -->
                 <table id="myTable" class="display compact" style="width:80%">
                     
@@ -109,7 +109,6 @@
                                 <div class="ms-1 me-1">
                                     <form action="" method="post">
                                         <input type="hidden" name="id" value="<?php echo $key['id'];?>">
-                                        <input type="hidden" name="ubicacion" value="bnsMtls">
                                         <button name="editar" type="submit" class="btn shadow btn-outline-primary border-3" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Editar">
                                             <img src="icons/editar.svg" style="width: 20px; height: 20px;">  
                                         </button>
@@ -119,7 +118,7 @@
                                     <form action="dataBase/eliminar.php" method="post" id="formDataDelete<?php echo $key['id'];?>">
                                         <input type="hidden" name="id" value="<?php echo $key['id'];?>">
                                         <input type="hidden" name="tabla" value="<?php echo $tabla ?>">
-                                        <input type="hidden" name="ubicacion" value="bnsMtls.php">
+                                        <input type="hidden" name="ubicacion" value="bnsMbls.php">
                                         <button onclick="alertDelete('<?php echo $key['descripcion']; ?>', '<?php echo $key['id']; ?>')" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Eliminar" class="btn shadow btn-outline-primary border-3">
                                             <img src="icons/delete.svg" style="width: 20px; height: 20px;">
                                         </button>
@@ -128,7 +127,7 @@
                                 <div class="ms-1 me-1">
                                     <form action="" method="post">
                                         <input type="hidden" name="id" value="<?php echo $key['id'];?>">
-                                        <button onclick="modalVer('<?php echo $key['id'];?>')" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="ver Precio" class="btn shadow btn-outline-primary border-3">
+                                        <button onclick="modalVer('<?php echo $key['id'];?>')" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Ver Precio" class="btn shadow btn-outline-primary border-3">
                                             <img src="icons/lupa.svg" style="width: 20px; height: 20px;">
                                         </button>
                                     </form>
@@ -165,8 +164,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> 
-                        
+                        </div>
+
                         <?php } ?>
 
                     </tbody>
@@ -178,7 +177,7 @@
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">EDITAR BIEN MATERIAL</h1>
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">EDITAR BIEN MUEBLE</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -205,9 +204,9 @@
                                         </div>
                                         <div class="modal-footer d-flex justify-content-center">
                                             <input type="hidden" name="id" value="<?php echo $datosEdit["id"]; ?>">
-                                            <input type="hidden" name="tipoBn" value="<?php echo 'bienesMtls'; ?>">
-                                            <input type="hidden" name="ubicacion" value="<?php echo 'bnsMtls'; ?>">
-                                            <a class="dropdown-items" href="bnsMtls.php">    
+                                            <input type="hidden" name="tipoBn" value="<?php echo 'bienesMbls'; ?>">
+                                            <input type="hidden" name="ubicacion" value="<?php echo 'bnsMbls'; ?>">
+                                            <a class="dropdown-items" href="bnsMbls.php">    
                                                 <button type="button" class="btn btn-2 shadow border-3 btn-outline-danger">Cancelar</button>
                                             </a>
                                             <button type="submit" class="btn btn-2 shadow border-3 btn-outline-success">Guardar</button>
@@ -224,7 +223,7 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Registro de Bien Material</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Registro de Bien Mueble</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -254,8 +253,8 @@
                                         <label class="text-dark">Descripcion</label>
                                     </div>
                                     <div class="modal-footer d-flex justify-content-center">
-                                        <input type="hidden" name="ubicacion" value="bnsMtls">
-                                        <input type="hidden" name="tabla" value="bienesMtls">
+                                        <input type="hidden" name="ubicacion" value="bnsMbls">
+                                        <input type="hidden" name="tabla" value="bienesMbls">
                                         <button type="button" class="btn btn-2 shadow border-2 btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
                                         <button type="submit" class="btn btn-2 shadow border-2 btn-outline-success">Guardar</button>
                                     </div>
@@ -266,7 +265,7 @@
                 </div>
 
                 <br>
-            
+                
             </div>
         </div>
     </div>
@@ -276,12 +275,11 @@
 
     <?php include("footer.html"); ?>
 
-
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/dataTables.min.js"></script>
     <script>
-        $("#myTable").DataTable();
+        $('#myTable').DataTable();
     </script>
     <script src="js/fontawesome.min.js"></script>
     <script src="js/js.js"></script>
@@ -303,62 +301,49 @@
             $('#modalVer'+idModal).modal('show');
         }
      </script>
-    
-    <!-- Mensajes Presentes -->
-     
-    <!-- Eliminado -->
-    <?php
-        if (!empty($mensajeEliminar)) :
-            echo '
-                <script>
-                    window.onload = function mensajeEliminar(){
-                                        swal.fire({
-                                                title: "Registro Eliminado",
-                                                icon: "success",
-                                                showConfirmButton: false,
-                                                timer: 1300
-                                            });
-                                    };
-                    ;
-                </script>
-            '; 
-        endif; 
-    ?>
-    <!-- Editado -->
-    <?php
-        if (!empty($mensajeEdit)) :
-            echo '
-                <script>
-                    window.onload = function mensajeEdit(){
-                                        swal.fire({
-                                                title: "Registro Editado",
-                                                icon: "success",
-                                                showConfirmButton: false,
-                                                timer: 1300
-                                            });
-                                    };
-                    ;
-                </script>
-            '; 
-        endif; 
-    ?>
-    <!-- Registrado -->
-    <?php
-        if (!empty($mensajeRegistro)) :
-            echo '
-                <script>
-                    window.onload = function mensajeRegistro(){
-                                        swal.fire({
-                                                title: "Datos Registrados Exitosamente",
-                                                icon: "success",
-                                                showConfirmButton: false,
-                                                timer: 1300
-                                            });
-                                    };
-                    ;
-                </script>
-            '; 
-        endif; 
-    ?>
+
+<!-- Mensajes Presentes -->
+
+<!-- Eliminado -->
+<?php if (!empty($mensajeEliminar)) :?>
+    <script>
+        window.onload = function mensaje(){
+            swal.fire({
+                    title: "Registro Eliminado",
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer: 1300
+            });
+        };
+    </script>
+<?php endif; ?>
+
+<!-- Editado -->
+<?php if (!empty($mensajeEdit)) : ?>
+    <script>
+        window.onload = function mensajeEdit(){
+            swal.fire({
+                    title: "Registro Editado",
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer: 1300
+            });
+        };
+    </script>
+<?php endif; ?>
+
+<!-- Registrado -->
+<?php if (!empty($mensajeRegistro)) :?>
+    <script>
+        window.onload = function mensajeRegistro(){
+            swal.fire({
+                    title: "Datos Registrados Exitosamente",
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer: 1300
+            });
+        };
+    </script>
+<?php endif; ?>
 </body>
 </html>

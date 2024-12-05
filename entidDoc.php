@@ -1,5 +1,7 @@
 <?php
     include("dataBase/conn.php");
+
+    $pagAct = basename($_SERVER['PHP_SELF']);
     
     session_start();
 
@@ -33,7 +35,7 @@
     if (isset($_POST['editar'])) {
         $idEdit = $_POST["id"];
 
-        $sqlEdit = "SELECT * FROM bienesMbls WHERE id = :id";
+        $sqlEdit = "SELECT * FROM docentes WHERE id = :id";
         $ejecutarSql = $conn -> prepare($sqlEdit);
         $ejecutarSql -> bindParam(':id', $idEdit);
         $ejecutarSql -> execute();
@@ -41,12 +43,8 @@
         $datosEdit = $ejecutarSql -> fetch(PDO::FETCH_ASSOC); 
     }
 
-    $sql = "SELECT * FROM bienesMbls";
+    $sql = "SELECT * FROM docentes";
     $resultado = $conn -> query($sql);
-
-    $tabla = 'bienesMbls';
-
-    $pagAct = basename($_SERVER['PHP_SELF']);
 
 ?>
 <!DOCTYPE html>
@@ -101,10 +99,10 @@
                         <?php foreach ($resultado as $key) {?>
                         
                         <tr>
-                            <td> <?php echo $key['codCat']; ?> </td>
-                            <td class="text-start"> <?php echo $key['n_Inv']; ?> </td>
-                            <td> <?php echo $key['descripcion']; ?> </td>
-                            <td class="text-center"> <?php echo $key['cantidad']; ?> </td>
+                            <td> <?php echo $key['nombre']; ?> </td>
+                            <td class="text-start"> <?php echo $key['apellido']; ?> </td>
+                            <td> <?php echo $key['cedula']; ?> </td>
+                            <td class="text-center"> <?php echo $key['status']; ?> </td>
                             <td style="background: none" class="d-flex">
                                 <div class="ms-1 me-1">
                                     <form action="" method="post">
@@ -115,11 +113,11 @@
                                     </form>
                                 </div>
                                 <div class="ms-1 me-1">
-                                    <form action="dataBase/eliminar.php" method="post" id="formDataDelete<?php echo $key['id'];?>">
+                                    <form action="dataBase/eliminarDoc.php" method="post" id="formDataDelete<?php echo $key['id'];?>">
                                         <input type="hidden" name="id" value="<?php echo $key['id'];?>">
-                                        <input type="hidden" name="tabla" value="<?php echo $tabla ?>">
-                                        <input type="hidden" name="ubicacion" value="bnsMbls.php">
-                                        <button onclick="alertDelete('<?php echo $key['descripcion']; ?>', '<?php echo $key['id']; ?>')" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Eliminar" class="btn shadow btn-outline-primary border-3">
+                                        <input type="hidden" name="tabla" value="docentes">
+                                        <input type="hidden" name="ubicacion" value="entidDoc.php">
+                                        <button onclick="alertDelete('<?php echo $key['nombre'].' '.$key['apellido']; ?>', '<?php echo $key['id']; ?>')" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Eliminar" class="btn shadow btn-outline-primary border-3">
                                             <img src="icons/delete.svg" style="width: 20px; height: 20px;">
                                         </button>
                                     </form>
@@ -137,25 +135,78 @@
 
                         <!-- Modal Ver -->
                         <div class="modal fade" id="modalVer<?php echo $key['id'];?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-dialog modal-dialog-centered modal-xl">
                                 <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Descripcion - Precio</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
                                     <div class="modal-body">
-                                        <div class="container-fluid">
-                                            <div class="mb-3">
-                                                <label class="text-black fs-5">Descripcion:</label>
-                                                <input type="text" class=" text-center border border-secondary border-2 form-control form-control-lg" value="<?php echo $key['descripcion']; ?>" required disabled readonly>
+
+                                        <div class="container d-flex">
+                                            <div class="w-50">
+                                                <div class="w-25 mx-auto d-flex justify-content-center align-items-center">
+                                                    <img src="<?= $key['foto'] ?>" class="img-fluid">
+                                                </div>
+                                                <p class="fw-light my-1 fs-3 text-center"><?= $key['nombre'].' '.$key['apellido'] ?></p>
+                                                <p class="fw-light fs-5 text-center"><?= $key['areaForm'].' ('.$key['status'].')'; ?></p>
                                             </div>
-                                            <div class="mb-3">
-                                                <label class="text-black fs-5">Precio Unitario:</label>
-                                                <input type="text" class="text-success text-center border border-secondary border-2 form-control form-control-lg" value="$<?php echo $key['precioUni']; ?>" required disabled readonly>
+
+                                            <div class="container w-50">
+                                                <div class="mb-3">
+                                                    <label class="text-black fw-light">Cédula de identidad:</label>
+                                                    <input type="text" class=" text-center fw-light border border-secondary border-2 form-control" value="<?php echo $key['cedula']; ?>" disabled readonly>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="text-black fw-light">Número de Teléfono:</label>
+                                                    <input type="text" class="text-center fw-light border border-secondary border-2 form-control" value="<?php echo $key['telefono']; ?>" disabled readonly>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="text-black fw-light">Correo Electrónico:</label>
+                                                    <input type="text" class="text-center fw-light border border-secondary border-2 form-control" value="<?php echo $key['correo']; ?>" disabled readonly>
+                                                </div>
                                             </div>
-                                            <div class="mb-3">
-                                                <label class="text-black fs-5">Precio Total por Cantidad (<?php echo $key['cantidad']; ?>):</label>
-                                                <input type="text" class="text-success text-center border border-secondary border-2 form-control form-control-lg" value="$<?php $precioTotal = $key['precioUni'] * $key['cantidad']; echo $precioTotal; ?>" required disabled readonly>
+
+                                        </div>
+
+                                        <div class="container d-flex">
+
+                                            <div class="container w-50">
+                                                <div class="mb-3">
+                                                    <label class="text-black fw-light">Fecha de Nacimiento:</label>
+                                                    <input type="text" class=" text-center fw-light border border-secondary border-2 form-control" value="<?php echo $key['fechaNac']; ?>" disabled readonly>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="text-black fw-light">Fecha de Ingreso:</label>
+                                                    <input type="text" class="text-center fw-light border border-secondary border-2 form-control" value="<?php echo $key['fechaIngre']; ?>" disabled readonly>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="text-black fw-light">Código de Dependencia:</label>
+                                                    <input type="text" class="text-center fw-light border border-secondary border-2 form-control" value="<?php echo $key['codDep']; ?>" disabled readonly>
+                                                </div>
+                                            </div>
+
+                                            <div class="container w-50">
+                                                <div class="mb-3">
+                                                    <label class="text-black fw-light">Grado de Instrucción:</label>
+                                                    <input type="text" class=" text-center fw-light border border-secondary border-2 form-control" value="<?php echo $key['gdoInst']; ?>" disabled readonly>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="text-black fw-light">Meses de Servicio:</label>
+                                                    <input type="text" class="text-center fw-light border border-secondary border-2 form-control" value="<?php echo $key['mesesServ']; ?>" disabled readonly>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="text-black fw-light">Clasificación:</label>
+                                                    <input type="text" class="text-center fw-light border border-secondary border-2 form-control" value="<?php echo $key['clasif']; ?>" disabled readonly>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="container d-flex">
+                                            <div class="mb-3 w-50 container">
+                                                <label class="text-black fw-light">Horas de Trabajo:</label>
+                                                <input type="text" class=" text-center fw-light border border-secondary border-2 form-control" value="<?php echo $key['horas']; ?>" disabled readonly>
+                                            </div>
+                                            <div class="mb-3 w-50 container">
+                                                <label class="text-black fw-light">Matrícula:</label>
+                                                <input type="text" class="text-center fw-light border border-secondary border-2 form-control" value="<?php echo $key['matricula']; ?>" disabled readonly>
                                             </div>
                                         </div>
                                         <div class="modal-footer d-flex justify-content-center">
@@ -227,7 +278,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form method="POST" action="dataBase/insertBns.php">
+                                <form method="POST" action="dataBase/insertDoc.php" enctype="multipart/form-data">
 
                                     <div class="container-fluid d-flex justify-content-center">
 
@@ -344,8 +395,20 @@
                                     <div class="container-fluid d-flex justify-content-center">
 
                                         <div class="form-floating mb-4 mx-4 w-25">
-                                            <input type="text" name="status" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
-                                            <label class="text-dark" for="floatingInput">Status</label>
+                                            <select class="form-control me-1 border border-2 border-primary" name="status">
+                                                <option value="activo">Activo(a)</option>
+                                                <option value="reposo">de Reposo</option>
+                                                <option value="incapacitado">Incapacitado(a)</option>
+                                                <option value="renuncia">Renuncia</option>
+                                                <option value="proceso_jub">en Proceso de jubilación</option>
+                                                <option value="jubilado">Jubilado(a)</option>
+                                            </select>
+                                            <label class="text-dark">Status</label>
+                                        </div>
+
+                                        <div class="form-floating mb-4 mx-4 w-25">
+                                            <input type="file" accept="image/*" multiple name="foto" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario">
+                                            <label class="text-dark" for="floatingInput">Seleccionar Foto del Docente</label>
                                         </div>
 
                                     </div>

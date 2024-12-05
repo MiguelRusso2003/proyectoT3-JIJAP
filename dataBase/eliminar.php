@@ -17,7 +17,7 @@
  
  header('location:../'.$ubicacion.'');
  }else {
-    echo 'Eroor al Eliminar Registro' ;
+    echo 'Error al Eliminar Registro' ;
  }
 
 ?>

@@ -41,7 +41,7 @@
                                                       background-size:cover; 
                                                       background-repeat:no-repeat;">
     
-        <div class="text-center rounded container-fluid bg-dark-trans ps-4 pt-1 pe-4 h-100">
+        <div class="text-center container-fluid bg-dark-trans ps-4 pt-1 pe-4 h-100">
 
             <p class="text-light fw-light fs-3 mt-2">Jardín de Infancia | "José Antonio Páez"</p>
 
@@ -55,7 +55,7 @@
         
         <div class="d-flex container-fluid bg-dark-trans p-4 h-100">
 
-            <div class="d-block  w-50 align-items-center bg-dark-trans ps-4 pt-4 pe-4 my-auto rounded text-light">
+            <div class="d-block  w-50 align-items-center bg-dark-trans ps-4 pt-4 pe-4 my-auto text-light">
 
                 <div class="d-block">
                     <h2>Nuestra Misión</h2>
@@ -97,15 +97,23 @@
 
 <br><br>
 
-    <div id="body2" class="margin-left" style="border-radius:20px; height:90vh;">
+    <div id="body2" class="margin-left vh-100" style="border-radius:20px;">
+        <div class="text-center rounded container-fluid ps-4 pt-1 pe-4">
 
-        <div class="rounded">
+            <p class="text-light fw-light fs-1 mt-2">¿Porque Elegirnos?</p>
+            <hr class="border border-primary border-2 w-75 mx-auto">
+            <hr class="border border-primary border-2 w-25 mx-auto">
+            <br>
+
+        </div>
+
+        <div class="rounded mx-auto" style="width: 85%;">
             
             <div id="CarruselDeImagenes" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
 
                     <div class="text-center carousel-item active" data-bs-interval="4000">
-                        <img  src="img/galeria-1.jpg" class="img-fluid w-100 rounded" style="height: 90vh;">
+                        <img  src="img/galeria-1.jpg" class="img-fluid w-100 rounded" style="height: 80vh;">
                         <div class="carousel-caption bg-dark-trans rounded mx-auto p-5 text-center w-100">
                             <h1 class="fw-lighter display-1">Experiencia y Trayectoria</h1>
                             <div>
@@ -118,7 +126,7 @@
                     </div>
 
                     <div class="text-center carousel-item" data-bs-interval="4000">
-                        <img src="img/galeria-2.jpg" class="img-fluid w-100 rounded" style="height: 90vh;">
+                        <img src="img/galeria-2.jpg" class="img-fluid w-100 rounded" style="height: 80vh;">
                         <div class="carousel-caption bg-dark-trans rounded mx-auto p-5 text-center w-100">
                             <h1 class="fw-lighter display-1">Enfoque Integral</h1>
                             <div>
@@ -131,7 +139,7 @@
                     </div>
 
                     <div class="text-center carousel-item" data-bs-interval="4000">
-                        <img src="img/galeria-3.jpg" class="img-fluid w-100 rounded" style="height: 90vh;">
+                        <img src="img/galeria-3.jpg" class="img-fluid w-100 rounded" style="height: 80vh;">
                         <div class="carousel-caption bg-dark-trans rounded mx-auto p-5 text-center w-100">
                             <h1 class="fw-lighter display-1">Actividades Extracurriculares</h1>
                             <div>
@@ -169,10 +177,10 @@
 <br><br>
 
     <div id="body1" class="margin-left me-3">
-
+    <div class="">
         <div class="text-center rounded container-fluid ps-4 pt-1 pe-4 h-100">
 
-            <p class="text-light fw-light fs-3 mt-2">Conoce a Nuestro Equipo</p>
+            <p class="text-light fw-light fs-1 mt-2">Conoce a Nuestro Equipo</p>
             <hr class="border border-primary border-2 w-75 mx-auto">
             <hr class="border border-primary border-2 w-25 mx-auto">
             <br>
@@ -181,32 +189,32 @@
 
         <div class="container row mx-auto">
 
-            <div class="d-block col-3 h-100 p-3 rounded">
-                <img src="img/equipo/Ejemplo.png" style="filter:drop-shadow(0px 0px 5px #ffffff5a)" class="img-fluid w-100 h-100">
+            <div class="d-block col-3 w-25 mx-5 h-100 p-3 rounded">
+                <img src="img/equipo/Ejemplo.png" style="filter:drop-shadow(0px 0px 5px #007bff); height:250px" class="img-fluid w-100">
                 <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. Flor Maldonado</p>
                 <p class="text-light fw-light">Directora</p>
             </div>
 
-            <div class="d-block col-3 h-100 p-3 rounded">
-                <img src="img/equipo/Ejemplo3.png" style="filter:drop-shadow(0px 0px 5px #ffffff5a)" class="img-fluid w-100 h-100">
-                <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Ejemplo</p>
-                <p class="text-light fw-light">Prueba</p>
+            <div class="d-block col-3 w-25 mx-5 h-100 p-3 rounded">
+                <img src="img/equipo/Ejemplo3.png" style="filter:drop-shadow(0px 0px 5px #007bff); height:250px" class="img-fluid w-100">
+                <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. de Ejemplo</p>
+                <p class="text-light fw-light">Cargo de Prueba</p>
             </div>
 
-            <div class="d-block col-3 h-100 p-3 rounded">
-                <img src="img/equipo/Ejemplo4.png" style="filter:drop-shadow(0px 0px 5px #ffffff5a)" class="img-fluid w-100 h-100">
-                <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Ejemplo</p>
-                <p class="text-light fw-light">Prueba</p>
+            <div class="d-block col-3 w-25 mx-5 h-100 p-3 rounded">
+                <img src="img/equipo/Ejemplo4.png" style="filter:drop-shadow(0px 0px 5px #007bff); height:250px" class="img-fluid w-100">
+                <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. de Ejemplo</p>
+                <p class="text-light fw-light">Cargo de Prueba</p>
             </div>
 
-            <div class="d-block col-3 h-100 p-3 rounded">
-                <img src="img/equipo/Ejemplo5.png" style="filter:drop-shadow(0px 0px 5px #ffffff5a)" class="img-fluid w-100 h-100">
-                <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Ejemplo</p>
-                <p class="text-light fw-light">Prueba</p>
+            <div class="d-block col-3 w-25 mx-5 h-100 p-3 rounded">
+                <img src="img/equipo/Ejemplo5.png" style="filter:drop-shadow(0px 0px 5px #007bff); height:250px" class="img-fluid w-100">
+                <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. de Ejemplo</p>
+                <p class="text-light fw-light">Cargo de Prueba</p>
             </div>
 
         </div>
-
+        </div>
     </div>
 
 <br><br><br>

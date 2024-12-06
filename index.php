@@ -2,17 +2,23 @@
     session_start();
 
     $bienvenido = '';
-
-    if (isset($_SESSION['bienvenido'])) {
-        $bienvenido = $_SESSION['bienvenido'];
-        unset($_SESSION['bienvenido']);
-    }
     $mensaje = "";
+    $mensaje_env ='';
 
     if (isset($_SESSION['mensaje'])) {
         $mensaje = $_SESSION['mensaje'];
     }else {
         header('location:login.php');
+    }
+
+    if (isset($_SESSION['bienvenido'])) {
+        $bienvenido = $_SESSION['bienvenido'];
+        unset($_SESSION['bienvenido']);
+    }
+
+    if (isset($_SESSION['mensaje-enviado'])) {
+        $mensaje_env = $_SESSION['mensaje-enviado'];
+        unset($_SESSION['mensaje-enviado']);
     }
 
     $pagAct = basename($_SERVER['PHP_SELF']); 
@@ -177,43 +183,83 @@
 <br><br>
 
     <div id="body1" class="margin-left me-3">
-    <div class="">
-        <div class="text-center rounded container-fluid ps-4 pt-1 pe-4 h-100">
+        <div class="">
+            <div class="text-center rounded container-fluid ps-4 pt-1 pe-4 h-100">
 
-            <p class="text-light fw-light fs-1 mt-2">Conoce a Nuestro Equipo</p>
+                <p class="text-light fw-light fs-1 mt-2">Conoce a Nuestro Equipo</p>
+                <hr class="border border-primary border-2 w-75 mx-auto">
+                <hr class="border border-primary border-2 w-25 mx-auto">
+                <br>
+
+            </div>
+
+            <div class="container row mx-auto">
+
+                <div class="d-block bg-footer col-3 w-25 mx-5 h-100 p-2 my-3 rounded">
+                    <img src="img/equipo/Ejemplo.png" class="img-fluid w-100" style="height: 280px;">
+                    <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. Flor Maldonado</p>
+                    <p class="text-light fw-light">Directora</p>
+                </div>
+
+                <div class="d-block bg-footer col-3 w-25 mx-5 h-100 p-2 my-3 rounded">
+                    <img src="img/equipo/Ejemplo3.png" class="img-fluid w-100" style="height: 280px;">
+                    <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. de Ejemplo</p>
+                    <p class="text-light fw-light">Cargo de Prueba</p>
+                </div>
+
+                <div class="d-block bg-footer col-3 w-25 mx-5 h-100 p-2 my-3 rounded">
+                    <img src="img/equipo/Ejemplo4.png" class="img-fluid w-100" style="height: 280px;">
+                    <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. de Ejemplo</p>
+                    <p class="text-light fw-light">Cargo de Prueba</p>
+                </div>
+
+                <div class="d-block bg-footer col-3 w-25 mx-5 h-100 p-2 my-3 rounded">
+                    <img src="img/equipo/Ejemplo5.png" class="img-fluid w-100" style="height: 280px;">
+                    <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. de Ejemplo</p>
+                    <p class="text-light fw-light">Cargo de Prueba</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="contacto" class="text-center rounded container-fluid ps-4 pt-1 pe-4 h-100">
+            
+            <br>
+            <p class="text-light fw-light fs-1 mt-2">Contáctanos</p>
             <hr class="border border-primary border-2 w-75 mx-auto">
             <hr class="border border-primary border-2 w-25 mx-auto">
             <br>
 
-        </div>
+            <div class="bg-footer rounded p-3 w-50 mx-auto">
+                <div class="container">
+                    
+                    <form action="dataBase/mensaje.php" method="post">
+                        <div class="d-flex mb-2 ">
+                            <div class="form-floating w-50 mx-1">
+                                <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="nombre">
+                                <label>Nombre y Apellido</label>
+                            </div>
+                            <div class="form-floating w-50 mx-1">
+                                <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="correo">
+                                <label>(Correo, Teléfono o WhatsApp)</label>
+                            </div>
+                        </div>    
+                        
+                        <div class="form-floating mb-2 mx-1">
+                            <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="asunto">
+                            <label>Asunto</label>
+                        </div>
 
-        <div class="container row mx-auto">
+                        <div class="mb-2 mx-1">
+                            <textarea type="text" placeholder="Mensaje" rows="4" class="form-control border-2 border-primary" required name="mensaje"></textarea>
+                        </div>
 
-            <div class="d-block col-3 w-25 mx-5 h-100 p-3 rounded">
-                <img src="img/equipo/Ejemplo.png" style="filter:drop-shadow(0px 0px 5px #007bff); height:250px" class="img-fluid w-100">
-                <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. Flor Maldonado</p>
-                <p class="text-light fw-light">Directora</p>
+                        <button type="submit" class="mt-2 btn btn-primary border-2">Enviar Mensaje</button>
+                    </form>
+                
+                </div>
             </div>
 
-            <div class="d-block col-3 w-25 mx-5 h-100 p-3 rounded">
-                <img src="img/equipo/Ejemplo3.png" style="filter:drop-shadow(0px 0px 5px #007bff); height:250px" class="img-fluid w-100">
-                <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. de Ejemplo</p>
-                <p class="text-light fw-light">Cargo de Prueba</p>
-            </div>
-
-            <div class="d-block col-3 w-25 mx-5 h-100 p-3 rounded">
-                <img src="img/equipo/Ejemplo4.png" style="filter:drop-shadow(0px 0px 5px #007bff); height:250px" class="img-fluid w-100">
-                <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. de Ejemplo</p>
-                <p class="text-light fw-light">Cargo de Prueba</p>
-            </div>
-
-            <div class="d-block col-3 w-25 mx-5 h-100 p-3 rounded">
-                <img src="img/equipo/Ejemplo5.png" style="filter:drop-shadow(0px 0px 5px #007bff); height:250px" class="img-fluid w-100">
-                <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. de Ejemplo</p>
-                <p class="text-light fw-light">Cargo de Prueba</p>
-            </div>
-
-        </div>
         </div>
     </div>
 
@@ -243,5 +289,20 @@
             }
         </script>
      <?php  } ?>
+
+    <!-- Alert mensaje enviado -->
+    <?php if(!empty($mensaje_env)){ ?> 
+        <script>
+            window.onload = function(){
+                swal.fire({
+                    title : "¡Mensaje Enviado!",
+                    icon : "success",
+                    timer : "1800",
+                    showConfirmButton : false
+                });
+            }
+        </script>
+    <?php  } ?>
+     
 </body>
 </html>

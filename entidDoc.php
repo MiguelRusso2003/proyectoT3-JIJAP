@@ -142,7 +142,7 @@
                                         <div class="container d-flex">
                                             <div class="w-50">
                                                 <div class="w-25 mx-auto d-flex justify-content-center align-items-center">
-                                                    <img src="<?= $key['foto'] ?>" class="img-fluid">
+                                                    <img src="<?= $key['foto'] ?>" class="img-fluid rounded">
                                                 </div>
                                                 <p class="fw-light my-1 fs-3 text-center"><?= $key['nombre'].' '.$key['apellido'] ?></p>
                                                 <p class="fw-light fs-5 text-center"><?= $key['areaForm'].' ('.$key['status'].')'; ?></p>

@@ -142,6 +142,28 @@
 
                     </ul>
                 </li>
+
+                <li>
+                    <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle <?= in_array($pagAct, ['mensajes.php','servicios.php']) ? 'show' : '' ?>">
+                        <img src="icons/atencion_client.svg" class="<?= in_array($pagAct,['mensajes.php','servicios.php']) ? 'shadowActive' : 'shadowActive1' ?> " width="35" height="35"> 
+                        <span id="span" class="visually-hidden ms-1 text-light fs-5 d-none d-sm-inline">Servicios</span> 
+                    </a>
+
+                    <ul class="collapse nav flex-column mt-2 <?= in_array($pagAct, ['mensajes.php','servicios.php']) ? 'show' : '' ?> " id="submenu3" data-bs-parent="#menu">
+
+                        <hr class="my-1">
+
+                        <li class="w-100">
+                            <a href="mensajes.php" class="nav-link px-2 py-1 text-light <?= $pagAct === 'mensajes.php' ? 'shadowActive2' : '' ?>"> 
+                                <span id="span" class="visually-hidden d-none text-light d-sm-inline">- Mensajes</span>
+                                ·Msj
+                            </a>
+                        </li>
+
+                        <hr class="my-1">
+
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

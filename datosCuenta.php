@@ -42,7 +42,7 @@
     
     <br><br><br>
     
-    <div id="body" class="rounded margin-left">
+    <div id="body" class="rounded margin-left-width">
    
         <div class=" container bg-footer rounded">
 
@@ -81,8 +81,8 @@
 
     </div>
 
-    <div id="body1" class="shadow margin-left"></div>
-    <div id="body2" class="shadow margin-left"></div>
+    <div id="body1" class="shadow margin-left-width"></div>
+    <div id="body2" class="shadow margin-left-width"></div>
 
     <?php include("footer.html"); ?>
     <script src="js/bootstrap.bundle.min.js"></script>

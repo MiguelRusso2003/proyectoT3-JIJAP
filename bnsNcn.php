@@ -31,14 +31,14 @@
 
     <br><br><br>
 
-    <div id="body" class="shadow margin-left" style="border-radius: 10px; background-image: url(img/bandera.jpg); background-size:cover;">
+    <div id="body" class="shadow margin-left-width" style="border-radius: 10px; background-image: url(img/bandera.jpg); background-size:cover;">
    
         <div class="container-fluid text-center bg-dark-trans rounded align-items-center h-100">
             
             <br>
 
             <div>
-                <h1 class="display-3 text-light">Bienes Nacionales</h1>
+                <h1 class="display-6 text-light">Bienes Nacionales</h1>
             </div>
 
             <div class="container d-flex justify-content-center mt-2 pt-5 border-1 border border-start-0 border-end-0 border-bottom-0">
@@ -68,8 +68,8 @@
         </div>
     </div>
     
-    <div id="body1" class="shadow margin-left"></div>
-    <div id="body2" class="shadow margin-left"></div>
+    <div id="body1" class="shadow margin-left-width"></div>
+    <div id="body2" class="shadow margin-left-width"></div>
 
     <?php include("footer.html"); ?>
     <script src="js/bootstrap.bundle.min.js"></script>

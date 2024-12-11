@@ -1,27 +1,10 @@
 <?php
-    session_start();
-
-    $bienvenido = '';
-    $mensaje = "";
     $mensaje_env ='';
-
-    if (isset($_SESSION['mensaje'])) {
-        $mensaje = $_SESSION['mensaje'];
-    }else {
-        header('location:login.php');
-    }
-
-    if (isset($_SESSION['bienvenido'])) {
-        $bienvenido = $_SESSION['bienvenido'];
-        unset($_SESSION['bienvenido']);
-    }
 
     if (isset($_SESSION['mensaje-enviado'])) {
         $mensaje_env = $_SESSION['mensaje-enviado'];
         unset($_SESSION['mensaje-enviado']);
     }
-
-    $pagAct = basename($_SERVER['PHP_SELF']); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,72 +21,170 @@
 </head>
 <body class="bg-dark">
 
-    <?php include('menuDes.html'); ?>
-
-    <br><br><br>
+    <!-- NavBar -->
+    <nav id="nav" class="navbar navbar-expand-lg fixed-top">
+        
+        <a href="index.php" class="nav-link text-light d-flex dropdown-items ps-3 justify-content-start align-items-center" style="cursor: pointer;">
+            <img src="img/logoP.png" style="width: 50px; height:50px;">
+            <div class="d-block text-center ms-2">
+                <p class="fs-5 ms-2 fw-light my-auto">Jardín de Infancia</p>
+                <p class="fs-5 ms-2 fw-light my-auto">"José Antonio Páez"</p>
+            </div>
+            
+        </a>
+        
+        <button class="navbar-toggler border-primary border-2 btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse align-items-center justify-content-end" id="navbarNavDropdown">
+            <a href="#hero" class="fw-light fs-5 mx-3" style="text-decoration: none;">Inicio</a>
+            <a href="#sobre_nosotros" class="fw-light fs-5 mx-3" style="text-decoration: none;">Sobre Nosotros</a>
+            <a href="#eligenos" class="fw-light fs-5 mx-3" style="text-decoration: none;">Elígenos</a>
+            <a href="#equipo" class="fw-light fs-5 mx-3" style="text-decoration: none;">Equipo</a>
+            <a href="#contacto" class="fw-light fs-5 mx-3" style="text-decoration: none;">Contáctanos</a>
+            <a href="admin.php" class="fw-light mx-3 btn btn-outline-primary border-2">Admin</a>
+        </div>
+    </nav>
     
-    <div id="body" class="rounded margin-left" style="background-attachment: fixed;
-                                                      background-image: url(img/bg-estadistica.jpg); 
-                                                      background-size:cover; 
-                                                      background-repeat:no-repeat;">
+    <section id="hero" class="vh-100 mb-5" style="background-image: url(img/bg-estadistica.jpg); 
+                                         background-size:cover; 
+                                         background-repeat:no-repeat;">
     
         <div class="text-center container-fluid bg-dark-trans ps-4 pt-1 pe-4 h-100">
 
-            <p class="text-light fw-light fs-3 mt-2">Jardín de Infancia | "José Antonio Páez"</p>
+            <br><br>
 
-            <hr class="border">
+            <hr class="border my-4"><br>
 
-            <p class="fw-light text-light display-2 w-75 mx-auto" style="font-family: Georgia, 'Times New Roman', Times, serif;">Sembrando Semillas de Futuro</p>
+            <p class="fw-light text-light display-3 w-100 mx-auto" style="font-family: Georgia, 'Times New Roman', Times, serif;">Jardín de Infancia | "José Antonio Páez"</p>
 
             <br>
 
         </div>
+
+    </section>
+
+    <section id="sobre_nosotros" class="pt-5">
+
+        <div class="text-center px-4 mt-2 pt-1">
+
+            <p class="text-light fw-light fs-1 mt-2">Sobre Nosotros</p>
+            <hr class="border border-primary border-2 w-75 mx-auto">
+            <hr class="border border-primary border-2 w-25 mx-auto">
+            <br>
+
+        </div>
         
-        <div class="d-flex container-fluid bg-dark-trans p-4 h-100">
+        <div class="p-0 m-0" style="background-attachment:fixed;
+                    background-image: url(img/bienvenido.jpg); 
+                    background-size:cover; 
+                    background-repeat:no-repeat;">
 
-            <div class="d-block  w-50 align-items-center bg-dark-trans ps-4 pt-4 pe-4 my-auto text-light">
+            <div class="row justify-content-center bg-dark-trans">
 
-                <div class="d-block">
-                    <h2>Nuestra Misión</h2>
-                    <hr>
-                    <p class="text-justify">
-                        <strong>
-                            Favorecer las potencialidades de los niños y las niñas; orientados en el
-                            respeto a la condición humana, desde una perspectiva social como actores activos
-                            de sus experiencias, en relación a lo sociocultural y en equilibrio con los elementos
-                            de afectividad e inteligencia, iniciando la formación integral de los niños y las niñas.
-                        </strong>
-                    </p>
+                <div class="col-lg-3 col-md-9 align-items-center bg-dark-trans ps-4 pt-4 pe-4 rounded text-light mx-5 my-2">
+
+                    <div class="d-block">
+                        <h2 class="fw-light text-center">Nuestra Misión</h2>
+                        <hr>
+                        <p style="text-align: justify;">
+                            <strong>
+                                Favorecer las potencialidades de los niños y las niñas; orientados en el
+                                respeto a la condición humana, desde una perspectiva social como actores activos
+                                de sus experiencias, en relación a lo sociocultural y en equilibrio con los elementos
+                                de afectividad e inteligencia, iniciando la formación integral de los niños y las niñas.
+                            </strong>
+                        </p>
+                    </div>
+
                 </div>
 
-            </div>
+                <div class="col-lg-3 col-md-9 align-items-center bg-dark-trans ps-4 pt-4 pe-4 rounded text-light mx-5 my-2">
 
-            <div class="w-50 h-100 d-flex align-items-center justify-content-center">
-                <img src="img/logoP.png" alt="" style="width: 40vh; height:40vh; filter:drop-shadow(0px 0px 10px white);">
-            </div>
+                    <div class="d-block">
+                        <h2 class="fw-light text-center">Módulos</h2>
+                        <hr>
+                        <div class="d-flex justify-content-center">
+                            <div class="d-block mx-2">
+                                <p>
+                                    <strong>
+                                        | Módulo IV:
+                                    </strong>
+                                </p>
+                                <p>
+                                    <strong>
+                                    Sección "F"
+                                    </strong>
+                                </p>
+                                <p>
+                                    <strong>
+                                    Sección "G"
+                                    </strong>
+                                </p>
+                                <p>
+                                    <strong>
+                                    Sección "H"
+                                    </strong>
+                                </p>
+                            </div>
 
-            <div class="d-block  w-50 align-items-center bg-dark-trans ps-4 pt-4 pe-4 my-auto rounded text-light">
-                <div class="d-block">
-                    <h2>Nuestra Visión</h2>
-                    <hr>
-                    <p>
-                        <strong>
-                            Consiste en rescatar, mantener, promocionar y perpetuar los derechos de
-                            los niños y niñas; fundamentalmente aquellos que se refieren a su formación integral
-                            y asistida dada su condición de seres humanos, y a lograr su pleno desarrollo físico,
-                            mental, espiritual y afectivo asegurándonos de que crezcan como seres
-                            concientizados de los valores familiares, morales y sociales.
-                        </strong>
-                    </p>
+                            <hr class="vr">
+
+                            <div class="d-block mx-2">
+                                <p>
+                                    <strong>
+                                        | Módulo V:
+                                    </strong>
+                                </p>
+                                <p>
+                                    <strong>
+                                    Sección "A"
+                                    </strong>
+                                </p>
+                                <p>
+                                    <strong>
+                                    Sección "C"
+                                    </strong>
+                                </p>
+                                <p>
+                                    <strong>
+                                    Sección "D"
+                                    </strong>
+                                </p>    
+                            </div>
+
+                        </div>
+                        
+                    </div>
+
                 </div>
+
+                <div class="col-lg-3 col-md-9 align-items-center bg-dark-trans ps-4 pt-4 pe-4 rounded text-light mx-5 my-2">
+
+                    <div class="d-block">
+                        <h2 class="fw-light text-center">Nuestra Visión</h2>
+                        <hr>
+                        <p style="text-align: justify;">
+                            <strong>
+                                Consiste en rescatar, mantener, promocionar y perpetuar los derechos de
+                                los niños y niñas; fundamentalmente aquellos que se refieren a su formación integral
+                                y asistida dada su condición de seres humanos, y a lograr su pleno desarrollo físico,
+                                mental, espiritual y afectivo asegurándonos de que crezcan como seres
+                                concientizados.
+                            </strong>
+                        </p>
+                    </div>
+                    
+                </div>
+
             </div>
 
         </div>
-    </div>
+    </section>
 
-<br><br>
+    <section id="eligenos" class="vh-100 pt-5" style="border-radius:20px;">
 
-    <div id="body2" class="margin-left vh-100" style="border-radius:20px;">
         <div class="text-center rounded container-fluid ps-4 pt-1 pe-4">
 
             <p class="text-light fw-light fs-1 mt-2">¿Porque Elegirnos?</p>
@@ -178,12 +259,10 @@
             </div>
 
         </div>
-    </div>
+    </section>
 
-<br><br>
-
-    <div id="body1" class="margin-left me-3">
-        <div class="">
+    <section id="equipo" class="me-3 pt-4">
+        <div class="my-4">
             <div class="text-center rounded container-fluid ps-4 pt-1 pe-4 h-100">
 
                 <p class="text-light fw-light fs-1 mt-2">Conoce a Nuestro Equipo</p>
@@ -193,27 +272,27 @@
 
             </div>
 
-            <div class="container row mx-auto">
+            <div class="container-fluid row mx-auto">
 
-                <div class="d-block bg-footer col-3 w-25 mx-5 h-100 p-2 my-3 rounded">
+                <div class="col-3 px-5 p-2 my-3 rounded">
                     <img src="img/equipo/Ejemplo.png" class="img-fluid w-100" style="height: 280px;">
                     <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. Flor Maldonado</p>
                     <p class="text-light fw-light">Directora</p>
                 </div>
 
-                <div class="d-block bg-footer col-3 w-25 mx-5 h-100 p-2 my-3 rounded">
+                <div class="col-3 px-5 p-2 my-3 rounded">
                     <img src="img/equipo/Ejemplo3.png" class="img-fluid w-100" style="height: 280px;">
                     <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. de Ejemplo</p>
                     <p class="text-light fw-light">Cargo de Prueba</p>
                 </div>
 
-                <div class="d-block bg-footer col-3 w-25 mx-5 h-100 p-2 my-3 rounded">
+                <div class="col-3 px-5 p-2 my-3 rounded">
                     <img src="img/equipo/Ejemplo4.png" class="img-fluid w-100" style="height: 280px;">
                     <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. de Ejemplo</p>
                     <p class="text-light fw-light">Cargo de Prueba</p>
                 </div>
 
-                <div class="d-block bg-footer col-3 w-25 mx-5 h-100 p-2 my-3 rounded">
+                <div class="col-3 px-5 p-2 my-3 rounded">
                     <img src="img/equipo/Ejemplo5.png" class="img-fluid w-100" style="height: 280px;">
                     <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. de Ejemplo</p>
                     <p class="text-light fw-light">Cargo de Prueba</p>
@@ -221,51 +300,76 @@
 
             </div>
         </div>
+    </section>
 
-        <div id="contacto" class="text-center rounded container-fluid ps-4 pt-1 pe-4 h-100">
-            
-            <br>
-            <p class="text-light fw-light fs-1 mt-2">Contáctanos</p>
-            <hr class="border border-primary border-2 w-75 mx-auto">
-            <hr class="border border-primary border-2 w-25 mx-auto">
-            <br>
+    <section id="contacto" class="text-center rounded container-fluid ps-4 pt-4 pe-4 h-100">
+        
+        <br>
+        <p class="text-light fw-light fs-1 mt-2">Contáctanos</p>
+        <hr class="border border-primary border-2 w-75 mx-auto">
+        <hr class="border border-primary border-2 w-25 mx-auto">
+        <br>
 
-            <div class="bg-footer rounded p-3 w-50 mx-auto">
-                <div class="container">
-                    
-                    <form action="dataBase/mensaje.php" method="post">
-                        <div class="d-flex mb-2 ">
-                            <div class="form-floating w-50 mx-1">
-                                <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="nombre">
-                                <label>Nombre y Apellido</label>
-                            </div>
-                            <div class="form-floating w-50 mx-1">
-                                <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="correo">
-                                <label>(Correo, Teléfono o WhatsApp)</label>
-                            </div>
-                        </div>    
-                        
-                        <div class="form-floating mb-2 mx-1">
-                            <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="asunto">
-                            <label>Asunto</label>
-                        </div>
-
-                        <div class="mb-2 mx-1">
-                            <textarea type="text" placeholder="Mensaje" rows="4" class="form-control border-2 border-primary" required name="mensaje"></textarea>
-                        </div>
-
-                        <button type="submit" class="mt-2 btn btn-primary border-2">Enviar Mensaje</button>
-                    </form>
+        <div class="bg-footer rounded p-3 w-50 mx-auto">
+            <div class="container">
                 
-                </div>
+                <form action="dataBase/mensaje.php" method="post">
+                    <div class="d-flex mb-2 ">
+                        <div class="form-floating w-50 mx-1">
+                            <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="nombre">
+                            <label>Nombre y Apellido</label>
+                        </div>
+                        <div class="form-floating w-50 mx-1">
+                            <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="correo">
+                            <label>(Correo, Teléfono o WhatsApp)</label>
+                        </div>
+                    </div>    
+                    
+                    <div class="form-floating mb-2 mx-1">
+                        <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="asunto">
+                        <label>Asunto</label>
+                    </div>
+
+                    <div class="mb-2 mx-1">
+                        <textarea type="text" placeholder="Mensaje" rows="6" class="form-control border-2 border-primary" required name="mensaje"></textarea>
+                    </div>
+
+                    <button type="submit" class="mt-2 btn btn-primary border-2">Enviar Mensaje</button>
+                </form>
+            
             </div>
-
         </div>
+
+    </section>
+
+    <div class="d-flex justify-content-center w-100 mt-4">
+        <p><a href="#"><img src="icons/chevron-double-up.svg" class="fa-bounce" width="50" height="50"></a></p>
     </div>
-
-<br><br><br>
-
-    <?php include("footer.html"); ?>
+    <footer class="d-flex flex-wrap container-fluid align-items-center justify-content-center py-3 bg-footer">
+        <div class="w-100">
+            <ul class="nav list-unstyled d-flex justify-content-center w-100 container">
+                <li>
+                    <a class="text-light px-3" style="cursor: pointer;" onclick="correo()">
+                        <img src="icons/correo.svg" style="width:40px; height:40px;">
+                    </a>
+                </li>
+                <li>
+                    <a class="text-light px-3" style="cursor: pointer;" onclick="ubicacion()">
+                        <img src="icons/location.svg" style="width:40px; height:40px;">
+                    </a>
+                </li>
+                <li>
+                    <a class="text-light px-3" style="cursor: pointer;" onclick="phone()">
+                        <img src="icons/phone.svg" style="width:40px; height:40px;">
+                    </a>
+                </li>
+            </ul>
+            <hr class="border">
+            <div class="row container">
+                <span class="mb-3 col-12 d-flex justify-content-center text-light mb-md-0">© 2024-25. Todos los derechos Reservados . Jardín de Infancia "José Antonio Páez" - Vilchez, Portillo, Nuñez y Pulgar.</span>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/sweetalert2.js"></script>
     <script src="js/js.js"></script>
@@ -273,6 +377,36 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/js.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
+
+    <script>
+        let sections = document.querySelectorAll('section');
+        let navLinks = document.querySelectorAll('nav a');
+        window.onscroll = () => {
+            sections.forEach(sec => {
+                let top = window.scrollY;
+                let offset = sec.offsetTop - 150;
+                let height = sec.offsetHeight;
+                let id = sec.getAttribute('id');
+                if(top >= offset && top < offset + height) {
+                    navLinks.forEach(links => {
+                        links.classList.remove('shadowActive3');
+                        document.querySelector('nav a[href*=' + id + ']').classList.add('shadowActive3');
+                    });
+                };
+            });
+        };
+    </script>
+
+    <script> // Script para añadir o remover fondo al hacer scroll 
+        window.addEventListener('scroll', function() { 
+            var navbar = document.getElementById('nav'); 
+            if (window.scrollY > 0) { 
+                navbar.classList.add('bg-dark-trans'); 
+            } else { 
+            navbar.classList.remove('bg-dark-trans'); 
+            } 
+        }); 
+    </script>
 
     <!-- Mensaje de Bienvenida al Iniciar Sesion -->
     <?php if(!empty($bienvenido)){ ?> 

@@ -21,14 +21,14 @@
             $_SESSION['idUser'] = $usuario['id'];
             $_SESSION['bienvenido'] = $usuario['nombre'];
 
-            header('location:../index.php');
+            header('location:../admin.php');
         }elseif ($usuario['usertype'] == 'Usuario') {
             session_start();
             $_SESSION['mensaje'] = $usuario['nombre'] . " | Usuarios";
             $_SESSION['idUser'] = $usuario['id'];
             $_SESSION['bienvenido'] = $usuario['nombre'];
 
-            header('location:../index.php');
+            header('location:../admin.php');
         }
          
     }else {

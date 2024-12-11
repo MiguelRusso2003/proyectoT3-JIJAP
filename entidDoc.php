@@ -65,7 +65,7 @@
 
     <br><br><br>
 
-    <div id="body" class="rounded margin-left" style="background-image:url(img/bg-docente2.jpg); background-size:cover;background-attachment: fixed; ">
+    <div id="body" class="rounded margin-left-width" style="background-image:url(img/bg-docente2.jpg); background-size:cover;background-attachment: fixed; ">
 
         <div class="container-fluid bg-white-trans rounded">
             <div class="container">
@@ -430,8 +430,8 @@
         </div>
     </div>
     
-    <div id="body1" class="shadow margin-left"></div>
-    <div id="body2" class="shadow margin-left"></div>
+    <div id="body1" class="shadow margin-left-width"></div>
+    <div id="body2" class="shadow margin-left-width"></div>
 
     <?php include("footer.html"); ?>
 

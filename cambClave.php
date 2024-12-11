@@ -40,7 +40,7 @@
     <section class="vh-100">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col col-xl-8 h-75">
+            <div class="col col-xl-8">
                     <div class="card h-100 border-2 border-primary bg-light" style="border-radius: 1rem; box-shadow:0px 0px 20px -5px blue;">
                         <div class="row g-0 h-100">
 
@@ -74,7 +74,7 @@
                                 </div>
                             </div>
                   
-                            <div class="col-md-6 col-lg-6 d-flex align-items-center h-100">
+                            <div class="col-md-6 col-lg-6 d-flex align-items-center h-100 my-auto">
                                 <div class="card-body p-2 p-lg-5 text-black">
                                     
                                     <!-- Opciones de Cambio de contraseña -->
@@ -114,7 +114,7 @@
                                     </div>
 
                                     <div class="d-flex mb-2 mt-4 justify-content-center align-items-center">
-                                        <a href="login.php" id="olviPass">Volver al Inicio de Sesion</a>
+                                        <a href="login.php" class="text-primary">Volver al Inicio de Sesion</a>
                                     </div>
                                 
                                 </div>

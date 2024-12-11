@@ -28,7 +28,7 @@
     <section class="vh-100">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col col-xl-8 h-75">
+                <div class="col col-xl-8">
                     <div class="card h-100 border-2 border-primary bg-light" style="border-radius: 1rem; box-shadow:0px 0px 20px -5px blue;">
                         <div class="row g-0 h-100">
 
@@ -63,7 +63,7 @@
                             </div>
 
                             <!-- Login -->
-                            <div class="col-md-6 col-lg-6 d-flex align-items-center h-100">
+                            <div class="col-md-6 col-lg-6 d-flex align-items-center h-100 my-auto">
                                 <div class="card-body p-2 p-lg-5 text-black">
                                     <form method="POST" action="dataBase/sesion.php">
                                         
@@ -86,7 +86,7 @@
                                         </div>
 
                                         <div class="d-flex mb-2 justify-content-center align-items-center">
-                                            <a href="recuPass.php" id="olviPass">olvide mi contraseña</a>
+                                            <a href="recuPass.php" class="text-primary" id="olviPass">olvide mi contraseña</a>
                                         </div>
 
                                     </form>

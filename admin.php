@@ -3,12 +3,17 @@
     session_start();
 
     $mensaje="";
-    $mensajeEliminar="";
+    $bienvenido = '';
 
     if (isset($_SESSION["mensaje"])) {
         $mensaje=$_SESSION["mensaje"];
     }else{
         header("location:login.php");
+    }
+
+    if (isset($_SESSION['bienvenido'])) {
+        $bienvenido = $_SESSION['bienvenido'];
+        unset($_SESSION['bienvenido']);
     }
 
     $pagAct = basename($_SERVER['PHP_SELF']);
@@ -18,7 +23,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entidades</title>
+    <title>Panel de Control</title>
     <link rel="shortcut icon" href="img/logoP.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/dataTables.dataTables.min.css">
@@ -31,39 +36,48 @@
 
     <br><br><br>
 
-    <div id="body" class="shadow margin-left-width " style="border-radius: 10px; background-image : url(img/img3.jpg); background-size : cover">
+    <div id="body" class="margin-left-width">
    
-        <div class="container-fluid text-center rounded bg-dark-trans align-items-center h-100">
+        <div class="container-fluid text-center rounded align-items-center h-100">
             
             <br>
 
             <div>
-                <h1 class="display-6 text-light">Entidades</h1>
+                <h1 class="display-6 text-light">Panel de Control</h1>
             </div>
 
             <div class="container d-flex justify-content-center pt-5 border-1 border border-start-0 border-end-0 border-bottom-0">
 
-                <div class="items-hover mx-auto bg-trans-items">
+                <div class="items-hover mx-auto">
                     <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="entidAlmn.php">
-                        <h3 class="pe-4">Alumnos |</h3>
+                        <h3 class="pe-4">Bienes Públicos |</h3>
                         <img src="icons/graduacion.svg"  style="width: 70px; height:70px">
                     </a>
                 </div>
 
                 <hr class="vr shadow" style="color: white;">
 
-                <div class="items-hover mx-auto bg-trans-items">
+                <div class="items-hover mx-auto">
                     <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="entidDoc.php">
-                        <h3 class="pe-4">Docentes |</h3>
+                        <h3 class="pe-4">Personal |</h3>
                         <img src="icons/pizzarron-user.svg"  style="width: 70px; height:70px">
                     </a>
                 </div>
 
                 <hr class="vr shadow" style="color: white;">
 
-                <div class="items-hover mx-auto bg-trans-items">
+                <div class="items-hover mx-auto">
                     <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="entidPers.php">
-                        <h3 class="pe-4">Personal |</h3>
+                        <h3 class="pe-4">Alumnos |</h3>
+                        <img src="icons/personal.svg"  style="width: 70px; height:70px">
+                    </a>
+                </div>
+
+                <hr class="vr shadow" style="color: white;">
+
+                <div class="items-hover mx-auto">
+                    <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="entidPers.php">
+                        <h3 class="pe-4">Servicios |</h3>
                         <img src="icons/personal.svg"  style="width: 70px; height:70px">
                     </a>
                 </div>
@@ -84,8 +98,27 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/dataTables.min.js"></script>
+    <script>
+        let table = new DataTable("#myTable");
+    </script>
     <script src="js/fontawesome.min.js"></script>
     <script src="js/js.js"></script>
     <script src="js/sweetalert2.js"></script>
+
+    <!-- Mensaje de Bienvenida al Iniciar Sesion -->
+    <?php if(!empty($bienvenido)){ ?> 
+        <script>
+            let nombre = '<?php echo $bienvenido; ?>';
+            window.onload = function(){
+                swal.fire({
+                    title : "¡Bienvenido(a) " + nombre +"!",
+                    icon : "success",
+                    timer : "1700",
+                    text : "¡Acceso Concedido!",
+                    showConfirmButton : false
+                });
+            }
+        </script>
+    <?php  } ?>
 </body>
 </html>

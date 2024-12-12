@@ -101,7 +101,7 @@
                                         </form>
 
                                         <div class="d-flex mb-2 mt-3 justify-content-center align-items-center">
-                                            <a href="login.php" id="olviPass">Volver al Inicio de Sesion</a>
+                                            <a href="login.php" id="olviPass" class="text-primary">Volver al Inicio de Sesion</a>
                                         </div>
 
                                     <?php endif; ?>
@@ -128,7 +128,7 @@
                                         </form>
 
                                         <div class="d-flex mb-2 mt-3 justify-content-center align-items-center">
-                                            <a href="login.php" style="color: #007bff;">Volver al Inicio de Sesion</a>
+                                            <a href="login.php" id="olviPass" class="text-primary">Volver al Inicio de Sesion</a>
                                         </div>
 
                                     <?php }?>

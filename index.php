@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="styles/sweetalert2.min.css">
     <link rel="stylesheet" href="styles/font-awesome.min.css">
 </head>
-<body class="bg-dark">
+<body class="">
 
     <!-- NavBar -->
     <nav id="nav" class="navbar navbar-expand-lg fixed-top">
@@ -27,51 +27,80 @@
         <a href="index.php" class="nav-link text-light d-flex dropdown-items ps-3 justify-content-start align-items-center" style="cursor: pointer;">
             <img src="img/logoP.png" style="width: 50px; height:50px;">
             <div class="d-block text-center ms-2">
-                <p class="fs-5 ms-2 fw-light my-auto">Jardín de Infancia</p>
-                <p class="fs-5 ms-2 fw-light my-auto">"José Antonio Páez"</p>
+                <p class="fs-5 ms-2 fw-light my-auto">J.I. "José Antonio Páez"</p>
             </div>
             
         </a>
         
-        <button class="navbar-toggler border-primary border-2 btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon text-light"></span>
         </button>
         
         <div class="collapse navbar-collapse align-items-center justify-content-end" id="navbarNavDropdown">
-            <a href="#hero" class="fw-light fs-5 mx-3" style="text-decoration: none;">Inicio</a>
-            <a href="#sobre_nosotros" class="fw-light fs-5 mx-3" style="text-decoration: none;">Sobre Nosotros</a>
-            <a href="#eligenos" class="fw-light fs-5 mx-3" style="text-decoration: none;">Elígenos</a>
-            <a href="#equipo" class="fw-light fs-5 mx-3" style="text-decoration: none;">Equipo</a>
-            <a href="#contacto" class="fw-light fs-5 mx-3" style="text-decoration: none;">Contáctanos</a>
-            <a href="admin.php" class="fw-light mx-3 btn btn-outline-primary border-2">Admin</a>
+            <div class="navbar-nav align-items-center">
+                <div class="nav-item">
+                    <a href="#hero" class="fw-light fs-5 mx-3" style="text-decoration: none;">Inicio</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#sobre_nosotros" class="fw-light fs-5 mx-3" style="text-decoration: none;">Sobre Nosotros</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#eligenos" class="fw-light fs-5 mx-3" style="text-decoration: none;">Elígenos</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#equipo" class="fw-light fs-5 mx-3" style="text-decoration: none;">Equipo</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#contacto" class="fw-light fs-5 mx-3" style="text-decoration: none;">Contáctanos</a>
+                </div>
+                <div class="nav-item">
+                    <a href="admin.php" class="fw-light mx-3 btn btn-outline-primary border-2">Admin</a>
+                </div>
+            </div>
         </div>
     </nav>
     
-    <section id="hero" class="vh-100 mb-5" style="background-image: url(img/bg-estadistica.jpg); 
+    <section id="hero" class="vh-100 h-100" style="background-image: url(img/hero.png); 
                                          background-size:cover; 
                                          background-repeat:no-repeat;">
     
-        <div class="text-center container-fluid bg-dark-trans ps-4 pt-1 pe-4 h-100">
+        <div class="text-center bg-dark-trans ps-4 pt-1 pe-4 h-100">
 
             <br><br>
 
             <hr class="border my-4"><br>
-
-            <p class="fw-light text-light display-3 w-100 mx-auto" style="font-family: Georgia, 'Times New Roman', Times, serif;">Jardín de Infancia | "José Antonio Páez"</p>
-
+            <div class="row">
+                <p class="col-lg-12 fw-light text-light display-6 mx-auto" style="font-family: Georgia, 'Times New Roman', Times, serif;">Jardín de Infancia</p>
+                <p class="col-lg-12 fw-light text-light display-6 mx-auto" style="font-family: Georgia, 'Times New Roman', Times, serif;">| "José Antonio Páez" |</p>
+            </div>
+    
             <br>
+
+            <div class="d-flex w-100 justify-content-center container" style="height:62.8%;">
+                <span class="mx-5">
+                    <img src="img\niña-de-preescolar-aprendiendo.png" style="filter: drop-shadow(0px 0px 10px white); " class="img-fluid h-100" alt="">
+                </span>
+
+                <img src="img\un-niño-de-preescolar-saludando.png" style="filter: drop-shadow(0px 0px 10px white); " class="img-fluid mx-5" alt="">
+
+                <span class="mx-5">
+                    <img src="img\niño-de-preescolar-jugando.png" style="filter: drop-shadow(0px 0px 10px white); " class="img-fluid h-100" alt="">
+                </span>
+            </div>
 
         </div>
 
+        
+
     </section>
 
-    <section id="sobre_nosotros" class="pt-5">
+    <section id="sobre_nosotros" class="pt-5 mx-3">
 
         <div class="text-center px-4 mt-2 pt-1">
 
-            <p class="text-light fw-light fs-1 mt-2">Sobre Nosotros</p>
-            <hr class="border border-primary border-2 w-75 mx-auto">
-            <hr class="border border-primary border-2 w-25 mx-auto">
+            <p class="text-dark fw-light fs-1 mt-2">Sobre Nosotros</p>
+            
+            
             <br>
 
         </div>
@@ -183,13 +212,13 @@
         </div>
     </section>
 
-    <section id="eligenos" class="vh-100 pt-5" style="border-radius:20px;">
+    <section id="eligenos" class="vh-100 pt-5 rounded">
 
         <div class="text-center rounded container-fluid ps-4 pt-1 pe-4">
 
-            <p class="text-light fw-light fs-1 mt-2">¿Porque Elegirnos?</p>
-            <hr class="border border-primary border-2 w-75 mx-auto">
-            <hr class="border border-primary border-2 w-25 mx-auto">
+            <p class="text-dark fw-light fs-1 mt-2">¿Porque Elegirnos?</p>
+            
+            
             <br>
 
         </div>
@@ -261,83 +290,88 @@
         </div>
     </section>
 
-    <section id="equipo" class="me-3 pt-4">
+    <section id="equipo" class="pt-5">
         <div class="my-4">
             <div class="text-center rounded container-fluid ps-4 pt-1 pe-4 h-100">
 
-                <p class="text-light fw-light fs-1 mt-2">Conoce a Nuestro Equipo</p>
-                <hr class="border border-primary border-2 w-75 mx-auto">
-                <hr class="border border-primary border-2 w-25 mx-auto">
+                <p class="text-dark fw-light fs-1 mt-2">Conoce a Nuestro Equipo</p>
+                
+                
                 <br>
 
             </div>
 
-            <div class="container-fluid row mx-auto">
+            <div class="container row row-cols-md-1 mx-auto justify-content-center">
 
-                <div class="col-3 px-5 p-2 my-3 rounded">
+                <div class="col-md-3 col-sm-7 col-9 shadow border-top my-3 mx-5 rounded">
                     <img src="img/equipo/Ejemplo.png" class="img-fluid w-100" style="height: 280px;">
-                    <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. Flor Maldonado</p>
-                    <p class="text-light fw-light">Directora</p>
+                    <p class="text-dark fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. Flor Maldonado</p>
+                    <p class="text-dark fw-light">Directora</p>
                 </div>
 
-                <div class="col-3 px-5 p-2 my-3 rounded">
+                <div class="col-md-3 col-sm-7 col-9 shadow border-top my-3 mx-5 rounded">
                     <img src="img/equipo/Ejemplo3.png" class="img-fluid w-100" style="height: 280px;">
-                    <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. de Ejemplo</p>
-                    <p class="text-light fw-light">Cargo de Prueba</p>
+                    <p class="text-dark fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. de Ejemplo</p>
+                    <p class="text-dark fw-light">Cargo de Prueba</p>
                 </div>
 
-                <div class="col-3 px-5 p-2 my-3 rounded">
+                <div class="col-md-3 col-sm-7 col-9 shadow border-top my-3 mx-5 rounded">
                     <img src="img/equipo/Ejemplo4.png" class="img-fluid w-100" style="height: 280px;">
-                    <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. de Ejemplo</p>
-                    <p class="text-light fw-light">Cargo de Prueba</p>
+                    <p class="text-dark fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. de Ejemplo</p>
+                    <p class="text-dark fw-light">Cargo de Prueba</p>
                 </div>
 
-                <div class="col-3 px-5 p-2 my-3 rounded">
+                <div class="col-md-3 col-sm-7 col-9 shadow border-top my-3 mx-5 rounded">
                     <img src="img/equipo/Ejemplo5.png" class="img-fluid w-100" style="height: 280px;">
-                    <p class="text-light fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. de Ejemplo</p>
-                    <p class="text-light fw-light">Cargo de Prueba</p>
+                    <p class="text-dark fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. de Ejemplo</p>
+                    <p class="text-dark fw-light">Cargo de Prueba</p>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <section id="contacto" class="text-center rounded container-fluid ps-4 pt-4 pe-4 h-100">
+    <section id="contacto" class="text-center rounded container-fluid ps-4 pt-5 pe-4">
         
         <br>
-        <p class="text-light fw-light fs-1 mt-2">Contáctanos</p>
-        <hr class="border border-primary border-2 w-75 mx-auto">
-        <hr class="border border-primary border-2 w-25 mx-auto">
+        <p class="text-dark fw-light pt-1 fs-1 mt-2">Contáctanos</p>
+        
+        
         <br>
 
-        <div class="bg-footer rounded p-3 w-50 mx-auto">
-            <div class="container">
+        <div class="bg-footer rounded p-3 mx-auto">
                 
-                <form action="dataBase/mensaje.php" method="post">
-                    <div class="d-flex mb-2 ">
-                        <div class="form-floating w-50 mx-1">
-                            <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="nombre">
-                            <label>Nombre y Apellido</label>
-                        </div>
-                        <div class="form-floating w-50 mx-1">
-                            <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="correo">
-                            <label>(Correo, Teléfono o WhatsApp)</label>
-                        </div>
-                    </div>    
-                    
-                    <div class="form-floating mb-2 mx-1">
-                        <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="asunto">
-                        <label>Asunto</label>
-                    </div>
+            <form action="dataBase/mensaje.php" method="post">
+                
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="row g-2 justify-content-center">
+                            <div class="col-md-6 form-floating">
+                                <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="nombre">
+                                <label>Nombre y Apellido</label>
+                            </div>
+                            
+                            <div class="col-md-6 form-floating">
+                                <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="correo">
+                                <label>(Correo, Teléfono o WhatsApp)</label>
+                            </div>
+                            
+                            <div class="col-md-12 form-floating control-group">
+                                <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="asunto">
+                                <label>Asunto</label>
+                            </div>
 
-                    <div class="mb-2 mx-1">
-                        <textarea type="text" placeholder="Mensaje" rows="6" class="form-control border-2 border-primary" required name="mensaje"></textarea>
+                            <div class="col-md-12">
+                                <textarea type="text" placeholder="Mensaje" rows="6" class="form-control border-2 border-primary" required name="mensaje"></textarea>
+                            </div>    
+                        </div>
                     </div>
+                </div>
 
-                    <button type="submit" class="mt-2 btn btn-primary border-2">Enviar Mensaje</button>
-                </form>
-            
-            </div>
+                <button type="submit" class="mt-4 btn btn-primary border-2">Enviar Mensaje</button>
+
+            </form>
+
         </div>
 
     </section>
@@ -345,7 +379,7 @@
     <div class="d-flex justify-content-center w-100 mt-4">
         <p><a href="#"><img src="icons/chevron-double-up.svg" class="fa-bounce" width="50" height="50"></a></p>
     </div>
-    <footer class="d-flex flex-wrap container-fluid align-items-center justify-content-center py-3 bg-footer">
+    <footer class="d-flex border-top border-2 border-primary flex-wrap container-fluid align-items-center justify-content-center py-3 bg-black">
         <div class="w-100">
             <ul class="nav list-unstyled d-flex justify-content-center w-100 container">
                 <li>
@@ -364,7 +398,7 @@
                     </a>
                 </li>
             </ul>
-            <hr class="border">
+            <hr class="border border-primary">
             <div class="row container">
                 <span class="mb-3 col-12 d-flex justify-content-center text-light mb-md-0">© 2024-25. Todos los derechos Reservados . Jardín de Infancia "José Antonio Páez" - Vilchez, Portillo, Nuñez y Pulgar.</span>
             </div>
@@ -401,9 +435,9 @@
         window.addEventListener('scroll', function() { 
             var navbar = document.getElementById('nav'); 
             if (window.scrollY > 0) { 
-                navbar.classList.add('bg-dark-trans'); 
+                navbar.classList.add('bg-black', 'shadow-blue', 'border-bottom', 'border-primary', 'border-2'); 
             } else { 
-            navbar.classList.remove('bg-dark-trans'); 
+            navbar.classList.remove('bg-black', 'shadow-blue', 'border-bottom', 'border-primary', 'border-2'); 
             } 
         }); 
     </script>

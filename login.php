@@ -89,6 +89,10 @@
                                             <a href="recuPass.php" class="text-primary" id="olviPass">olvide mi contraseña</a>
                                         </div>
 
+                                        <div class="d-flex mb-2 justify-content-center align-items-center">
+                                            <a href="index.php" class="text-primary" id="pagInicio">volver a la página de inicio</a>
+                                        </div>
+
                                     </form>
                                 </div>
                             </div>     

@@ -81,16 +81,17 @@
                                             <label class="text-secondary">Contraseña</label>
                                         </div>
 
-                                        <div class="d-flex pt-1 mb-3 justify-content-center">
+                                        <div class="d-flex pt-1 mb-4 justify-content-center">
                                             <button data-mdb-button-init data-mdb-ripple-init class="btn border-2 btn-outline-primary btn-block" type="submit">Iniciar Sesion</button>
                                         </div>
 
                                         <div class="d-flex mb-2 justify-content-center align-items-center">
+                                            <a href="index.php" class="d-flex text-black" style="text-decoration: none;">
+                                                <img src="icons/house.svg" alt="" width="30" height="30">
+                                                <p class="fw-light mx-2 my-auto">Inicio</p>
+                                            </a>
+                                            <div class="vr mx-3"></div>
                                             <a href="recuPass.php" class="text-primary" id="olviPass">olvide mi contraseña</a>
-                                        </div>
-
-                                        <div class="d-flex mb-2 justify-content-center align-items-center">
-                                            <a href="index.php" class="text-primary" id="pagInicio">volver a la página de inicio</a>
                                         </div>
 
                                     </form>

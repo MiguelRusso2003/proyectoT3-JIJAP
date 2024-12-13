@@ -81,7 +81,7 @@ session_start();
     
             <br>
 
-            <div class="d-flex w-100 justify-content-center container" style="height:62.8%;">
+            <div class="d-flex w-100 justify-content-center container" style="height:62%;">
                 <span class="mx-5">
                     <img src="img\niña-de-preescolar-aprendiendo.png" style="filter: drop-shadow(0px 0px 10px white); " class="img-fluid h-100" alt="">
                 </span>

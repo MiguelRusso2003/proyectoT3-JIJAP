@@ -1,10 +1,15 @@
 <?php
+include('dataBase/conn.php');
+session_start();
     $mensaje_env ='';
 
     if (isset($_SESSION['mensaje-enviado'])) {
         $mensaje_env = $_SESSION['mensaje-enviado'];
         unset($_SESSION['mensaje-enviado']);
     }
+
+    $sqlDocentes = "SELECT * FROM docentes";
+    $docentes = $conn->query($sqlDocentes);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -94,197 +99,181 @@
 
     </section>
 
-    <section id="sobre_nosotros" class="pt-5 mx-3">
+    <section id="sobre_nosotros" class="pt-5">
 
         <div class="text-center px-4 mt-2 pt-1">
 
             <p class="text-dark fw-light fs-1 mt-2">Sobre Nosotros</p>
-            
-            
+            <div class="border-bottom w-50 border-3 border-primary mx-auto my-2"></div>
+            <div class="border-bottom w-25 border-3 border-primary mx-auto"></div>
+
             <br>
 
         </div>
         
-        <div class="p-0 m-0" style="background-attachment:fixed;
-                    background-image: url(img/bienvenido.jpg); 
-                    background-size:cover; 
-                    background-repeat:no-repeat;">
+        <div class="row justify-content-center">
 
-            <div class="row justify-content-center bg-dark-trans">
+            <div class="col-lg-3 col-md-9 align-items-center ps-4 pt-4 pe-4 rounded text-black mx-5 my-2" style="background-color: #44c1ff2b;">
 
-                <div class="col-lg-3 col-md-9 align-items-center bg-dark-trans ps-4 pt-4 pe-4 rounded text-light mx-5 my-2">
-
-                    <div class="d-block">
-                        <h2 class="fw-light text-center">Nuestra Misión</h2>
-                        <hr>
-                        <p style="text-align: justify;">
-                            <strong>
-                                Favorecer las potencialidades de los niños y las niñas; orientados en el
-                                respeto a la condición humana, desde una perspectiva social como actores activos
-                                de sus experiencias, en relación a lo sociocultural y en equilibrio con los elementos
-                                de afectividad e inteligencia, iniciando la formación integral de los niños y las niñas.
-                            </strong>
-                        </p>
-                    </div>
-
+                <div class="d-block">
+                    <h2 class="fw-light text-center">Nuestra Misión</h2>
+                    <hr>
+                    <p style="text-align: justify;">
+                        <strong>
+                            Favorecer las potencialidades de los niños y las niñas; orientados en el
+                            respeto a la condición humana, desde una perspectiva social como actores activos
+                            de sus experiencias, en relación a lo sociocultural y en equilibrio con los elementos
+                            de afectividad e inteligencia, iniciando la formación integral de los niños y las niñas.
+                        </strong>
+                    </p>
                 </div>
 
-                <div class="col-lg-3 col-md-9 align-items-center bg-dark-trans ps-4 pt-4 pe-4 rounded text-light mx-5 my-2">
+            </div>
 
-                    <div class="d-block">
-                        <h2 class="fw-light text-center">Módulos</h2>
-                        <hr>
-                        <div class="d-flex justify-content-center">
-                            <div class="d-block mx-2">
-                                <p>
-                                    <strong>
-                                        | Módulo IV:
-                                    </strong>
-                                </p>
-                                <p>
-                                    <strong>
-                                    Sección "F"
-                                    </strong>
-                                </p>
-                                <p>
-                                    <strong>
-                                    Sección "G"
-                                    </strong>
-                                </p>
-                                <p>
-                                    <strong>
-                                    Sección "H"
-                                    </strong>
-                                </p>
-                            </div>
+            <div class="col-lg-3 col-md-9 align-items-center ps-4 pt-4 pe-4 rounded text-black mx-5 my-2" style="background-color: #44c1ff2b;">
 
-                            <hr class="vr">
-
-                            <div class="d-block mx-2">
-                                <p>
-                                    <strong>
-                                        | Módulo V:
-                                    </strong>
-                                </p>
-                                <p>
-                                    <strong>
-                                    Sección "A"
-                                    </strong>
-                                </p>
-                                <p>
-                                    <strong>
-                                    Sección "C"
-                                    </strong>
-                                </p>
-                                <p>
-                                    <strong>
-                                    Sección "D"
-                                    </strong>
-                                </p>    
-                            </div>
-
+                <div class="d-block">
+                    <h2 class="fw-light text-center">Módulos</h2>
+                    <hr>
+                    <div class="d-flex justify-content-center">
+                        <div class="d-block mx-2">
+                            <p>
+                                <strong>
+                                    | Módulo IV:
+                                </strong>
+                            </p>
+                            <p>
+                                <strong>
+                                Sección "F"
+                                </strong>
+                            </p>
+                            <p>
+                                <strong>
+                                Sección "G"
+                                </strong>
+                            </p>
+                            <p>
+                                <strong>
+                                Sección "H"
+                                </strong>
+                            </p>
                         </div>
-                        
-                    </div>
 
-                </div>
+                        <hr class="vr mx-3">
 
-                <div class="col-lg-3 col-md-9 align-items-center bg-dark-trans ps-4 pt-4 pe-4 rounded text-light mx-5 my-2">
+                        <div class="d-block mx-2">
+                            <p>
+                                <strong>
+                                    | Módulo V:
+                                </strong>
+                            </p>
+                            <p>
+                                <strong>
+                                Sección "A"
+                                </strong>
+                            </p>
+                            <p>
+                                <strong>
+                                Sección "C"
+                                </strong>
+                            </p>
+                            <p>
+                                <strong>
+                                Sección "D"
+                                </strong>
+                            </p>    
+                        </div>
 
-                    <div class="d-block">
-                        <h2 class="fw-light text-center">Nuestra Visión</h2>
-                        <hr>
-                        <p style="text-align: justify;">
-                            <strong>
-                                Consiste en rescatar, mantener, promocionar y perpetuar los derechos de
-                                los niños y niñas; fundamentalmente aquellos que se refieren a su formación integral
-                                y asistida dada su condición de seres humanos, y a lograr su pleno desarrollo físico,
-                                mental, espiritual y afectivo asegurándonos de que crezcan como seres
-                                concientizados.
-                            </strong>
-                        </p>
                     </div>
                     
                 </div>
 
             </div>
 
+            <div class="col-lg-3 col-md-9 align-items-center ps-4 pt-4 pe-4 rounded text-black mx-5 my-2" style="background-color: #44c1ff2b;">
+
+                <div class="d-block">
+                    <h2 class="fw-light text-center">Nuestra Visión</h2>
+                    <hr>
+                    <p style="text-align: justify;">
+                        <strong>
+                            Consiste en rescatar, mantener, promocionar y perpetuar los derechos de
+                            los niños y niñas; fundamentalmente aquellos que se refieren a su formación integral
+                            y asistida dada su condición de seres humanos, y a lograr su pleno desarrollo físico,
+                            mental, espiritual y afectivo asegurándonos de que crezcan como seres
+                            concientizados.
+                        </strong>
+                    </p>
+                </div>
+                
+            </div>
+
         </div>
     </section>
 
-    <section id="eligenos" class="vh-100 pt-5 rounded">
+    <section class="pt-5">
+        <div class="border-bottom w-25 border-3 border-primary mx-auto my-3"></div>
+        <div class="p-0 m-0 h-100" style="background-attachment:fixed;
+                        background-image: url(img/bienvenido.jpg); 
+                        background-size:cover; 
+                        background-repeat:no-repeat;">
+
+            <div class="d-flex justify-content-center align-items-center bg-dark-trans" style="height: 30vh;">
+                <div class="text-light fs-2 text-center fw-light">"No intentes ser el mejor de tu equipo, intenta que tu equipo sea el MEJOR"</div>
+            </div>
+
+        </div>
+        <div class="border-bottom w-25 border-3 border-primary mx-auto my-3"></div>
+    </section>
+
+    <section id="eligenos" class="pt-5 rounded">
 
         <div class="text-center rounded container-fluid ps-4 pt-1 pe-4">
 
             <p class="text-dark fw-light fs-1 mt-2">¿Porque Elegirnos?</p>
-            
+            <div class="border-bottom w-50 border-3 border-primary mx-auto my-2"></div>
+            <div class="border-bottom w-25 border-3 border-primary mx-auto"></div>
             
             <br>
 
         </div>
 
-        <div class="rounded mx-auto" style="width: 85%;">
-            
-            <div id="CarruselDeImagenes" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
+        <div class="container row mt-5 mx-auto justify-content-center">
 
-                    <div class="text-center carousel-item active" data-bs-interval="4000">
-                        <img  src="img/galeria-1.jpg" class="img-fluid w-100 rounded" style="height: 80vh;">
-                        <div class="carousel-caption bg-dark-trans rounded mx-auto p-5 text-center w-100">
-                            <h1 class="fw-lighter display-1">Experiencia y Trayectoria</h1>
-                            <div>
-                                <h3 class="fw-light opacity-75 py-3">
-                                    Con años de experiencia en la educación infantil, en el jardín de infancia José Antonio Páez contamos con una
-                                    sólida reputación de excelencia en la formación de los más pequeños.
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="text-center carousel-item" data-bs-interval="4000">
-                        <img src="img/galeria-2.jpg" class="img-fluid w-100 rounded" style="height: 80vh;">
-                        <div class="carousel-caption bg-dark-trans rounded mx-auto p-5 text-center w-100">
-                            <h1 class="fw-lighter display-1">Enfoque Integral</h1>
-                            <div>
-                                <h3 class="fw-light opacity-75 py-3">
-                                    Nos centramos en el desarrollo emocional, social y académico de los niños, ofreciendo una educación equilibrada que fomenta 
-                                    habilidades esenciales desde una edad temprana.
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="text-center carousel-item" data-bs-interval="4000">
-                        <img src="img/galeria-3.jpg" class="img-fluid w-100 rounded" style="height: 80vh;">
-                        <div class="carousel-caption bg-dark-trans rounded mx-auto p-5 text-center w-100">
-                            <h1 class="fw-lighter display-1">Actividades Extracurriculares</h1>
-                            <div>
-                                <h3 class="fw-light opacity-75 py-3">
-                                    Ofrece una variedad de actividades extracurriculares que enriquecen el aprendizaje y permiten a
-                                    los niños explorar sus intereses y talentos.
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-
+            <div class="col-md-4 col-sm-6 col-12 my-3 px-5 item-eligenos">
+                <div class="rounded-circle p-3 mx-auto shadow d-flex justify-content-center align-items-center" style="width: 110px; height:110px">
+                    <img src="icons/experiencia.svg" style="width: 70px; height:70px">
                 </div>
+                <p class="text-dark text-center fw-bolt mb-0 fs-5 pt-2">Experiencia y Trayectoria</p>
+                <div class="border-bottom border-2 border-primary w-hr mx-auto my-2"></div>
+                <p class="text-dark fw-light text-center hover-bg p-2">
+                    Con años de experiencia en la educación infantil, en el jardín de infancia José Antonio Páez contamos con una
+                    sólida reputación de excelencia en la formación de los más pequeños.
+                </p>
+            </div>
 
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#CarruselDeImagenes" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#CarruselDeImagenes" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#CarruselDeImagenes" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <div class="col-md-4 col-sm-6 col-12 my-3 px-5 item-eligenos">
+                <div class="rounded-circle p-3 mx-auto shadow d-flex justify-content-center align-items-center" style="width: 110px; height:110px">
+                    <img src="icons/enfoque.svg" style="width: 70px; height:70px">
                 </div>
+                <p class="text-dark text-center fw-bolt mb-0 fs-5 pt-2">Enfoque Integral</p>
+                <div class="border-bottom border-2 border-primary w-hr mx-auto my-2"></div>
+                <p class="text-dark fw-light text-center hover-bg p-2">
+                    Nos centramos en el desarrollo emocional, social y académico de los niños, ofreciendo una educación equilibrada que fomenta
+                    habilidades esenciales desde una edad temprana.
+                </p>
+            </div>
 
-                <button class="carousel-control-prev" type="button" data-bs-target="#CarruselDeImagenes" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon p-4" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-
-                <button class="carousel-control-next" type="button" data-bs-target="#CarruselDeImagenes" data-bs-slide="next">
-                    <span class="carousel-control-next-icon p-4" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+            <div class="col-md-4 col-sm-6 col-12 my-3 px-5 item-eligenos">
+                <div class="rounded-circle p-3 mx-auto shadow d-flex justify-content-center align-items-center" style="width: 110px; height:110px">
+                    <img src="icons/actividad.svg" style="width: 70px; height:70px">
                 </div>
+                <p class="text-dark text-center fw-bolt mb-0 fs-5 pt-2">Actividades Extracurriculares</p>
+                <div class="border-bottom border-2 border-primary w-hr mx-auto my-2"></div>
+                <p class="text-dark fw-light text-center hover-bg p-2">
+                    Ofrece una variedad de actividades extracurriculares que enriquecen el aprendizaje y permiten a
+                    los niños explorar sus intereses y talentos.
+                </p>
             </div>
 
         </div>
@@ -295,47 +284,35 @@
             <div class="text-center rounded container-fluid ps-4 pt-1 pe-4 h-100">
 
                 <p class="text-dark fw-light fs-1 mt-2">Conoce a Nuestro Equipo</p>
-                
+                <div class="border-bottom w-50 border-3 border-primary mx-auto my-2"></div>
+                <div class="border-bottom w-25 border-3 border-primary mx-auto"></div>
                 
                 <br>
 
             </div>
 
-            <div class="container row row-cols-md-1 mx-auto justify-content-center">
+            <div class="row row-cols-md-1 mx-auto justify-content-center">
 
-                <div class="col-md-3 col-sm-7 col-9 shadow border-top my-3 mx-5 rounded">
-                    <img src="img/equipo/Ejemplo.png" class="img-fluid w-100" style="height: 280px;">
-                    <p class="text-dark fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. Flor Maldonado</p>
-                    <p class="text-dark fw-light">Directora</p>
+            <?php foreach ($docentes as $docente) { ?>
+
+                <div class="mx-3 col-sm-7 px-2 col-9 shadow border-top my-3 rounded" style="width:250px">
+                    <img src="<?= $docente['foto'] ?>" class="img-fluid" style="height: 250px; width:250px">
+                    <p class="text-dark fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary"><?= $docente['nombre'].' '.$docente['nombre'] ?></p>
+                    <p class="text-dark fw-light"><?= $docente['areaForm'] ?></p>
                 </div>
 
-                <div class="col-md-3 col-sm-7 col-9 shadow border-top my-3 mx-5 rounded">
-                    <img src="img/equipo/Ejemplo3.png" class="img-fluid w-100" style="height: 280px;">
-                    <p class="text-dark fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. de Ejemplo</p>
-                    <p class="text-dark fw-light">Cargo de Prueba</p>
-                </div>
-
-                <div class="col-md-3 col-sm-7 col-9 shadow border-top my-3 mx-5 rounded">
-                    <img src="img/equipo/Ejemplo4.png" class="img-fluid w-100" style="height: 280px;">
-                    <p class="text-dark fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. de Ejemplo</p>
-                    <p class="text-dark fw-light">Cargo de Prueba</p>
-                </div>
-
-                <div class="col-md-3 col-sm-7 col-9 shadow border-top my-3 mx-5 rounded">
-                    <img src="img/equipo/Ejemplo5.png" class="img-fluid w-100" style="height: 280px;">
-                    <p class="text-dark fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary">Lcda. de Ejemplo</p>
-                    <p class="text-dark fw-light">Cargo de Prueba</p>
-                </div>
+            <?php } ?>
 
             </div>
         </div>
     </section>
 
-    <section id="contacto" class="text-center rounded container-fluid ps-4 pt-5 pe-4">
+    <section id="contacto" class="text-center rounded container-fluid px-4 pt-5">
         
         <br>
         <p class="text-dark fw-light pt-1 fs-1 mt-2">Contáctanos</p>
-        
+        <div class="border-bottom w-50 border-3 border-primary mx-auto my-2"></div>
+        <div class="border-bottom w-25 border-3 border-primary mx-auto"></div>
         
         <br>
 

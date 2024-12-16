@@ -211,10 +211,10 @@ session_start();
         </div>
     </section>
 
-    <section class="pt-5">
+    <section class="pt-5 mt-5">
         <div class="border-bottom w-25 border-3 border-primary mx-auto my-3"></div>
         <div class="p-0 m-0 h-100" style="background-attachment:fixed;
-                        background-image: url(img/bienvenido.jpg); 
+                        background-image: url(img/fondo.jpg); 
                         background-size:cover; 
                         background-repeat:no-repeat;">
 
@@ -226,7 +226,7 @@ session_start();
         <div class="border-bottom w-25 border-3 border-primary mx-auto my-3"></div>
     </section>
 
-    <section id="eligenos" class="pt-5 rounded">
+    <section id="eligenos" class="pt-5 mt-5 rounded">
 
         <div class="text-center rounded container-fluid ps-4 pt-1 pe-4">
 
@@ -295,10 +295,10 @@ session_start();
 
             <?php foreach ($docentes as $docente) { ?>
 
-                <div class="mx-3 col-sm-7 px-2 col-9 shadow border-top my-3 rounded" style="width:250px">
-                    <img src="<?= $docente['foto'] ?>" class="img-fluid" style="height: 250px; width:250px">
-                    <p class="text-dark fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary"><?= $docente['nombre'].' '.$docente['nombre'] ?></p>
-                    <p class="text-dark fw-light"><?= $docente['areaForm'] ?></p>
+                <div class="mx-3 col-sm-7 col-9 shadow border-top my-3 rounded" style="width:250px">
+                    <img src="<?= $docente['foto'] ?>" class="img-fluid" style="height: 250px; width:250px; border-top-left-radius: 5px; border-top-right-radius: 5px;">
+                    <p class="text-dark px-2 fw-bolt mb-0 fs-5 pt-2 border-top border-2 border-primary"><?= $docente['nombre'].' '.$docente['apellido'] ?></p>
+                    <p class="text-dark px-2 fw-light"><?= $docente['areaForm'] ?></p>
                 </div>
 
             <?php } ?>

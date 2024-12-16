@@ -99,7 +99,7 @@ session_start();
 
     </section>
 
-    <section id="sobre_nosotros" class="pt-5">
+    <section id="sobre_nosotros" class="pt-5 mx-3">
 
         <div class="text-center px-4 mt-2 pt-1">
 

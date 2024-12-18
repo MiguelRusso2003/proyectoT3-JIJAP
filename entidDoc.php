@@ -225,43 +225,137 @@
                 <!-- Modal Editar -->
                 <?php if (!empty($idEdit)) : ?>
                     <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-dialog modal-dialog-centered modal-xl">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">EDITAR BIEN MUEBLE</h1>
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">EDITAR DATOS DOCENTE</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="POST" action="dataBase/editBns.php">
-                                        <div class="form-floating mb-4">
-                                            <input value="<?php echo $datosEdit["cantidad"] ; ?>" type="number" name="cantidad" id="floatingInput" class="border border-primary border-3 form-control form-control-lg" placeholder="cantidad" required>
-                                            <label class="text-secondary" for="floatingInput">Cantidad</label>
+                                    <form method="POST" action="dataBase/editDoc.php" enctype="multipart/form-data">
+
+                                        <div class="container-fluid d-flex justify-content-center">
+
+                                            <div class="form-floating mb-4 mx-4 w-25">
+                                                <input  value="<?php echo $datosEdit["nombre"] ; ?>" type="text" name="nombre" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                                <label class="text-dark" for="floatingInput">Nombre</label>
+                                            </div>
+
+                                            <div class="form-floating mb-4 mx-4 w-25">
+                                                <input value="<?php echo $datosEdit["apellido"] ; ?>" type="text" name="apellido" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                                <label class="text-dark">Apellido</label>
+                                            </div>
+
+                                            <div class="form-floating mb-4 mx-4 w-25">
+                                                <input value="<?php echo $datosEdit["cedula"] ; ?>" type="text" name="cedula" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                                <label class="text-dark" for="floatingInput">Numero de Cédula</label>
+                                            </div>
+
                                         </div>
-                                        <div class="form-floating mb-4">
-                                            <input value="<?php echo $datosEdit["codCat"] ; ?>" type="text" name="codCat" id="floatingInput" class="border border-primary border-3 form-control form-control-lg" placeholder="cantidad" required>
-                                            <label class="text-secondary" for="floatingInput">Codigo de Catálago</label>
+
+                                        <div class="container-fluid d-flex justify-content-center">
+
+                                            <div class="form-floating mb-4 mx-4 w-25">
+                                                <input value="<?php echo $datosEdit["fechaNac"] ; ?>" type="date" name="fechaNac" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                                <label class="text-dark" for="floatingInput">Fecha de Nacimiento</label>
+                                            </div>
+
+                                            <div class="form-floating mb-4 mx-4 w-25">
+                                                <input value="<?php echo $datosEdit["correo"] ; ?>" type="email" name="correo" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                                <label class="text-dark">Correo Electrónico</label>
+                                            </div>
+
+                                            <div class="form-floating mb-4 mx-4 w-25">
+                                                <input value="<?php echo $datosEdit["telefono"] ; ?>" type="text" name="telefono" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                                <label class="text-dark" for="floatingInput">Numero de Teléfono</label>
+                                            </div>
+
                                         </div>
-                                        <div class="form-floating mb-4">
-                                            <input value="<?php echo $datosEdit["n_Inv"] ; ?>" type="number" name="inv" id="floatingInput" class="border border-primary border-3 form-control form-control-lg" placeholder="cantidad" required>
-                                            <label class="text-secondary" for="floatingInput">Número de Inventario</label>
+
+                                        <div class="container-fluid d-flex justify-content-center">
+
+                                            <div class="form-floating mb-4 mx-4 w-25">
+                                                <input value="<?php echo $datosEdit["fechaIngre"] ; ?>" type="date" name="fechaIngre" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                                <label class="text-dark" for="floatingInput">Fecha de Ingreso</label>
+                                            </div>
+
+                                            <div class="form-floating mb-4 mx-4 w-25">
+                                                <input value="<?php echo $datosEdit["codDep"] ; ?>" type="text" name="codDep" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                                <label class="text-dark">Código de Dependencia</label>
+                                            </div>
+
+                                            <div class="form-floating mb-4 mx-4 w-25">
+                                                <input value="<?php echo $datosEdit["gdoInst"] ; ?>" type="text" name="gdoInst" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                                <label class="text-dark">Grado de Instrucción</label>
+                                            </div>
+                                        
                                         </div>
-                                        <div class="form-floating mb-4">
-                                            <input value="<?php echo $datosEdit["descripcion"] ; ?>" type="text" name="desc" id="floatingInput" class="border border-primary border-3 form-control form-control-lg" placeholder="cantidad" required>
-                                            <label class="text-secondary" for="floatingInput">Descripción</label>
+
+                                        <div class="container-fluid d-flex justify-content-center">
+
+                                            <div class="form-floating mb-4 mx-4 w-25">
+                                                <input value="<?php echo $datosEdit["seccion"] ; ?>" type="text" name="seccion" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                                <label class="text-dark" for="floatingInput">Sección</label>
+                                            </div>
+
+                                            <div class="form-floating mb-4 mx-4 w-25">
+                                                <input value="<?php echo $datosEdit["clasif"] ; ?>" type="text" name="clasif" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                                <label class="text-dark">Clasificación</label>
+                                            </div>
+
+                                            <div class="form-floating mb-4 mx-4 w-25">
+                                                <input value="<?php echo $datosEdit["mesesServ"] ; ?>" type="text" name="mesesServ" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                                <label class="text-dark">Meses de Servicio</label>
+                                            </div>
+
                                         </div>
-                                        <div class="form-floating mb-4">
-                                            <input value="<?php echo $datosEdit["precioUni"] ; ?>" type="text" name="precio" id="floatingInput" class="border border-primary border-3 form-control form-control-lg" placeholder="cantidad" required>
-                                            <label class="text-secondary" for="floatingInput">Precio Unitario</label>
+
+                                        <div class="container-fluid d-flex justify-content-center">
+
+                                            <div class="form-floating mb-4 mx-4 w-25">
+                                                <input value="<?php echo $datosEdit["horas"] ; ?>" type="text" name="horas" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                                <label class="text-dark" for="floatingInput">Horas de Trabajo</label>
+                                            </div>
+
+                                            <div class="form-floating mb-4 mx-4 w-25">
+                                                <input value="<?php echo $datosEdit["areaForm"] ; ?>" type="text" name="areaForm" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                                <label class="text-dark">Area de Formación</label>
+                                            </div>
+
+                                            <div class="form-floating mb-4 mx-4 w-25">
+                                                <input value="<?php echo $datosEdit["matricula"] ; ?>" type="text" name="matricula" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                                <label class="text-dark">Matrícula</label>
+                                            </div>
+
                                         </div>
+
+                                        <div class="container-fluid d-flex justify-content-center">
+
+                                            <div class="form-floating mb-4 mx-4 w-25">
+                                                <select class="form-control me-1 border border-2 border-primary" name="status">
+                                                    <option value="activo" <?= 'activo' === $datosEdit["status"] ? 'selected' : '' ?>>Activo(a)</option>
+                                                    <option value="reposo" <?= 'reposo' === $datosEdit["status"] ? 'selected' : '' ?>>de Reposo</option>
+                                                    <option value="incapacitado" <?= 'incapacitado' === $datosEdit["status"] ? 'selected' : '' ?>>Incapacitado(a)</option>
+                                                    <option value="renuncia" <?= 'renuncia' === $datosEdit["status"] ? 'selected' : '' ?>>Renuncia</option>
+                                                    <option value="proceso_jub" <?= 'proceso_jub' === $datosEdit["status"] ? 'selected' : '' ?>>en Proceso de jubilación</option>
+                                                    <option value="jubilado" <?= 'jubilado' === $datosEdit["status"] ? 'selected' : '' ?>>Jubilado(a)</option>
+                                                </select>
+                                                <label class="text-dark">Status</label>
+                                            </div>
+
+                                            <!-- <div class="form-floating mb-4 mx-4 w-25">
+                                                <input type="file" accept="image/*" multiple name="foto" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario">
+                                                <label class="text-dark" for="floatingInput">Seleccionar Foto del Docente</label>
+                                            </div> -->
+
+                                        </div>
+                                        
                                         <div class="modal-footer d-flex justify-content-center">
-                                            <input type="hidden" name="id" value="<?php echo $datosEdit["id"]; ?>">
-                                            <input type="hidden" name="tipoBn" value="<?php echo 'bienesMbls'; ?>">
-                                            <input type="hidden" name="ubicacion" value="<?php echo 'bnsMbls'; ?>">
-                                            <a class="dropdown-items" href="bnsMbls.php">    
-                                                <button type="button" class="btn btn-2 shadow border-3 btn-outline-danger">Cancelar</button>
-                                            </a>
-                                            <button type="submit" class="btn btn-2 shadow border-3 btn-outline-success">Guardar</button>
+                                            <input type="hidden" name="id" value="<?= $datosEdit["id"] ?>">
+                                            <button type="button" class="btn btn-2 shadow border-2 btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn btn-2 shadow border-2 btn-outline-success">Guardar</button>
                                         </div>
+                                    
                                     </form>
                                 </div>
                             </div>

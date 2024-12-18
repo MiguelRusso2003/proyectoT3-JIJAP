@@ -291,7 +291,7 @@ session_start();
 
             </div>
 
-            <div class="row row-cols-md-1 mx-auto justify-content-center">
+            <div class="row row-cols-md-1 mx-auto mt-5 justify-content-center">
 
             <?php foreach ($docentes as $docente) { ?>
 
@@ -307,48 +307,49 @@ session_start();
         </div>
     </section>
 
-    <section id="contacto" class="text-center rounded container-fluid px-4 pt-5">
-        
-        <br>
-        <p class="text-dark fw-light pt-1 fs-1 mt-2">Contáctanos</p>
-        <div class="border-bottom w-50 border-3 border-primary mx-auto my-2"></div>
-        <div class="border-bottom w-25 border-3 border-primary mx-auto"></div>
-        
-        <br>
+    <section id="contacto" class="text-center rounded container-fluid px-4 pt-1">
+        <div class="my-4">
+            <br>
+            <p class="text-dark fw-light pt-1 fs-1 mt-2">Contáctanos</p>
+            <div class="border-bottom w-50 border-3 border-primary mx-auto my-2"></div>
+            <div class="border-bottom w-25 border-3 border-primary mx-auto"></div>
+            
+            <br>
 
-        <div class="bg-footer rounded p-3 mx-auto">
-                
-            <form action="dataBase/mensaje.php" method="post">
-                
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <div class="row g-2 justify-content-center">
-                            <div class="col-md-6 form-floating">
-                                <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="nombre">
-                                <label>Nombre y Apellido</label>
-                            </div>
-                            
-                            <div class="col-md-6 form-floating">
-                                <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="correo">
-                                <label>(Correo, Teléfono o WhatsApp)</label>
-                            </div>
-                            
-                            <div class="col-md-12 form-floating control-group">
-                                <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="asunto">
-                                <label>Asunto</label>
-                            </div>
+            <div class="bg-footer rounded p-3 mx-auto">
+                    
+                <form action="dataBase/mensaje.php" method="post">
+                    
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6">
+                            <div class="row g-2 justify-content-center">
+                                <div class="col-md-6 form-floating">
+                                    <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="nombre">
+                                    <label>Nombre y Apellido</label>
+                                </div>
+                                
+                                <div class="col-md-6 form-floating">
+                                    <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="correo">
+                                    <label>(Correo, Teléfono o WhatsApp)</label>
+                                </div>
+                                
+                                <div class="col-md-12 form-floating control-group">
+                                    <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="asunto">
+                                    <label>Asunto</label>
+                                </div>
 
-                            <div class="col-md-12">
-                                <textarea type="text" placeholder="Mensaje" rows="6" class="form-control border-2 border-primary" required name="mensaje"></textarea>
-                            </div>    
+                                <div class="col-md-12">
+                                    <textarea type="text" placeholder="Mensaje" rows="6" class="form-control border-2 border-primary" required name="mensaje"></textarea>
+                                </div>    
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <button type="submit" class="mt-4 btn btn-primary border-2">Enviar Mensaje</button>
+                    <button type="submit" class="mt-4 btn btn-primary border-2">Enviar Mensaje</button>
 
-            </form>
+                </form>
 
+            </div>
         </div>
 
     </section>

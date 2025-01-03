@@ -1,5 +1,6 @@
 
 <?php
+    include('dataBase/conn.php');
     session_start();
 
     $mensaje="";
@@ -17,6 +18,24 @@
     }
 
     $pagAct = basename($_SERVER['PHP_SELF']);
+
+    $sqlMtls = "SELECT * FROM bienesmtls";
+    $sqlMbls = "SELECT * FROM bienesmbls";
+    // $sqlPersonal = "SELECT * FROM ";
+    $sqlDocentes = "SELECT * FROM docentes";
+    $sqlAlumnos = "SELECT * FROM alumnos";
+    $sqlMensajes = "SELECT * FROM mensajes";
+
+    $stmtMtls = $conn->query($sqlMtls);
+    $stmtMbls = $conn->query($sqlMbls);
+    $stmtDocentes = $conn->query($sqlDocentes);
+    $stmtAlumnos = $conn->query($sqlAlumnos);
+    $stmtMensajes = $conn->query($sqlMensajes);
+
+    $rowBien = $stmtMtls->rowCount() + $stmtMbls->rowCount();
+    $rowDocentes = $stmtDocentes->rowCount();
+    $rowAlumnos = $stmtAlumnos->rowCount();
+    $rowMensajes = $stmtMensajes->rowCount();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,11 +53,11 @@
 <body class="bg-dark">
     <?php include("menuDes.html"); ?>
 
-    <br><br><br>
+    <br><br>
 
-    <div id="body" class="margin-left-width">
+    <div id="body" class="margin-left-width me-0">
    
-        <div class="container-fluid text-center rounded align-items-center h-100">
+        <div class="text-center container-fluid rounded align-items-center h-100">
             
             <br>
 
@@ -46,33 +65,37 @@
                 <h1 class="display-6 text-light">Panel de Control</h1>
             </div>
 
-            <div class="row mx-auto container justify-content-center pt-5 border-1 border border-start-0 border-end-0 border-bottom-0">
+            <div class="row mx-auto container justify-content-center pt-3 border-1 border-top">
 
-                <div class="items-hover m-3 col-3">
+                <div class="items-hover-dash m-md-4 m-3 p-2 col-md-3">
+                    <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="bnsNcn.php">
+                        <img src="icons\bandera-edificio-dash.svg" style="width: 40px; height:40px">    
+                        <h4 class="ms-2 my-auto">| Bienes</h4>
+                        <p class="my-auto fw-bolt fs-1 mx-3"><?= $rowBien ?></p>
+                    </a>
+                </div>
+
+                <div class="items-hover-dash m-md-4 m-3 p-2 col-md-3">
+                    <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="entid.php">
+                        <img src="icons/pizzarron-user-dash.svg" style="width: 40px; height:40px">
+                        <h4 class="ms-2 my-auto">| Docentes</h4>
+                        <p class="my-auto fw-bolt fs-1 mx-3"><?= $rowDocentes ?></p>
+                    </a>
+                </div>
+
+                <div class="items-hover-dash m-md-4 m-3 p-2 col-md-3">
                     <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="entidAlmn.php">
-                        <h3 class="pe-4">Bienes |</h3>
-                        <img src="icons/graduacion.svg"  style="width: 70px; height:70px">
+                        <img src="icons\gorro-graduacion.svg" style="width: 40px; height:40px">
+                        <h4 class="ms-2 my-auto">| Alumnos</h4>
+                        <p class="my-auto fw-bolt fs-1 mx-3"><?= $rowAlumnos ?></p>
                     </a>
                 </div>
 
-                <div class="items-hover m-3 col-3">
-                    <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="entidDoc.php">
-                        <h3 class="pe-4">Personal |</h3>
-                        <img src="icons/pizzarron-user.svg"  style="width: 70px; height:70px">
-                    </a>
-                </div>
-
-                <div class="items-hover m-3 col-3">
-                    <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="entidPers.php">
-                        <h3 class="pe-4">Alumnos |</h3>
-                        <img src="icons/personal.svg"  style="width: 70px; height:70px">
-                    </a>
-                </div>
-
-                <div class="items-hover m-3 col-3">
-                    <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="entidPers.php">
-                        <h3 class="pe-4">Servicios |</h3>
-                        <img src="icons/personal.svg"  style="width: 70px; height:70px">
+                <div class="items-hover-dash m-md-4 m-3 p-2 col-md-3">
+                    <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="mensajes.php">
+                        <img src="icons\atencion_client-dash.svg" style="width: 40px; height:40px">
+                        <h4 class="ms-2 my-auto">| Mensajes</h4>
+                        <p class="my-auto fw-bolt fs-1 mx-3"><?= $rowMensajes ?></p>
                     </a>
                 </div>
 

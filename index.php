@@ -1,6 +1,6 @@
 <?php
-include('dataBase/conn.php');
-session_start();
+    include('dataBase/conn.php');
+    session_start();
     $mensaje_env ='';
 
     if (isset($_SESSION['mensaje-enviado'])) {
@@ -27,7 +27,7 @@ session_start();
 <body class="">
 
     <!-- NavBar -->
-    <nav id="nav" class="navbar navbar-expand-lg fixed-top">
+    <nav id="nav" class="navbar navbar-expand-lg fixed-top gx-5">
         
         <a href="index.php" class="nav-link text-light d-flex dropdown-items ps-3 justify-content-start align-items-center" style="cursor: pointer;">
             <img src="img/logoP.png" style="width: 50px; height:50px;">
@@ -59,13 +59,13 @@ session_start();
                     <a href="#contacto" class="fw-light fs-5 mx-3" style="text-decoration: none;">Contáctanos</a>
                 </div>
                 <div class="nav-item">
-                    <a href="admin.php" class="fw-light mx-3 btn btn-outline-primary border-2">Admin</a>
+                    <a href="admin.php" class="fw-light mx-3 my-2 btn btn-outline-primary border-2">Admin</a>
                 </div>
             </div>
         </div>
     </nav>
     
-    <section id="hero" class="vh-100 h-100" style="background-image: url(img/hero.png); 
+    <section id="hero" class="vh-100 h-100" style="background-image: url(img/hero-2.png); 
                                          background-size:cover; 
                                          background-repeat:no-repeat;">
     
@@ -86,7 +86,7 @@ session_start();
                     <img src="img\niña-de-preescolar-aprendiendo.png" style="filter: drop-shadow(0px 0px 10px white); " class="img-fluid h-100" alt="">
                 </span>
 
-                <img src="img\un-niño-de-preescolar-saludando.png" style="filter: drop-shadow(0px 0px 10px white); " class="img-fluid mx-5" alt="">
+                <img src="img\un-niño-de-preescolar-saludando-2.png" style="filter: drop-shadow(0px 0px 10px white); " class="img-fluid mx-5" alt="">
 
                 <span class="mx-5">
                     <img src="img\niño-de-preescolar-jugando.png" style="filter: drop-shadow(0px 0px 10px white); " class="img-fluid h-100" alt="">
@@ -95,11 +95,9 @@ session_start();
 
         </div>
 
-        
-
     </section>
 
-    <section id="sobre_nosotros" class="pt-5 mx-3">
+    <section id="sobre_nosotros" class="my-md-5 pt-md-0 pt-2 my-2 mx-3">
 
         <div class="text-center px-4 mt-2 pt-1">
 
@@ -144,17 +142,17 @@ session_start();
                             </p>
                             <p>
                                 <strong>
+                                Sección "D"
+                                </strong>
+                            </p>
+                            <p>
+                                <strong>
+                                Sección "E"
+                                </strong>
+                            </p>
+                            <p>
+                                <strong>
                                 Sección "F"
-                                </strong>
-                            </p>
-                            <p>
-                                <strong>
-                                Sección "G"
-                                </strong>
-                            </p>
-                            <p>
-                                <strong>
-                                Sección "H"
                                 </strong>
                             </p>
                         </div>
@@ -174,12 +172,12 @@ session_start();
                             </p>
                             <p>
                                 <strong>
-                                Sección "C"
+                                Sección "B"
                                 </strong>
                             </p>
                             <p>
                                 <strong>
-                                Sección "D"
+                                Sección "C"
                                 </strong>
                             </p>    
                         </div>
@@ -211,22 +209,29 @@ session_start();
         </div>
     </section>
 
-    <section class="pt-5 mt-5">
-        <div class="border-bottom w-25 border-3 border-primary mx-auto my-3"></div>
-        <div class="p-0 m-0 h-100" style="background-attachment:fixed;
-                        background-image: url(img/fondo.jpg); 
-                        background-size:cover; 
-                        background-repeat:no-repeat;">
+    <section class="pt-2 mt-2">
+        <div class="my-3"></div>
+            <div class="p-0 m-0 h-100" style="background-attachment:fixed;
+                                              background-image: url(img/fondo.jpg); 
+                                              background-size:cover; 
+                                              background-repeat:no-repeat;">
 
-            <div class="d-flex justify-content-center align-items-center bg-dark-trans" style="height: 30vh;">
-                <div class="text-light fs-2 text-center fw-light">"No intentes ser el mejor de tu equipo, intenta que tu equipo sea el MEJOR"</div>
+                <div class="d-flex justify-content-center align-items-center px-2 bg-dark-trans" style="height: 40vh;">
+                    <figure class="text-center">
+                        <blockquote class="blockquote">
+                            <p class="fs-1 fw-light text-light">No intentes ser el mejor de tu equipo, intenta que tu equipo sea el MEJOR.</p>
+                        </blockquote>
+                        <figcaption class="blockquote-footer fs-5">
+                            <cite class="text-primary"> Brian Tracy y Allen Iverson.</cite>
+                        </figcaption>
+                    </figure>
+                </div>
+
             </div>
-
-        </div>
-        <div class="border-bottom w-25 border-3 border-primary mx-auto my-3"></div>
+        <div class="my-3"></div>
     </section>
 
-    <section id="eligenos" class="pt-5 mt-5 rounded">
+    <section id="eligenos" class="pt-1 mt-1 pt-md-4 mt-md-4 rounded">
 
         <div class="text-center rounded container-fluid ps-4 pt-1 pe-4">
 
@@ -238,9 +243,9 @@ session_start();
 
         </div>
 
-        <div class="container row mt-5 mx-auto justify-content-center">
+        <div class="container row mt-3 mt-md-5 mx-auto justify-content-center">
 
-            <div class="col-md-4 col-sm-6 col-12 my-3 px-5 item-eligenos">
+            <div class="col-md-4 col-sm-6 col-12 px-2 px-md-5 mb-4 mb-md-0 item-eligenos">
                 <div class="rounded-circle p-3 mx-auto shadow d-flex justify-content-center align-items-center" style="width: 110px; height:110px">
                     <img src="icons/experiencia.svg" style="width: 70px; height:70px">
                 </div>
@@ -252,7 +257,7 @@ session_start();
                 </p>
             </div>
 
-            <div class="col-md-4 col-sm-6 col-12 my-3 px-5 item-eligenos">
+            <div class="col-md-4 col-sm-6 col-12 px-2 px-md-5 mb-4 mb-md-0 item-eligenos">
                 <div class="rounded-circle p-3 mx-auto shadow d-flex justify-content-center align-items-center" style="width: 110px; height:110px">
                     <img src="icons/enfoque.svg" style="width: 70px; height:70px">
                 </div>
@@ -264,14 +269,14 @@ session_start();
                 </p>
             </div>
 
-            <div class="col-md-4 col-sm-6 col-12 my-3 px-5 item-eligenos">
+            <div class="col-md-4 col-sm-6 col-12 px-2 px-md-5 mb-md-0 item-eligenos">
                 <div class="rounded-circle p-3 mx-auto shadow d-flex justify-content-center align-items-center" style="width: 110px; height:110px">
                     <img src="icons/actividad.svg" style="width: 70px; height:70px">
                 </div>
                 <p class="text-dark text-center fw-bolt mb-0 fs-5 pt-2">Actividades Extracurriculares</p>
                 <div class="border-bottom border-2 border-primary w-hr mx-auto my-2"></div>
                 <p class="text-dark fw-light text-center hover-bg p-2">
-                    Ofrece una variedad de actividades extracurriculares que enriquecen el aprendizaje y permiten a
+                    Ofrecemos una variedad de actividades extracurriculares que enriquecen el aprendizaje y permiten a
                     los niños explorar sus intereses y talentos.
                 </p>
             </div>
@@ -279,8 +284,8 @@ session_start();
         </div>
     </section>
 
-    <section id="equipo" class="pt-5">
-        <div class="my-4">
+    <section id="equipo" class="pt-1 mt-1 pt-md-3 mt-md-3">
+        <div class="my-3">
             <div class="text-center rounded container-fluid ps-4 pt-1 pe-4 h-100">
 
                 <p class="text-dark fw-light fs-1 mt-2">Conoce a Nuestro Equipo</p>
@@ -307,7 +312,7 @@ session_start();
         </div>
     </section>
 
-    <section id="contacto" class="text-center rounded container-fluid px-4 pt-1">
+    <section id="contacto" class="text-center rounded container-fluid px-2 px-md-5 pt-1 mt-1 pt-md-4 mt-md-4">
         <div class="my-4">
             <br>
             <p class="text-dark fw-light pt-1 fs-1 mt-2">Contáctanos</p>
@@ -389,7 +394,8 @@ session_start();
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/js.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
-
+    
+    <!-- Script para añadir estilos al ubicarse en ciertas secciones de la pagina por el id -->
     <script>
         let sections = document.querySelectorAll('section');
         let navLinks = document.querySelectorAll('nav a');
@@ -408,33 +414,18 @@ session_start();
             });
         };
     </script>
-
-    <script> // Script para añadir o remover fondo al hacer scroll 
+    
+    <!-- Script para añadir o remover estilos al hacer scroll  -->
+    <script>
         window.addEventListener('scroll', function() { 
             var navbar = document.getElementById('nav'); 
-            if (window.scrollY > 0) { 
-                navbar.classList.add('bg-black', 'shadow-blue', 'border-bottom', 'border-primary', 'border-2'); 
+            if (window.scrollY > 1) { 
+                navbar.classList.add('bg-scroll', 'shadow-blue', 'border-bottom', 'border-primary', 'border-2'); 
             } else { 
-            navbar.classList.remove('bg-black', 'shadow-blue', 'border-bottom', 'border-primary', 'border-2'); 
+                navbar.classList.remove('bg-scroll', 'shadow-blue', 'border-bottom', 'border-primary', 'border-2'); 
             } 
         }); 
     </script>
-
-    <!-- Mensaje de Bienvenida al Iniciar Sesion -->
-    <?php if(!empty($bienvenido)){ ?> 
-        <script>
-            let nombre = '<?php echo $bienvenido; ?>';
-            window.onload = function(){
-                swal.fire({
-                    title : "¡Bienvenido(a) " + nombre +"!",
-                    icon : "success",
-                    timer : "1700",
-                    text : "¡Acceso Concedido!",
-                    showConfirmButton : false
-                });
-            }
-        </script>
-     <?php  } ?>
 
     <!-- Alert mensaje enviado -->
     <?php if(!empty($mensaje_env)){ ?> 
@@ -442,9 +433,7 @@ session_start();
             window.onload = function(){
                 swal.fire({
                     title : "¡Mensaje Enviado!",
-                    icon : "success",
-                    timer : "1800",
-                    showConfirmButton : false
+                    icon : "success"
                 });
             }
         </script>

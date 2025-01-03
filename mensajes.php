@@ -64,9 +64,12 @@
                 
                 <br>
 
-                <div class="d-flex justify-content-between align-items-center px-3">
-                    <h1 class="display-4"><img src="icons\atencion_client.svg"  style="width: 70px; height:70px"> | Mensajes </h1>
-                    <div class="alert alert-info" role="alert">
+                <div class="d-md-flex text-center justify-content-between align-items-center">
+                    <div class="d-md-flex d-block">
+                        <img src="icons\atencion_client.svg" style="width: 70px;"><hr class="d-md-none w-25 mx-auto border-primary border"><div class="vr mx-3 d-md-block d-none border-primary"></div>
+                        <h1 class="display-5">Mensajes </h1>
+                    </div>
+                    <div class="alert alert-info mt-3 mt-md-0" role="alert">
                         <?= $resultado2->rowCount(); ?> Mensajes sin abrir
                     </div>
                 </div>
@@ -74,86 +77,88 @@
                 <hr>
                 
                 <!-- Tabla DataTable -->
-                <table id="myTable" class="display compact" style="width:80%">
-                    
-                    <thead>
-                        <tr>
-                            <th class="text-start">Nombre</th>
-                            <th class="text-start">Medio de Contacto</th>
-                            <th class="text-start">Asunto</th>
-                            <th class="text-start">Status</th>
-                            <th class="text-center">Acción</th>
-                        </tr>
-                    </thead>
-                    
-                    <tbody>
+                <div class="table-responsive-md">
+                    <table id="myTable" class="display compact" style="width:90%">
                         
-                        <?php foreach ($resultado as $key) {?>
+                        <thead>
+                            <tr>
+                                <th class="text-start">Nombre</th>
+                                <th class="text-start">Medio de Contacto</th>
+                                <th class="text-start">Asunto</th>
+                                <th class="text-start">Status</th>
+                                <th class="text-center">Acción</th>
+                            </tr>
+                        </thead>
                         
-                        <tr>
-                            <td> <?php echo $key['nombre']; ?> </td>
-                            <td class="text-start"> <?php echo $key['contacto']; ?> </td>
-                            <td> <?php echo $key['asunto']; ?> </td>
-                            <td class="text-start"><img src="icons/<?= $key['status'] === 0 ? 'mensaje.svg' : 'mensaje_abierto.svg' ?>" style="width: 30px; height: 30px;" class="<?= $key['status'] === 0 ? 'shadow-mens' : 'shadow-mens-open' ?>"> <?= $key['status'] === 0 ? ' Sin Leer' : ' Leído' ?></td>
-                            <td style="background: none" class="d-flex">
-                                <div class="ms-1 me-1">
-                                    <form action="dataBase/eliminar.php" method="post" id="formDataDelete<?php echo $key['id'];?>">
-                                        <input type="hidden" name="id" value="<?php echo $key['id'];?>">
-                                        <input type="hidden" name="ubicacion" value="mensajes.php">
-                                        <input type="hidden" name="tabla" value="mensajes">
-                                        <button onclick="alertDelete('<?php echo $key['nombre']; ?>', '<?php echo $key['id']; ?>')" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Eliminar" class="btn shadow btn-outline-primary border-3">
-                                            <img src="icons/delete.svg" style="width: 20px; height: 20px;">
-                                        </button>
-                                    </form>
-                                </div>
-                                <div class="ms-1 me-1">
-                                    <form action="" method="post">
-                                        <input type="hidden" name="id" value="<?php echo $key['id'];?>">
-                                        <button onclick="modalVer('<?php echo $key['id'];?>')" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Abrir Mensaje" class="btn shadow btn-outline-primary border-3">
-                                            <img src="icons/lupa.svg" style="width: 20px; height: 20px;">
-                                        </button>
-                                    </form>
-                                </div>
-                            </td> 
-                        </tr>
-
-                        <!-- Modal Ver -->
-                        <div class="modal fade" id="modalVer<?php echo $key['id'];?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fw-light fs-5" id="exampleModalLabel">De: <?= ' '.$key['nombre'] ?></h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <tbody>
+                            
+                            <?php foreach ($resultado as $key) {?>
+                            
+                            <tr>
+                                <td> <?php echo $key['nombre']; ?> </td>
+                                <td class="text-start"> <?php echo $key['contacto']; ?> </td>
+                                <td> <?php echo $key['asunto']; ?> </td>
+                                <td class="text-start"><img src="icons/<?= $key['status'] === 0 ? 'mensaje.svg' : 'mensaje_abierto.svg' ?>" style="width: 30px; height: 30px;" class="<?= $key['status'] === 0 ? 'shadow-mens' : 'shadow-mens-open' ?>"> <?= $key['status'] === 0 ? ' Sin Leer' : ' Leído' ?></td>
+                                <td style="background: none" class="d-flex">
+                                    <div class="ms-1 me-1">
+                                        <form action="dataBase/eliminar.php" method="post" id="formDataDelete<?php echo $key['id'];?>">
+                                            <input type="hidden" name="id" value="<?php echo $key['id'];?>">
+                                            <input type="hidden" name="ubicacion" value="mensajes.php">
+                                            <input type="hidden" name="tabla" value="mensajes">
+                                            <button onclick="alertDelete('<?php echo $key['nombre']; ?>', '<?php echo $key['id']; ?>')" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Eliminar" class="btn shadow btn-outline-primary border-3">
+                                                <img src="icons/delete.svg" style="width: 20px; height: 20px;">
+                                            </button>
+                                        </form>
                                     </div>
-                                    <div class="modal-body">
-                                        <div class="container-fluid">
-                                            <div class="d-flex">
-                                                <h4 class="fw-bolt">Asunto: </h4><h4 class="fw-light"><?= ' '.$key['asunto'] ?></h4>
-                                            </div>
-                                            <h4 class="fw-bolt">Mensaje: </h4><h4 class="fw-light"><?= $key['mensaje'] ?></h4>
-                                        </div>
-                                        <div class="modal-footer d-flex justify-content-center">
-                                            <button type="button" class="btn border-2 btn-outline-primary" data-bs-dismiss="modal">OK</button>
-                                            
-                                            <?php if($key['status'] === 0) : ?>
-                                                
-                                                <form action="dataBase/status.php" method="post">
-                                                    <input type="hidden" name="id" value="<?=$key['id']?>">
-                                                    <button type="submit" class="btn border-2 btn-outline-success" data-bs-dismiss="modal">Marcar como leído</button>
-                                                </form>
+                                    <div class="ms-1 me-1">
+                                        <form action="" method="post">
+                                            <input type="hidden" name="id" value="<?php echo $key['id'];?>">
+                                            <button onclick="modalVer('<?php echo $key['id'];?>')" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Abrir Mensaje" class="btn shadow btn-outline-primary border-3">
+                                                <img src="icons/lupa.svg" style="width: 20px; height: 20px;">
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td> 
+                            </tr>
 
-                                            <?php endif; ?>                                     
-                                        
+                            <!-- Modal Ver -->
+                            <div class="modal fade" id="modalVer<?php echo $key['id'];?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fw-light fs-5" id="exampleModalLabel">De: <?= ' '.$key['nombre'] ?></h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container-fluid">
+                                                <div class="d-flex">
+                                                    <h4 class="fw-bolt">Asunto: </h4><h4 class="fw-light"><?= ' '.$key['asunto'] ?></h4>
+                                                </div>
+                                                <h4 class="fw-bolt">Mensaje: </h4><h4 class="fw-light"><?= $key['mensaje'] ?></h4>
+                                            </div>
+                                            <div class="modal-footer d-flex justify-content-center">
+                                                <button type="button" class="btn border-2 btn-outline-primary" data-bs-dismiss="modal">OK</button>
+                                                
+                                                <?php if($key['status'] === 0) : ?>
+                                                    
+                                                    <form action="dataBase/status.php" method="post">
+                                                        <input type="hidden" name="id" value="<?=$key['id']?>">
+                                                        <button type="submit" class="btn border-2 btn-outline-success" data-bs-dismiss="modal">Marcar como leído</button>
+                                                    </form>
+
+                                                <?php endif; ?>                                     
+                                            
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <?php } ?>
+                            <?php } ?>
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
 
                 <!-- Modal Editar -->
                 <?php if (!empty($idEdit)) : ?>

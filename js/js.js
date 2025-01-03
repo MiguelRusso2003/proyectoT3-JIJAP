@@ -40,7 +40,7 @@ function menuAction(){
 
     let clase = elementNav.getAttribute("class");
    
-    if (clase == "navbar ps-2 mt-1 fixed-top bg-trans margin-left-nav") {
+    if (clase == "navbar fixed-top bg-black rounded justify-content-end margin-left-nav") {
         
         elementBody.classList.replace("margin-left","margin-left-width");
         elementBody1.classList.replace("margin-left","margin-left-width");
@@ -48,7 +48,7 @@ function menuAction(){
         elementFooter.classList.replace("margin-left","margin-left-width");
         elementNav.classList.replace("margin-left-nav","margin-left-width-nav");
     
-    }else if(clase == "navbar ps-2 mt-1 fixed-top bg-trans margin-left-width-nav"){
+    }else if(clase == "navbar fixed-top bg-black rounded justify-content-end margin-left-width-nav"){
         
         elementBody.classList.remove("margin-left-width");
         elementBody1.classList.remove("margin-left-width");

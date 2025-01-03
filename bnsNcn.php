@@ -41,11 +41,11 @@
                 <h1 class="display-6 text-light">Bienes Nacionales</h1>
             </div>
 
-            <div class="container d-flex justify-content-center mt-2 pt-5 border-1 border border-start-0 border-end-0 border-bottom-0">
+            <div class="container d-md-flex justify-content-center mt-2 pt-5 border-1 border-top">
 
                 <div class="items-hover mx-auto bg-trans-items">
-                    <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="bnsMbls.php">
-                        <h3 class="pe-4">Bienes Muebles |</h3>
+                    <a class="dropdown-item d-md-flex align-items-center justify-content-md-between py-2 px-3" href="bnsMbls.php">
+                        <h3 class="pe-md-4">Bienes Muebles |</h3>
                         <img src="icons/mueble.svg"  style="width: 90px; height:90px">
                     </a>
                 </div>
@@ -53,9 +53,9 @@
                 <hr class="vr shadow" style="color: white;">
 
                 <div class="items-hover mx-auto bg-trans-items">
-                    <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="bnsMtls.php">
+                    <a class="dropdown-item d-md-flex align-items-center justify-content-md-between py-2 px-3" href="bnsMtls.php">
                         <img src="icons/herramientas.svg"  style="width: 90px; height:90px">
-                        <h3 class="ps-4"> | Bienes Materiales</h3>
+                        <h3 class="ps-md-4"> | Bienes Materiales</h3>
                     </a>
                 </div>
                 

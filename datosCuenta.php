@@ -44,38 +44,34 @@
     
     <div id="body" class="rounded margin-left-width">
    
-        <div class=" container bg-footer rounded">
+        <div class="bg-footer rounded">
 
             <br>
             
-            <div class="d-flex container-fluid justify-content-between align-items-center px-3">
-                <h1 class="display-6 text-light fw-light"><img src="icons/user.svg"  style="width: 60px; height:60px"> | <?php echo $userDate['nombre'] . ' ' . $userDate['apellido'] ; ?></h1>  
-                <label class="display-6 text-light fw-light d-flex"><?php echo $userDate['usertype']; ?> |</label>
+            <div class="d-block d-md-flex text-center justify-content-md-between justify-content-center align-items-center px-md-3 px-0">
+                <h1 class="fs-3 text-light fw-light"><img src="icons/user.svg"  style="width: 40px; height:40px"> | <?php echo $userDate['nombre'] . ' ' . $userDate['apellido'] ; ?></h1>  
+                <label class="d-none d-sm-flex fs-3 text-light fw-light"><?php echo $userDate['usertype']; ?> |</label>
             </div>
 
-            <hr class="border"><br>
+            <hr class="border">
 
-            <div class="container d-flex px-5 justify-content-center">
+            <div class="d-sm-flex px-md-5 justify-content-center">
             
-                <div class="mx-auto mod-hover ps-5">
-                    <a class="dropdown-item rounded d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="#">
-                        <img src="icons/tarjeta-personal.svg"  style="width: 70px; height:70px;">
-                        <h5 class="ps-4 fw-light"> | Información Personal</h5>
+                <div class="mx-auto mod-hover my-3 ps-md-5">
+                    <a class="justify-content-center text-center dropdown-item rounded d-md-flex align-items-center py-2 px-3" href="#">
+                        <img src="icons/tarjeta-personal.svg" style="width: 70px; height:70px;">
+                        <h5 class="ps-sm-4 fw-light py-2"> | Información Personal</h5>
                     </a>
                 </div>
 
-                <hr class="vr border">
-
-                <div class="mx-auto mod-hover pe-5">
-                    <a class="dropdown-item rounded d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="#">
-                        <img src="icons/escudo.svg"  style="width: 70px; height:70px">
-                        <h5 class="ps-4 fw-light">| Seguridad de la Cuenta</h5>
+                <div class="mx-auto mod-hover my-3 pe-md-5">
+                    <a class="justify-content-center text-center dropdown-item rounded d-md-flex align-items-center py-2 px-3" href="#">
+                        <img src="icons/escudo.svg" style="width: 70px; height:70px;">
+                        <h5 class="ps-sm-4 fw-light py-2">| Seguridad de la Cuenta</h5>
                     </a>
                 </div>
 
             </div>
-
-            <br><br>
 
         </div>
 

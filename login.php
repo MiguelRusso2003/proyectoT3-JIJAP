@@ -28,7 +28,7 @@
     <section class="vh-100">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col col-xl-8">
+                <div class="col-lg-7 col-md-9 col">
                     <div class="card h-100 border-2 border-primary bg-light" style="border-radius: 1rem; box-shadow:0px 0px 20px -5px blue;">
                         <div class="row g-0 h-100">
 
@@ -42,13 +42,13 @@
                                     </div>
                                     <div class="carousel-inner h-100" style="border-top-left-radius: 1rem; border-bottom-left-radius: 1rem">
                                         <div class="carousel-item active" data-bs-interval="3000">
-                                            <img src="img/login1.jpg" class="w-100 h-100" alt="...">
+                                            <img src="img/login1.jpg" class="w-100" style="height: 100%;" alt="...">
                                         </div>
                                         <div class="carousel-item" data-bs-interval="3000">
-                                            <img src="img/login2.jpg" class="w-100 h-100" alt="...">
+                                            <img src="img/login2.jpg" class="w-100" style="height: 100%;" alt="...">
                                         </div>
                                         <div class="carousel-item" data-bs-interval="3000">
-                                            <img src="img/login4.jpg" class="w-100 h-100" alt="...">
+                                            <img src="img/login4.jpg" class="w-100" style="height: 100%;" alt="...">
                                         </div>
                                     </div>
                                     <button class="carousel-control-prev" type="button" data-bs-target="#CarruselDeLogin" data-bs-slide="prev">
@@ -64,7 +64,7 @@
 
                             <!-- Login -->
                             <div class="col-md-6 col-lg-6 d-flex align-items-center h-100 my-auto">
-                                <div class="card-body p-2 p-lg-5 text-black">
+                                <div class="card-body p-3 text-black">
                                     <form method="POST" action="dataBase/sesion.php">
                                         
                                         <div class="d-flex align-items-center justify-content-center mb-4 mt-2">

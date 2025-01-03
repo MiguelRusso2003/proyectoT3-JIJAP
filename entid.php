@@ -41,11 +41,11 @@
                 <h1 class="display-6 text-light">Entidades</h1>
             </div>
 
-            <div class="container d-flex justify-content-center pt-5 border-1 border border-start-0 border-end-0 border-bottom-0">
+            <div class="container d-md-flex justify-content-center pt-5 border-1 border border-start-0 border-end-0 border-bottom-0">
 
                 <div class="items-hover mx-auto bg-trans-items">
-                    <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="entidAlmn.php">
-                        <h3 class="pe-4">Alumnos |</h3>
+                    <a class="dropdown-item d-md-flex align-items-center justify-content-between py-2 px-3" href="entidAlmn.php">
+                        <h3 class="pe-md-4">Alumnos |</h3>
                         <img src="icons/graduacion.svg"  style="width: 70px; height:70px">
                     </a>
                 </div>
@@ -53,8 +53,8 @@
                 <hr class="vr shadow" style="color: white;">
 
                 <div class="items-hover mx-auto bg-trans-items">
-                    <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="entidDoc.php">
-                        <h3 class="pe-4">Docentes |</h3>
+                    <a class="dropdown-item d-md-flex align-items-center justify-content-between py-2 px-3" href="entidDoc.php">
+                        <h3 class="pe-md-4">Docentes |</h3>
                         <img src="icons/pizzarron-user.svg"  style="width: 70px; height:70px">
                     </a>
                 </div>
@@ -62,8 +62,8 @@
                 <hr class="vr shadow" style="color: white;">
 
                 <div class="items-hover mx-auto bg-trans-items">
-                    <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="entidPers.php">
-                        <h3 class="pe-4">Personal |</h3>
+                    <a class="dropdown-item d-md-flex align-items-center justify-content-between py-2 px-3" href="entidPers.php">
+                        <h3 class="pe-md-4">Personal |</h3>
                         <img src="icons/personal.svg"  style="width: 70px; height:70px">
                     </a>
                 </div>

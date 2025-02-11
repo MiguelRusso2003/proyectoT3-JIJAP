@@ -7,8 +7,17 @@
             <p class="fs-5 ps-2 m-auto text-light fw-light"><?php if(!empty($mensaje)) : echo $mensaje; endif; ?></p>
         </button>
         <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser1" style="background-color: white;">
+            <li>
+                <a href="index.php" class="d-flex text-black dropdown-item">
+                    <img class="me-2" src="icons/house.svg" width="20" height="20">
+                    <p class="fw-light mx-2 my-auto">Inicio</p>
+                </a>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
             <li class="d-flex">
-                <a class="text-primary dropdown-item" href="datosCuenta.php">
+                <a class="text-black fw-light dropdown-item" href="datosCuenta.php">
                     <img class="me-2" src="icons/user-edit.svg" width="20px" height="20px">
                     Datos de  Usuario
                 </a>
@@ -17,7 +26,7 @@
                 <hr class="dropdown-divider">
             </li>
             <li>
-                <a class="text-primary dropdown-item" href="dataBase/logout.php">
+                <a class="text-black fw-light dropdown-item" href="dataBase/logout.php">
                     <img class="me-2" src="icons/logout.svg" width="20px" height="20px">
                     Salir
                 </a>

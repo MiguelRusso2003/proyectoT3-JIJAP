@@ -76,7 +76,7 @@
                 </div>
 
                 <div class="items-hover-dash m-md-4 m-3 p-2 col-md-3">
-                    <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="entid.php">
+                    <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="entidDoc.php">
                         <img src="icons/pizzarron-user-dash.svg" style="width: 40px; height:40px">
                         <h4 class="ms-2 my-auto">| Docentes</h4>
                         <p class="my-auto fw-bolt fs-1 mx-3"><?= $rowDocentes ?></p>

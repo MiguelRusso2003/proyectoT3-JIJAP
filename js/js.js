@@ -7,11 +7,11 @@ function alertDelete(nombre, id){
         buttonsStyling: false
       });
       swalWithBootstrapButtons.fire({
-        title: "¿Estas Seguro(a) de eliminar a " + nombre + " del Registro?",
+        title: "¿Estas seguro(a) de eliminar el registro de: "+ "<h3 style='color:red; padding-top: 10px '>" + nombre + "</h3>",
         text: "¡Esta acción es irreversible!",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonText: "si, eliminar a " + nombre,
+        confirmButtonText: "Si, eliminar",
         cancelButtonText: "No, cancelar!",
         reverseButtons: true
       }).then((result) => {

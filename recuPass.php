@@ -48,7 +48,7 @@
     <section class="vh-100">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col col-xl-8">
+                <div class="col-lg-7 col-md-9 col">
                     <div class="card h-100 border-2 border-primary bg-light" style="border-radius: 1rem; box-shadow:0px 0px 20px -5px blue;">
                         <div class="row g-0 h-100">
                             <!-- Carusel de imagenes -->
@@ -111,12 +111,12 @@
                                         <form action="dataBase/recPass.php" method="post">
 
                                             <div class="form-floating mb-4">
-                                                <input type="password" name="resp1" id="floatingInput" class="border border-secondary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                                <input type="text" name="resp1" id="floatingInput" class="border border-secondary border-2 form-control form-control-lg" placeholder="usuario" required>
                                                 <label class="text-secondary" for="floatingInput"><?php echo $user["pregunta1"]; ?></label>
                                             </div>
 
                                             <div class="form-floating mb-4">
-                                                <input type="password" name="resp2" id="floatingInput" class="border border-secondary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                                <input type="text" name="resp2" id="floatingInput" class="border border-secondary border-2 form-control form-control-lg" placeholder="usuario" required>
                                                 <label class="text-secondary" for="floatingInput"><?php echo $user["pregunta2"]; ?></label>
                                             </div>
 

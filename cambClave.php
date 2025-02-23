@@ -40,7 +40,7 @@
     <section class="vh-100">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col col-xl-8">
+            <div class="col-lg-7 col-md-9 col">
                     <div class="card h-100 border-2 border-primary bg-light" style="border-radius: 1rem; box-shadow:0px 0px 20px -5px blue;">
                         <div class="row g-0 h-100">
 
@@ -94,13 +94,21 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <form method="POST" action="dataBase/editPass.php">
-                                                        <div class="form-floating mb-4">
-                                                            <input type="password" name="newPass" id="floatingInput" class="border border-secondary border-2 form-control" placeholder="usuario" required>
+                                                        <div class="form-floating mb-4 input-group">
+                                                            <input type="password" name="newPass" id="pass1" class="border border-secondary border-2 form-control" placeholder="usuario" required>
                                                             <label class="text-secondary" for="floatingInput">Nueva Contraseña</label>
+                                                            <span id="botonVer" class="input-group-text">
+                                                                <img id="iconEye" src="icons/eye.svg" class="">
+                                                                <img id="iconEye2" src="icons/eye-slash.svg" class="visually-hidden">
+                                                            </span>
                                                         </div>
-                                                        <div data-mdb-input-init class="form-floating mb-3">
-                                                            <input type="password" name="confirmPass" placeholder="Contraseña" class="border border-secondary border-2 form-control" required>
+                                                        <div class="form-floating mb-3 input-group">
+                                                            <input type="password" name="confirmPass" id="pass2" placeholder="Contraseña" class="border border-secondary border-2 form-control" required>
                                                             <label class="text-secondary">Reescribir contraseña</label>
+                                                            <span class="input-group-text">
+                                                                <img id="iconEye3" src="icons/eye.svg">
+                                                                <img id="iconEye4" src="icons/eye-slash.svg" class="visually-hidden">
+                                                            </span>
                                                         </div>
                                                         <div class="modal-footer d-flex justify-content-center">
                                                             <input type="hidden" name="id" value="<?php echo $user["id"]; ?>">
@@ -219,6 +227,35 @@
             // and then do the updating in a callback.
         })
         }
+    </script>
+    <script>
+        const Pass1 = document.getElementById("pass1");
+        const Pass2 = document.getElementById("pass2");
+        const iconEye = document.getElementById("iconEye");
+        const iconEye2 = document.getElementById("iconEye2");
+        const iconEye3 = document.getElementById("iconEye3");
+        const iconEye4 = document.getElementById("iconEye4");
+
+        iconEye.addEventListener('click', function () {
+            Pass1.type = 'text';
+            iconEye2.classList.remove("visually-hidden");
+            iconEye.classList.add("visually-hidden");
+        });
+        iconEye2.addEventListener('click', function () {
+            Pass1.type = 'password';  
+            iconEye.classList.remove("visually-hidden");
+            iconEye2.classList.add("visually-hidden");
+        });
+        iconEye3.addEventListener('click', function () {
+            Pass2.type = 'text';
+            iconEye4.classList.remove("visually-hidden");
+            iconEye3.classList.add("visually-hidden");
+        });
+        iconEye4.addEventListener('click', function () {
+            Pass2.type = 'password';  
+            iconEye3.classList.remove("visually-hidden");
+            iconEye4.classList.add("visually-hidden");
+        });
     </script>
 </body>
 </html>

@@ -1,6 +1,8 @@
 <?php
 
-    include('conn.php');
+include('conn.php');
+
+if (empty($_POST['apellido'])) {
 
     $nombre = $_POST['nombre'];
     $contacto = $_POST['correo'];
@@ -24,4 +26,9 @@
         header('location:../index.php#contacto');
 
     }
+} else {
+    header('location:../index.php#contacto');
+}
+
+    
 ?>

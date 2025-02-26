@@ -71,14 +71,21 @@
                                             <img src="img/logoP.png" style="width: 200px; height: 200px;filter:drop-shadow(0px 0px 5px black)" alt="">
                                         </div>
 
-                                        <div class="form-floating mb-2">
+                                        <div class="form-floating input-group mb-2">
                                             <input type="text" name="usuario" id="floatingInput" class="border border-secondary border-2 form-control" placeholder="usuario" required>
                                             <label class="text-secondary" for="floatingInput">Usuario</label>
+                                            <span class="input-group-text">
+                                                <img src="icons\person-circle.svg">
+                                            </span>
                                         </div>
 
-                                        <div data-mdb-input-init class="form-floating mb-3">
-                                            <input type="password" name="clave" placeholder="Contraseña" class="border border-secondary border-2 form-control" required>
+                                        <div data-mdb-input-init class="form-floating input-group mb-3">
+                                            <input type="password" id="pass1" name="clave" placeholder="Contraseña" class="border border-secondary border-2 form-control" required>
                                             <label class="text-secondary">Contraseña</label>
+                                            <span class="input-group-text">
+                                                <img id="iconEye" src="icons/eye.svg" class="cursor-pointer">
+                                                <img id="iconEye2" src="icons/eye-slash.svg" class="cursor-pointer visually-hidden">
+                                            </span>
                                         </div>
 
                                         <div class="d-flex pt-1 mb-4 justify-content-center">
@@ -183,6 +190,22 @@
     <script src="js/js.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/sweetalert2.js"></script>
+    <script>
+        const Pass1 = document.getElementById("pass1");
+        const iconEye = document.getElementById("iconEye");
+        const iconEye2 = document.getElementById("iconEye2");
+
+        iconEye.addEventListener('click', function () {
+            Pass1.type = 'text';
+            iconEye2.classList.remove("visually-hidden");
+            iconEye.classList.add("visually-hidden");
+        });
+        iconEye2.addEventListener('click', function () {
+            Pass1.type = 'password';  
+            iconEye.classList.remove("visually-hidden");
+            iconEye2.classList.add("visually-hidden");
+        });
+    </script>
 </body>
 </html>
 

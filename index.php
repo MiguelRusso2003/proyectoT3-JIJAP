@@ -332,6 +332,8 @@
                                     <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="nombre">
                                     <label>Nombre y Apellido</label>
                                 </div>
+
+                                <input type="text" class="visually-hidden" name="apellido">
                                 
                                 <div class="col-md-6 form-floating">
                                     <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="correo">

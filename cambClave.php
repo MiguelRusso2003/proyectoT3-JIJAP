@@ -97,17 +97,17 @@
                                                         <div class="form-floating mb-4 input-group">
                                                             <input type="password" name="newPass" id="pass1" class="border border-secondary border-2 form-control" placeholder="usuario" required>
                                                             <label class="text-secondary" for="floatingInput">Nueva Contraseña</label>
-                                                            <span id="botonVer" class="input-group-text">
-                                                                <img id="iconEye" src="icons/eye.svg" class="">
-                                                                <img id="iconEye2" src="icons/eye-slash.svg" class="visually-hidden">
+                                                            <span class="input-group-text">
+                                                                <img id="iconEye" src="icons/eye.svg" class="cursor-pointer">
+                                                                <img id="iconEye2" src="icons/eye-slash.svg" class="cursor-pointer visually-hidden">
                                                             </span>
                                                         </div>
                                                         <div class="form-floating mb-3 input-group">
                                                             <input type="password" name="confirmPass" id="pass2" placeholder="Contraseña" class="border border-secondary border-2 form-control" required>
                                                             <label class="text-secondary">Reescribir contraseña</label>
                                                             <span class="input-group-text">
-                                                                <img id="iconEye3" src="icons/eye.svg">
-                                                                <img id="iconEye4" src="icons/eye-slash.svg" class="visually-hidden">
+                                                                <img id="iconEye3" src="icons/eye.svg" class="cursor-pointer">
+                                                                <img id="iconEye4" src="icons/eye-slash.svg" class="cursor-pointer visually-hidden">
                                                             </span>
                                                         </div>
                                                         <div class="modal-footer d-flex justify-content-center">

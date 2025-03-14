@@ -72,6 +72,7 @@
                 
                 <br>
 
+                <!-- header -->
                 <div class="d-md-flex text-center justify-content-between align-items-center">
                     <div class="d-md-flex d-block">
                         <img src="icons/pizzarron-user.svg" style="width: 70px;"><hr class="d-md-none w-25 mx-auto border-primary border"><div class="vr mx-3 d-md-block d-none border-primary"></div>
@@ -257,6 +258,16 @@
 
                                         <div class="container-fluid d-md-flex justify-content-center">
 
+                                            <div class="mb-4 mx-2 col-md-4 text-center">
+                                                <img src="<?= $datosEdit["foto"] ?>" id="vista-previa" class="img-fluid rounded col-md-9 col-7 border border-2 border-info mb-1">
+                                                <input onchange="mostrarVistaPrevia(event)" type="file" accept="image/*" multiple name="foto" id="inputFile" style="visibility: hidden; position:absolute" placeholder="usuario">
+                                                <label class="btn btn-outline-info border-2 col-7" for="inputFile">Cambiar Foto</label>
+                                            </div>
+                                            
+                                        </div>
+
+                                        <div class="container-fluid d-md-flex justify-content-center">
+
                                             <div class="form-floating mb-4 mx-2 col-md-4">
                                                 <input  value="<?php echo $datosEdit["nombre"] ; ?>" type="text" name="nombre" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
                                                 <label class="text-dark" for="floatingInput">Nombre</label>
@@ -339,7 +350,12 @@
                                             </div>
 
                                             <div class="form-floating mb-4 mx-2 col-md-4">
-                                                <input value="<?php echo $datosEdit["areaForm"] ; ?>" type="text" name="areaForm" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                                <select class="form-control me-1 border border-2 border-primary" name="areaForm" required>
+                                                    <option value="Director(a)" <?= 'Director(a)' === $datosEdit["areaForm"] ? 'selected' : '' ?>>Director(a)</option>
+                                                    <option value="Docente de Aula" <?= 'Docente de Aula' === $datosEdit["areaForm"] ? 'selected' : '' ?>>Docente de Aula</option>
+                                                    <option value="Deporte" <?= 'Deporte' === $datosEdit["areaForm"] ? 'selected' : '' ?>>Deporte</option>
+                                                    <option value="Secretario(a)" <?= 'Secretario(a)' === $datosEdit["areaForm"] ? 'selected' : '' ?>>Secretario(a)</option>
+                                                </select>
                                                 <label class="text-dark">Area de Formación</label>
                                             </div>
 
@@ -363,11 +379,6 @@
                                                 </select>
                                                 <label class="text-dark">Status</label>
                                             </div>
-
-                                            <!-- <div class="form-floating mb-4 mx-2 col-md-4">
-                                                <input type="file" accept="image/*" multiple name="foto" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario">
-                                                <label class="text-dark" for="floatingInput">Seleccionar Foto del Docente</label>
-                                            </div> -->
 
                                         </div>
                                         
@@ -509,7 +520,12 @@
                                         </div>
 
                                         <div class="form-floating mb-4 mx-2 col-md-4">
-                                            <input type="text" name="areaForm" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                            <select class="form-control me-1 border border-2 border-primary" name="areaForm" required>
+                                                <option value="Director(a)">Director(a)</option>
+                                                <option value="Docente de Aula">Docente de Aula</option>
+                                                <option value="Deporte">Deporte</option>
+                                                <option value="Secretario(a)">Secretario(a)</option>
+                                            </select>
                                             <label class="text-dark">Area de Formación</label>
                                         </div>
 
@@ -572,17 +588,20 @@
     <script src="js/fontawesome.min.js"></script>
     <script src="js/js.js"></script>
     <script src="js/sweetalert2.js"></script>
+
     <!-- Tooltips -->
     <script>
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
+
     <!-- Modal Editar -->
     <script>
         window.onload = function verModal(){
             $('#modal').modal('show');
         }
     </script>
+
     <!-- Modal Ver -->
      <script>
         function modalVer(idModal) {
@@ -592,46 +611,46 @@
 
     <!-- Mensajes Presentes -->
 
-    <!-- Eliminado -->
-    <?php if (!empty($mensajeEliminar)) :?>
-        <script>
-            window.onload = function mensaje(){
-                swal.fire({
-                        title: "Registro Eliminado",
-                        icon: "success",
-                        showConfirmButton: false,
-                        timer: 1300
-                });
-            };
-        </script>
-    <?php endif; ?>
+        <!-- Eliminado -->
+        <?php if (!empty($mensajeEliminar)) :?>
+            <script>
+                window.onload = function mensaje(){
+                    swal.fire({
+                            title: "Registro Eliminado",
+                            icon: "success",
+                            showConfirmButton: false,
+                            timer: 1300
+                    });
+                };
+            </script>
+        <?php endif; ?>
 
-    <!-- Editado -->
-    <?php if (!empty($mensajeEdit)) : ?>
-        <script>
-            window.onload = function mensajeEdit(){
-                swal.fire({
-                        title: "Registro Editado",
-                        icon: "success",
-                        showConfirmButton: false,
-                        timer: 1300
-                });
-            };
-        </script>
-    <?php endif; ?>
+        <!-- Editado -->
+        <?php if (!empty($mensajeEdit)) : ?>
+            <script>
+                window.onload = function mensajeEdit(){
+                    swal.fire({
+                            title: "Registro Editado",
+                            icon: "success",
+                            showConfirmButton: false,
+                            timer: 1300
+                    });
+                };
+            </script>
+        <?php endif; ?>
 
-    <!-- Registrado -->
-    <?php if (!empty($mensajeRegistro)) :?>
-        <script>
-            window.onload = function mensajeRegistro(){
-                swal.fire({
-                        title: "Datos Registrados Exitosamente",
-                        icon: "success",
-                        showConfirmButton: false,
-                        timer: 1300
-                });
-            };
-        </script>
-    <?php endif; ?>
-</body>
+        <!-- Registrado -->
+        <?php if (!empty($mensajeRegistro)) :?>
+            <script>
+                window.onload = function mensajeRegistro(){
+                    swal.fire({
+                            title: "Datos Registrados Exitosamente",
+                            icon: "success",
+                            showConfirmButton: false,
+                            timer: 1300
+                    });
+                };
+            </script>
+        <?php endif; ?>
+    </body>
 </html>

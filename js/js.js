@@ -124,3 +124,15 @@ function verPass(pass){
         icon : 'info'
       });
 }
+
+function mostrarVistaPrevia(event) {
+  const input = event.target;
+  const vistaPrevia = document.getElementById('vista-previa');
+  if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+          vistaPrevia.src = e.target.result;
+      };
+      reader.readAsDataURL(input.files[0]);
+  }
+}

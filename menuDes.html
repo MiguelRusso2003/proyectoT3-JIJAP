@@ -2,10 +2,13 @@
 <nav id="nav" class="navbar fixed-top bg-black rounded justify-content-end margin-left-width-nav">
     
     <div class="dropdown">
+
         <button class="navbar-brand d-flex btn dropdown-toggle align-items-center border-none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="icons/user.svg" width="30px" height="30px">
-            <p class="fs-5 ps-2 m-auto text-light fw-light"><?php if(!empty($mensaje)) : echo $mensaje; endif; ?></p>
+            <p class="fs-5 ps-2 m-auto text-light fw-light"> | Admin. Sesión</p>
         </button>
+
+        <!-- nav despleglable -->
         <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser1" style="background-color: white;">
             <li>
                 <a href="index.php" class="d-flex text-black dropdown-item">
@@ -32,6 +35,7 @@
                 </a>
             </li>
         </ul>
+
     </div>
 </nav>
 
@@ -40,21 +44,26 @@
     
     <div class="d-flex d-sm-block align-items-center px-sm-3 px-0 text-primary min-vh-100">
         
+        <!-- boton del menu -->
         <a class="d-sm-flex d-none align-items-center pb-2 mb-md-0 me-md-auto border-bottom text-light text-decoration-none justify-content-between w-100 ps-2">
             <span id="span" class="  me-5 text-light fs-3 d-none d-sm-inline">Menu</span>
             <img onclick="menuAction()" src="icons/bars.svg" width="30" height="30" style="cursor:pointer;">
         </a>
         
+        <!-- Lista Panel de Control -->
         <ul class="nav nav-pills me-md-auto ps-0 ms-0 ps-sm-2 d-flex flex-column mb-sm-auto mb-0 align-items-start" id="menu">
+            
+            <!-- Nav boton de Panel de control -->
             <li class="nav-item">
                 <a href="admin.php" class="nav-link align-middle px-0">
                     <img src="icons/dashboard.svg" class="<?= $pagAct === 'admin.php' ? 'shadowActive' : 'shadowActive1' ?> ms-2 ms-sm-0 px-0" width="30" height="30"> 
-                    <span id="span" class=" ms-1 text-light fs-5 d-none d-sm-inline">Admin</span>
+                    <span id="span" class=" ms-1 text-light fs-5 d-none d-sm-inline">Panel de Control</span>
                 </a>
             </li>
 
             <hr class="my-1">
 
+            <!-- Nav boton bienes nacionales -->
             <li>
                 <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 <?= in_array($pagAct, ['bnsNcn.php','bnsMbls.php','bnsMtls.php']) ? 'show' : '' ?>">
                     <img src="icons/bandera-edificio.svg" class="<?= in_array($pagAct, ['bnsNcn.php','bnsMbls.php','bnsMtls.php']) ? 'shadowActive' : 'shadowActive1' ?> ms-2 ms-sm-0 px-0 " width="30" height="30">
@@ -97,6 +106,7 @@
 
             <hr class="my-1">
 
+            <!-- Nav boton de entidades -->
             <li>
                 <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle <?= in_array($pagAct, ['entid.php','entidDoc.php','entidAlmn.php', 'entidPers.php']) ? 'show' : '' ?>">
                     <img src="icons/users.svg" class="<?= in_array($pagAct, ['entid.php','entidDoc.php','entidAlmn.php', 'entidPers.php']) ? 'shadowActive' : 'shadowActive1' ?> ms-2 ms-sm-0 px-0 " width="30" height="30"> 
@@ -146,13 +156,59 @@
                 </ul>
             </li>
 
+            <hr class="my-1">
+
+            <!-- Nav boton Reportes -->
             <li>
-                <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle <?= in_array($pagAct, ['mensajes.php','servicios.php']) ? 'show' : '' ?>">
-                    <img src="icons/servicios.svg" class="<?= in_array($pagAct,['mensajes.php','servicios.php']) ? 'shadowActive' : 'shadowActive1' ?> ms-2 ms-sm-0 px-0 " width="35" height="35"> 
-                    <span id="span" class=" ms-1 text-light fs-5 d-none d-sm-inline">Servicios</span> 
+                <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 <?= in_array($pagAct, ['menuRpt.php','rptResFn.php']) ? 'show' : '' ?>">
+                    <img src="icons/file.svg" class="<?= in_array($pagAct, ['menuRpt.php','rptResFn.php']) ? 'shadowActive' : 'shadowActive1' ?> ms-2 ms-sm-0 px-0 " width="30" height="30">
+                    <span id="span" class=" ms-1 text-light fs-5 d-none d-sm-inline">Reportes</span> 
                 </a>
 
-                <ul class="collapse nav flex-column mt-2 <?= in_array($pagAct, ['mensajes.php','servicios.php']) ? 'show' : '' ?> " id="submenu3" data-bs-parent="#menu">
+                <ul class="collapse nav flex-column mt-2 <?= in_array($pagAct, ['menuRpt.php','rptResFn.php']) ? 'show' : '' ?>" id="submenu3" data-bs-parent="#menu">
+
+                    <hr class="my-1">
+
+                    <li class="w-100">
+                        <a href="menuRpt.php" class="nav-link px-2 py-1 text-light <?= $pagAct === 'menuRpt.php' ? 'shadowActive2' : '' ?> "> 
+                            <span id="span" class=" d-none text-light d-sm-inline ">Menu Reportes</span>
+                            RPT
+                        </a>
+                    </li>
+
+                    <hr class="my-1">
+
+                    <li class="w-100">
+                        <a href="rptResFn.php" class="nav-link px-2 py-1 text-light <?= $pagAct === 'rptResFn.php' ? 'shadowActive2' : '' ?> "> 
+                            <span id="span" class=" d-none text-light d-sm-inline">- Resumen Final</span>
+                            ·RF
+                        </a>
+                    </li>
+
+                    <hr class="my-1">
+
+                    <li class="w-100">
+                        <a href="bnsMtls.php" class="nav-link px-2 py-1 text-light <?= $pagAct === 'bnsMtls.php' ? 'shadowActive2' : '' ?> "> 
+                            <span id="span" class=" d-none text-light d-sm-inline"> - Bienes Nacionales</span>
+                            ·BN
+                        </a>
+                    </li>
+
+                    <hr class="my-1">
+
+                </ul>
+            </li>
+
+            <hr class="my-1">
+
+            <!-- nav boton de mensajes -->
+            <li>
+                <a href="#submenu4" data-bs-toggle="collapse" class="nav-link px-0 align-middle <?= in_array($pagAct, ['mensajes.php','servicios.php']) ? 'show' : '' ?>">
+                    <img src="icons/message.svg" class="<?= in_array($pagAct,['mensajes.php','servicios.php']) ? 'shadowActive' : 'shadowActive1' ?> ms-2 ms-sm-0 px-0 " width="30" height="30"> 
+                    <span id="span" class=" ms-1 text-light fs-5 d-none d-sm-inline">Mensajes</span> 
+                </a>
+
+                <ul class="collapse nav flex-column mt-2 <?= in_array($pagAct, ['mensajes.php','servicios.php']) ? 'show' : '' ?> " id="submenu4" data-bs-parent="#menu">
 
                     <hr class="my-1">
 

@@ -46,7 +46,7 @@
                 <div class="items-hover mx-auto bg-trans-items">
                     <a class="dropdown-item d-md-flex align-items-center justify-content-md-between py-2 px-3" href="bnsMbls.php">
                         <h3 class="pe-md-4">Bienes Muebles |</h3>
-                        <img src="icons/mueble.svg"  style="width: 90px; height:90px">
+                        <img src="icons/mueble.svg"  style="width: 70px; height:70px">
                     </a>
                 </div>
 
@@ -54,7 +54,7 @@
 
                 <div class="items-hover mx-auto bg-trans-items">
                     <a class="dropdown-item d-md-flex align-items-center justify-content-md-between py-2 px-3" href="bnsMtls.php">
-                        <img src="icons/herramientas.svg"  style="width: 90px; height:90px">
+                        <img src="icons/herramientas.svg"  style="width: 70px; height:70px">
                         <h3 class="ps-md-4"> | Bienes Materiales</h3>
                     </a>
                 </div>

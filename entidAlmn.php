@@ -8,6 +8,8 @@
     $mensajeEdit="";
     $mensajeRegistro="";
     $idEdit ="";
+
+    $pagAct = basename($_SERVER['PHP_SELF']);
     
     if (isset($_SESSION["mensaje"])) {
         $mensaje=$_SESSION["mensaje"];
@@ -44,9 +46,29 @@
     $sql = "SELECT * FROM alumnos";
     $resultado = $conn -> query($sql);
 
-    $tabla = 'bienesMbls';
+    $sqlSA = "SELECT * FROM docentes WHERE seccion = 'A'";
+    $sqlSB = "SELECT * FROM docentes WHERE seccion = 'B'";
+    $sqlSC = "SELECT * FROM docentes WHERE seccion = 'C'";
+    $sqlSD = "SELECT * FROM docentes WHERE seccion = 'D'";
+    $sqlSE = "SELECT * FROM docentes WHERE seccion = 'E'";
+    $sqlSF = "SELECT * FROM docentes WHERE seccion = 'F'";
+    $sqlSG = "SELECT * FROM docentes WHERE seccion = 'G'";
+    
+    $resultadoSA = $conn -> query($sqlSA);
+    $resultadoSB = $conn -> query($sqlSB);
+    $resultadoSC = $conn -> query($sqlSC);
+    $resultadoSD = $conn -> query($sqlSD);
+    $resultadoSE = $conn -> query($sqlSE);
+    $resultadoSF = $conn -> query($sqlSF);
+    $resultadoSG = $conn -> query($sqlSG);
 
-    $pagAct = basename($_SERVER['PHP_SELF']);
+    $docenteA = $resultadoSA -> fetch(PDO::FETCH_ASSOC);
+    $docenteB = $resultadoSB -> fetch(PDO::FETCH_ASSOC);
+    $docenteC = $resultadoSC -> fetch(PDO::FETCH_ASSOC);
+    $docenteD = $resultadoSD -> fetch(PDO::FETCH_ASSOC);
+    $docenteE = $resultadoSE -> fetch(PDO::FETCH_ASSOC);
+    $docenteF = $resultadoSF -> fetch(PDO::FETCH_ASSOC);
+    $docenteG = $resultadoSG -> fetch(PDO::FETCH_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -138,7 +160,7 @@
                                     <div class="ms-1 me-1">
                                         <form action="" method="post">
                                             <input type="hidden" name="id" value="<?php echo $key['id'];?>">
-                                            <button onclick="modalVer('<?php echo $key['id'];?>')" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Ver Precio" class="btn shadow btn-outline-primary border-3">
+                                            <button onclick="modalVer('<?php echo $key['id'];?>')" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Ver Datos" class="btn shadow btn-outline-primary border-3">
                                                 <img src="icons/lupa.svg" style="width: 20px; height: 20px;">
                                             </button>
                                         </form>
@@ -179,7 +201,24 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label class="text-black fw-light">Docente:</label>
-                                                        <input type="text" class="text-center fw-light border border-secondary border-2 form-control" value="Aqui va el docente encargado" disabled readonly>
+                                                        <input type="text" class="text-center fw-light border border-secondary border-2 form-control" value="<?php  
+                                                                if($key['seccion'] === 'A'){
+                                                                    echo $docenteA['nombre']." ".$docenteA['apellido']; 
+                                                                }else if($key['seccion'] === 'B'){
+                                                                    echo $docenteB['nombre']." ".$docenteB['apellido'];
+                                                                }else if($key['seccion'] === 'C'){
+                                                                    echo $docenteC['nombre']." ".$docenteC['apellido'];
+                                                                }else if($key['seccion'] === 'D'){
+                                                                    echo $docenteD['nombre']." ".$docenteD['apellido'];
+                                                                }else if($key['seccion'] === 'E'){
+                                                                    echo $docenteE['nombre']." ".$docenteE['apellido'];
+                                                                }else if($key['seccion'] === 'F'){
+                                                                    echo $docenteF['nombre']." ".$docenteF['apellido'];
+                                                                }else if($key['seccion'] === 'G'){
+                                                                    echo $docenteG['nombre']." ".$docenteG['apellido'];
+                                                                }  
+                                                            ?>" 
+                                                        disabled readonly>
                                                     </div>
                                                 </div>
 

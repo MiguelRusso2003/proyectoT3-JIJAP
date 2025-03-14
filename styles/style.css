@@ -23,6 +23,10 @@ a{
     background-color: #000000a9;
     transition: all 0.4s;
 }
+.bg-dark-trans-rpt{
+    background-color: #000000ca;
+    transition: all 0.4s;
+}
 nav{
     transition: all 0.4s;
 }
@@ -44,11 +48,13 @@ nav{
     transition: all 0.3s;
 }
 .margin-left-nav{
-    margin-left: 6%;
+    margin-left: 6.6%;
+    margin-right: 1%;
     transition: all 0.3s;
 }
 .margin-left-width-nav{
-    margin-left: 16%;
+    margin-left: 16.6%;
+    margin-right: 1%;
     transition: all 0.3s;
 }
 .img-Bienes{
@@ -74,23 +80,24 @@ nav{
     border-radius: 15px;
     border: 2px solid #ffffff;
     color: white;
+    transition: all 0.3s;
 }
 .items-hover-dash{
     transition: all 0.2s;
     border-radius: 10px;
     border: 2px solid #ffffff;
-    background-color: #0000002d;
     color: white;
     box-shadow: 0px 0px 15px -5px #ffffff;
+    transition: all 0.3s;
 }
 .shadowActive{
-    filter: drop-shadow(0px 0px 6px rgb(0, 0, 255));
+    filter: drop-shadow(0px 0px 6px #00d9ff);
 }
 .shadowActive1{
     filter: drop-shadow(0px 0px 4px white);
 }
 .shadowActive2{
-    background-color: rgba(0, 0, 255, 0.214);
+    background-color: #00d9ff22;
     font-weight: bold;
 }
 .shadowActive3{
@@ -121,6 +128,9 @@ nav{
 .shadow-blue{
     box-shadow: 0px 0px 15px -1px #3094ff;
 }
+.shadow-white{
+    filter: drop-shadow(0px 0px 1px #f1f1f1);
+}
 .w-hr{
     width: 20%;
     transition: all 0.3s;
@@ -135,4 +145,31 @@ nav{
 }
 .bg-scroll{
     background-color: #000000e2;
+}
+.bg-gradiente{
+    background-size: 200%;
+    transition: .3s ;
+}
+.bg-gradiente-blue{
+    background-image: linear-gradient( to left, #007bff73, #00f7ff87, #007bff73);
+
+}
+.bg-gradiente-green{
+    background-image: linear-gradient( to left, #00943198, #c5e5388d, #00943198);
+
+}
+.bg-gradiente-red{
+    background-image: linear-gradient( to left, #ea20275e, #ffc41260, #ea20275e);
+
+}
+.bg-gradiente:hover{
+    background-position: right;
+    transform: scale(1.08);
+    transition: .3s ;
+}
+.shadow-text{
+    text-shadow: 0px 0px 1px #f1f1f1;
+}
+.bg-blur{
+    backdrop-filter: blur(10px);
 }

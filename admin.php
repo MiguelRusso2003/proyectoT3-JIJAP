@@ -55,9 +55,9 @@
 
     <br><br>
 
-    <div id="body" class="margin-left-width me-0">
+    <div id="body" class="margin-left-width shadow mt-3" style="border-radius: 10px; background-image : url(img/dashboard.png); background-size : cover">
    
-        <div class="text-center container-fluid rounded align-items-center h-100">
+        <div class="container-fluid text-center rounded bg-dark-trans align-items-center h-100">
             
             <br>
 
@@ -67,35 +67,35 @@
 
             <div class="row mx-auto container justify-content-center pt-3 border-1 border-top">
 
-                <div class="items-hover-dash m-md-4 m-3 p-2 col-md-3">
+                <div class="items-hover-dash bg-gradiente bg-gradiente-blue m-md-4 m-3 p-2 col-lg-3">
                     <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="bnsNcn.php">
-                        <img src="icons\bandera-edificio-dash.svg" style="width: 40px; height:40px">    
-                        <h4 class="ms-2 my-auto">| Bienes</h4>
-                        <p class="my-auto fw-bolt fs-1 mx-3"><?= $rowBien ?></p>
+                        <img src="icons\bandera-edificio-dash.svg" style="width: 40px; height:40px" class="shadow-white">
+                        <h4 class="ms-2 my-auto shadow-text">| Bienes</h4>
+                        <p class="my-auto fw-bolt fs-1 mx-3 shadow-text"><?= $rowBien ?></p>
                     </a>
                 </div>
 
-                <div class="items-hover-dash m-md-4 m-3 p-2 col-md-3">
+                <div class="items-hover-dash bg-gradiente bg-gradiente-blue  m-md-4 m-3 p-2 col-lg-3">
                     <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="entidDoc.php">
-                        <img src="icons/pizzarron-user-dash.svg" style="width: 40px; height:40px">
-                        <h4 class="ms-2 my-auto">| Docentes</h4>
-                        <p class="my-auto fw-bolt fs-1 mx-3"><?= $rowDocentes ?></p>
+                        <img src="icons/pizzarron-user-dash.svg" style="width: 40px; height:40px" class="shadow-white">
+                        <h4 class="ms-2 my-auto shadow-text">| Docentes</h4>
+                        <p class="my-auto fw-bolt fs-1 mx-3 shadow-text"><?= $rowDocentes ?></p>
                     </a>
                 </div>
 
-                <div class="items-hover-dash m-md-4 m-3 p-2 col-md-3">
+                <div class="items-hover-dash bg-gradiente bg-gradiente-blue  m-md-4 m-3 p-2 col-lg-3">
                     <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="entidAlmn.php">
-                        <img src="icons\gorro-graduacion.svg" style="width: 40px; height:40px">
-                        <h4 class="ms-2 my-auto">| Alumnos</h4>
-                        <p class="my-auto fw-bolt fs-1 mx-3"><?= $rowAlumnos ?></p>
+                        <img src="icons\gorro-graduacion.svg" style="width: 40px; height:40px" class="shadow-white">
+                        <h4 class="ms-2 my-auto shadow-text">| Alumnos</h4>
+                        <p class="my-auto fw-bolt fs-1 mx-3 shadow-text"><?= $rowAlumnos ?></p>
                     </a>
                 </div>
 
-                <div class="items-hover-dash m-md-4 m-3 p-2 col-md-3">
+                <div class="items-hover-dash bg-gradiente bg-gradiente-blue  m-md-4 m-3 p-2 col-lg-3">
                     <a class="dropdown-item d-flex align-items-center justify-content-between pb-2 pt-2 ps-3 pe-3" href="mensajes.php">
-                        <img src="icons\atencion_client-dash.svg" style="width: 40px; height:40px">
-                        <h4 class="ms-2 my-auto">| Mensajes</h4>
-                        <p class="my-auto fw-bolt fs-1 mx-3"><?= $rowMensajes ?></p>
+                        <img src="icons\atencion_client-dash.svg" style="width: 40px; height:40px" class="shadow-white">
+                        <h4 class="ms-2 my-auto shadow-text">| Mensajes</h4>
+                        <p class="my-auto fw-bolt fs-1 mx-3 shadow-text"><?= $rowMensajes ?></p>
                     </a>
                 </div>
 

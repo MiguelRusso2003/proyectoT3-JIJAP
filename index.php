@@ -11,6 +11,7 @@
     $sqlDocentes = "SELECT * FROM docentes";
     $docentes = $conn->query($sqlDocentes);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

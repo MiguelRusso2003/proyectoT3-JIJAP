@@ -47,24 +47,24 @@ $sql_insert = 'INSERT INTO docentes VALUES (:id, :nombre, :apellido, :cedula, :t
                                             :codDep, :gdoInst, :mesesServ, :clasif, 
                                             :horas, :areaForm, :matricula, :estatus, :foto )';
 $ejecutar_insert = $conn->prepare($sql_insert);
-$ejecutar_insert->bindParam('id', $id );
-$ejecutar_insert->bindParam('nombre',$nombre );
-$ejecutar_insert->bindParam('apellido',$apellido );
-$ejecutar_insert->bindParam('cedula', $cedula);
-$ejecutar_insert->bindParam('telefono', $telefono);
-$ejecutar_insert->bindParam('correo', $correo);
-$ejecutar_insert->bindParam('fechaNac', $fechaNac);
-$ejecutar_insert->bindParam('fechaIngre', $fechaIngre);
-$ejecutar_insert->bindParam('seccion', $seccion);
-$ejecutar_insert->bindParam('codDep', $codDep);
-$ejecutar_insert->bindParam('gdoInst', $gdoInst);
-$ejecutar_insert->bindParam('mesesServ', $mesesServ);
-$ejecutar_insert->bindParam('clasif', $clasif);
-$ejecutar_insert->bindParam('horas', $horas);
-$ejecutar_insert->bindParam('areaForm', $areaForm);
-$ejecutar_insert->bindParam('matricula', $matricula);
-$ejecutar_insert->bindParam('estatus', $status);
-$ejecutar_insert->bindParam('foto', $rutafoto);
+$ejecutar_insert->bindParam(':id', $id );
+$ejecutar_insert->bindParam(':nombre',$nombre );
+$ejecutar_insert->bindParam(':apellido',$apellido );
+$ejecutar_insert->bindParam(':cedula', $cedula);
+$ejecutar_insert->bindParam(':telefono', $telefono);
+$ejecutar_insert->bindParam(':correo', $correo);
+$ejecutar_insert->bindParam(':fechaNac', $fechaNac);
+$ejecutar_insert->bindParam(':fechaIngre', $fechaIngre);
+$ejecutar_insert->bindParam(':seccion', $seccion);
+$ejecutar_insert->bindParam(':codDep', $codDep);
+$ejecutar_insert->bindParam(':gdoInst', $gdoInst);
+$ejecutar_insert->bindParam(':mesesServ', $mesesServ);
+$ejecutar_insert->bindParam(':clasif', $clasif);
+$ejecutar_insert->bindParam(':horas', $horas);
+$ejecutar_insert->bindParam(':areaForm', $areaForm);
+$ejecutar_insert->bindParam(':matricula', $matricula);
+$ejecutar_insert->bindParam(':estatus', $status);
+$ejecutar_insert->bindParam(':foto', $rutafoto);
 $ejecutar_insert->execute();
 
 if ($ejecutar_insert) {

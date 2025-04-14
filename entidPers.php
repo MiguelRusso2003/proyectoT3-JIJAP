@@ -29,6 +29,11 @@
         $mensajeRegistro = "verdadero";
         unset($_SESSION['mensaje-registro']);
     }
+    $primerIngre = '';
+
+    if (isset($_SESSION['primer-ingreso'])) {
+        $primerIngre = 'no vacio';
+    }
 
     if (isset($_POST['editar'])) {
         $idEdit = $_POST["id"];

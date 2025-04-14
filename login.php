@@ -29,7 +29,7 @@
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-lg-7 col-md-9 col">
-                    <div class="card h-100 border-2 border-primary bg-light" style="border-radius: 1rem; box-shadow:0px 0px 20px -5px blue;">
+                    <div class="h-100 border border-2 border-primary bg-light" style="border-radius: 1rem; box-shadow:0px 0px 20px -5px blue;">
                         <div class="row g-0 h-100">
 
                             <!-- Carrusel de Imegenes -->
@@ -104,7 +104,7 @@
                                     </form>
                                 </div>
                             </div>     
-
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -112,11 +112,11 @@
         </div>
 
         <!-- Footer -->
-        <div class="container">
+        <div class="container bg-transp">
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
                     
                 <div class="col-md-4 d-flex align-items-center">
-                    <span class="mb-3 mb-md-0 text-light">© 2024-25 Jardín de Infancia "José Antonio Páez"</span>
+                    <span class="mb-3 mb-md-0 text-light">© 2024-25 Todos los derechos reservados - Vilchez, Portillo, Nuñez y Pulgar -</span>
                 </div>
                 <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
                     
@@ -142,6 +142,8 @@
     </section>
 
     <!-- Mensajes Presentes -->
+
+    <!-- contrasenha incorrecta -->
     <?php
         if (!empty($mensaje)) :
             echo '
@@ -158,12 +160,13 @@
                                                 text: "⚠️ Usuario y/o Contraseña Incorrecto(s) ⚠️",
                                                 icon: "error"
                                             });
-                                    };
-                    ;
+                                    }
                 </script>
             '; 
         endif; 
     ?>
+
+    <!-- cambio de contrasenha exitoso -->
     <?php
         if (!empty($mensajePass)) :
             echo '
@@ -190,6 +193,8 @@
     <script src="js/js.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/sweetalert2.js"></script>
+
+    <!-- interaccion ver o ocultar contrasenha -->
     <script>
         const Pass1 = document.getElementById("pass1");
         const iconEye = document.getElementById("iconEye");

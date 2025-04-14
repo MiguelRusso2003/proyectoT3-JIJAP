@@ -16,7 +16,7 @@ function alertDelete(nombre, id){
         reverseButtons: true
       }).then((result) => {
         if (result.isConfirmed) {
-            $("#formDataDelete"+id).submit();
+            document.querySelector("#formDataDelete"+id).submit();
         }else {
             preventDefault();
         }
@@ -132,7 +132,7 @@ function mostrarVistaPrevia(event) {
       const reader = new FileReader();
       reader.onload = function(e) {
           vistaPrevia.src = e.target.result;
-      };
+      }
       reader.readAsDataURL(input.files[0]);
   }
 }

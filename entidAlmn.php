@@ -31,6 +31,11 @@
         $mensajeRegistro = "verdadero";
         unset($_SESSION['mensaje-registro']);
     }
+    $primerIngre = '';
+
+    if (isset($_SESSION['primer-ingreso'])) {
+        $primerIngre = 'no vacio';
+    }
 
     if (isset($_POST['editar'])) {
         $idEdit = $_POST["id"];
@@ -45,6 +50,25 @@
 
     $sql = "SELECT * FROM alumnos";
     $resultado = $conn -> query($sql);
+
+    function edadMeses($fechaNacimiento) {
+        // 1. Verificar si la fecha de nacimiento es válida
+        $fechaNacimientoObj = DateTime::createFromFormat('Y-m-d', $fechaNacimiento);
+        if (!$fechaNacimientoObj) {
+            return "Fecha de nacimiento inválida";
+        }
+    
+        // 2. Obtener la fecha actual
+        $fechaActual = new DateTime();
+    
+        // 3. Calcular la diferencia entre las fechas
+        $diferencia = $fechaNacimientoObj->diff($fechaActual);
+    
+        // 4. Calcular el número total de meses
+        $meses = ($diferencia->y * 12) + $diferencia->m;
+    
+        return $meses;
+    }
 
     $sqlSA = "SELECT * FROM docentes WHERE seccion = 'A'";
     $sqlSB = "SELECT * FROM docentes WHERE seccion = 'B'";
@@ -99,7 +123,7 @@
                 <div class="d-md-flex text-center justify-content-between align-items-center">
                     <div class="d-md-flex d-block">
                         <img src="icons/graduacion.svg" style="width: 70px;"><hr class="d-md-none w-25 mx-auto border-primary border"><div class="vr mx-3 d-md-block d-none border-primary"></div>
-                        <h1 class="display-5">Alumnos </h1>
+                        <h1 class="display-5">Alumnos</h1>
                     </div>
                     <form action="formBnMu.php" method="post">
                         <button type="button" class="btn btn-outline-success border-3 mt-3 mt-md-0" data-bs-toggle="modal" data-bs-target="#modal_insertar">+ Nuevo Registro</button>
@@ -115,8 +139,8 @@
                         <thead>
                             <tr>
                                 <th class="text-start col">Nombre y Apellido</th>
-                                <th class="text-start col">Cedula Estudiantil</th>
-                                <th class="text-start col">Seccion</th>
+                                <th class="text-start col">Cédula Estudiantil</th>
+                                <th class="text-start col">Sección</th>
                                 <th class="text-start col">Sexo</th>
                                 <th class="text-center col">Acción</th>
                             </tr>
@@ -183,6 +207,7 @@
                                                     <p class="fw-light fs-5 text-center">
                                                         <?php if($key['sexo'] === 'm') { echo 'Masculino ♂️';} ?> 
                                                         <?php if($key['sexo'] === 'f') { echo 'Femenino ♀️';} ?>
+                                                        <?= 'de '.edadMeses($key['fechaNac']).' Meses de Edad' ?>
                                                     </p>
                                                 </div>
 
@@ -267,43 +292,53 @@
 
                                         <div class="container-fluid d-md-flex justify-content-center">
 
-                                            <div class="form-floating mb-4 mx-2 col-md-4">
-                                                <input  value="<?php echo $datosEdit["nombre"] ; ?>" type="text" name="nombre" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
-                                                <label class="text-dark" for="floatingInput">Nombre</label>
+                                            <div class="mb-4 mx-2 col-md-4 text-center">
+                                                <img src="<?= $datosEdit["foto"] ?>" id="vista-previa" class="img-fluid rounded col-md-9 col-7 border border-2 border-primary mb-1">
+                                                <input onchange="mostrarVistaPrevia(event)" type="file" accept="image/*" multiple name="foto" id="inputFile" style="visibility: hidden; position:absolute" placeholder="usuario">
+                                                <label class="btn btn-outline-primary border-2 col-7" for="inputFile">Cambiar Foto</label>
                                             </div>
 
-                                            <div class="form-floating mb-4 mx-2 col-md-4">
-                                                <input value="<?php echo $datosEdit["apellido"] ; ?>" type="text" name="apellido" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
-                                                <label class="text-dark">Apellido</label>
+                                            <div class="justify-content-center mx-2 col-md-4">
+
+                                                <div class="form-floating mb-4">
+                                                    <input  value="<?php echo $datosEdit["nombre"] ; ?>" type="text" name="nombre" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                                    <label class="text-dark" for="floatingInput">Nombre</label>
+                                                </div>
+
+                                                <div class="form-floating mb-4">
+                                                    <input value="<?php echo $datosEdit["apellido"] ; ?>" type="text" name="apellido" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                                    <label class="text-dark">Apellido</label>
+                                                </div>
+
+                                                <div class="form-floating mb-4">
+                                                    <input value="<?php echo $datosEdit["cedula"] ; ?>" type="text" name="cedula" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                                    <label class="text-dark" for="floatingInput">Cédula Estudiantil</label>
+                                                </div>
+
                                             </div>
+                                            
+                                            <div class="justify-content-center mx-2 col-md-4">
 
-                                            <div class="form-floating mb-4 mx-2 col-md-4">
-                                                <input value="<?php echo $datosEdit["cedula"] ; ?>" type="text" name="cedula" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
-                                                <label class="text-dark" for="floatingInput">Cédula Estudiantil</label>
+                                                <div class="form-floating mb-4">
+                                                    <input value="<?php echo $datosEdit["fechaNac"] ; ?>" type="date" name="fechaNac" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                                    <label class="text-dark" for="floatingInput">Fecha de Nacimiento</label>
+                                                </div>
+
+                                                <div class="form-floating mb-4">
+                                                    <input value="<?php echo $datosEdit["lugarNac"] ; ?>" type="text" name="lugarNac" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                                    <label class="text-dark">Lugar de Nacimiento</label>
+                                                </div>
+
+                                                <div class="form-floating mb-4">
+                                                    <select class="form-control me-1 border border-2 border-primary" name="sexo">
+                                                        <option value="m" <?= 'm' === $datosEdit["sexo"] ? 'selected' : '' ?>>Masculino ♂️</option>
+                                                        <option value="f" <?= 'f' === $datosEdit["sexo"] ? 'selected' : '' ?>>Femenino ♀️</option>
+                                                    </select>
+                                                    <label class="text-dark">Sexo</label>
+                                                </div>
+                                                
                                             </div>
-
-                                        </div>
-
-                                        <div class="container-fluid d-md-flex justify-content-center">
-
-                                            <div class="form-floating mb-4 mx-2 col-md-4">
-                                                <input value="<?php echo $datosEdit["fechaNac"] ; ?>" type="date" name="fechaNac" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
-                                                <label class="text-dark" for="floatingInput">Fecha de Nacimiento</label>
-                                            </div>
-
-                                            <div class="form-floating mb-4 mx-2 col-md-4">
-                                                <input value="<?php echo $datosEdit["lugarNac"] ; ?>" type="text" name="lugarNac" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
-                                                <label class="text-dark">Lugar de Nacimiento</label>
-                                            </div>
-
-                                            <div class="form-floating mb-4 mx-2 col-md-4">
-                                                <select class="form-control me-1 border border-2 border-primary" name="sexo">
-                                                    <option value="m" <?= 'm' === $datosEdit["sexo"] ? 'selected' : '' ?>>Masculino ♂️</option>
-                                                    <option value="f" <?= 'f' === $datosEdit["sexo"] ? 'selected' : '' ?>>Femenino ♀️</option>
-                                                </select>
-                                                <label class="text-dark">Sexo</label>
-                                            </div>
-
+                                            
                                         </div>
 
                                         <div class="container-fluid d-md-flex justify-content-center">
@@ -542,7 +577,7 @@
         }
      </script>
 
-<!-- Mensajes Presentes -->
+            <!-- Mensajes Presentes -->
 
 <!-- Eliminado -->
 <?php if (!empty($mensajeEliminar)) :?>

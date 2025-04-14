@@ -10,6 +10,11 @@
     }else{
         header("location:login.php");
     }
+    $primerIngre = '';
+
+    if (isset($_SESSION['primer-ingreso'])) {
+        $primerIngre = 'no vacio';
+    }
 
     $pagAct = basename($_SERVER['PHP_SELF']);
 ?>
@@ -53,7 +58,7 @@
                 <hr class="vr shadow" style="color: white;">
 
                 <div class="items-hover mx-auto bg-trans-items">
-                    <a class="dropdown-item d-md-flex align-items-center justify-content-md-between py-2 px-3" href="bnsMtls.php">
+                    <a class="dropdown-item d-md-flex align-items-center justify-content-md-between py-2 px-3" href="rptBnsNcn.php">
                         <h3 class="pe-md-4">Bienes Nacionales |</h3>
                         <img src="icons/pdf2.svg"  style="width: 70px; height:70px">
                     </a>

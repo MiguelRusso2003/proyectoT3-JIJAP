@@ -13,7 +13,7 @@ $codDep = $_POST['codDep'];
 $gdoInst = $_POST['gdoInst'];
 $seccion = $_POST['seccion'];
 $clasif = $_POST['clasif'];
-$mesesServ = $_POST['mesesServ'];
+$mesesServ = $_POST['mesesServ'] ?? null;
 $horas = $_POST['horas'];
 $areaForm = $_POST['areaForm'];
 $matricula = $_POST['matricula'];
@@ -23,10 +23,13 @@ $sql_foto = 'SELECT (foto) FROM docentes WHERE id ='.$id;
 $ejecutar_foto = $conn->query($sql_foto);
 $foto = $ejecutar_foto->fetch(PDO::FETCH_ASSOC);
 
-if (isset($_FILES['foto'])) {
+
+if ($_FILES['foto']['name'] !== '') {
 
     // eliminar foto de la carpeta
-    unlink('../'.$foto['foto']);
+    if (file_exists( '../'.$foto['foto'])) {
+        unlink('../'.$foto['foto']);
+    }
 
     // sintaxis para obtener el archivo del formulario
     $tmp_name = $_FILES['foto']["tmp_name"];
@@ -44,7 +47,7 @@ if (isset($_FILES['foto'])) {
        $rutafoto = "img/docentes/".$foto;
     }
 
-}else {
+}else{
     $rutafoto = $foto['foto'];
 }
 

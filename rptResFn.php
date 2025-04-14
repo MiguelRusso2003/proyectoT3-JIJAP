@@ -31,6 +31,11 @@
         $mensajeRegistro = "verdadero";
         unset($_SESSION['mensaje-registro']);
     }
+    $primerIngre = '';
+
+    if (isset($_SESSION['primer-ingreso'])) {
+        $primerIngre = 'no vacio';
+    }
 
     if (isset($_POST['editar'])) {
         $idEdit = $_POST["id"];
@@ -109,7 +114,7 @@
                         </div>
 
                         <div class="form-floating mb-4 mx-2 col-md-3">
-                            <input type="text" name="fechaMatricula" placeholder="Contraseña" class="border border-info border-2 form-control form-control-lg" required>
+                            <input type="month" name="fechaMatricula" placeholder="Contraseña" class="border border-info border-2 form-control form-control-lg" required>
                             <label class="text-dark">Mes y Año de Matrícula:</label>
                         </div>
 
@@ -124,7 +129,7 @@
                     </div>
 
                     <div class="d-flex justify-content-center align-items-center fw-bolt">
-                        --> <button type="submit" class="btn btn-primary border-2 mx-3" >Generar Reporte</button> <--
+                        <button type="submit" class="btn btn-primary border-2 mx-3" ><img src="icons/pdf.svg" width="30" alt=""><p class="m-0">Generar Reporte</p></button>
                     </div>
                     
                 </form>

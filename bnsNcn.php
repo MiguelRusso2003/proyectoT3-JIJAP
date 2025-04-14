@@ -10,6 +10,14 @@
     }else{
         header("location:login.php");
     }
+    if (isset($_SESSION['primer-ingreso'])) {
+        $primerIngre = 'no vacio';
+    }
+    $primerIngre = '';
+
+    if (isset($_SESSION['primer-ingreso'])) {
+        $primerIngre = 'no vacio';
+    }
 
     $pagAct = basename($_SERVER['PHP_SELF']);
 ?>

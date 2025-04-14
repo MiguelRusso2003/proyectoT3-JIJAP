@@ -10,6 +10,7 @@
     $mensajeEdit="";
     $mensajeRegistro="";
     $idEdit ="";
+    $mensajeSeccion='';
     
     if (isset($_SESSION["mensaje"])) {
         $mensaje=$_SESSION["mensaje"];
@@ -22,6 +23,11 @@
         unset($_SESSION['mensaje-eliminar']);
     }
 
+    if (isset($_SESSION['mensaje-seccion'])) {
+        $mensajeSeccion = $_SESSION['mensaje-seccion'];
+        unset($_SESSION['mensaje-seccion']);
+    }
+
     if (isset($_SESSION["mensaje-editar"])) {
         $mensajeEdit = "verdadero";
         unset($_SESSION['mensaje-editar']);
@@ -30,6 +36,11 @@
     if (isset($_SESSION['mensaje-registro'])) {
         $mensajeRegistro = "verdadero";
         unset($_SESSION['mensaje-registro']);
+    }
+    $primerIngre = '';
+
+    if (isset($_SESSION['primer-ingreso'])) {
+        $primerIngre = 'no vacio';
     }
 
     if (isset($_POST['editar'])) {
@@ -45,6 +56,25 @@
 
     $sql = "SELECT * FROM docentes";
     $resultado = $conn -> query($sql);
+
+    function mesesServ($fechaIngre) {
+        // 1. Verificar si la fecha de nacimiento es válida
+        $fechaIngreObj = DateTime::createFromFormat('Y-m-d', $fechaIngre);
+        if (!$fechaIngreObj) {
+            return "Fecha de ingreso inválida";
+        }
+    
+        // 2. Obtener la fecha actual
+        $fechaActual = new DateTime();
+    
+        // 3. Calcular la diferencia entre las fechas
+        $diferencia = $fechaIngreObj->diff($fechaActual);
+    
+        // 4. Calcular el número total de meses
+        $meses = ($diferencia->y * 12) + $diferencia->m;
+    
+        return $meses;
+    }
 
 ?>
 <!DOCTYPE html>
@@ -112,8 +142,8 @@
                                     <?php if($key['status'] === 'reposo') { echo 'de Reposo 🟡';} ?> 
                                     <?php if($key['status'] === 'incapacitado') { echo 'Incapacitado(a) 🟠';} ?> 
                                     <?php if($key['status'] === 'renuncia') { echo 'Renuncia 🔴';} ?> 
-                                    <?php if($key['status'] === 'proceso_jub') { echo 'Activo(a) 🟠';} ?> 
-                                    <?php if($key['status'] === 'jubilado') { echo 'Activo(a) 🔵';} ?> 
+                                    <?php if($key['status'] === 'proceso_jub') { echo 'Proceso de jubilación(a) 🟠';} ?> 
+                                    <?php if($key['status'] === 'jubilado') { echo 'Jubilado(a) 🔵';} ?> 
                                 </td>
                                 <td style="background: none" class="d-flex">
                                     <div class="ms-1 me-1">
@@ -127,8 +157,6 @@
                                     <div class="ms-1 me-1">
                                         <form action="dataBase/eliminarDoc.php" method="post" id="formDataDelete<?php echo $key['id'];?>">
                                             <input type="hidden" name="id" value="<?php echo $key['id'];?>">
-                                            <input type="hidden" name="tabla" value="docentes">
-                                            <input type="hidden" name="ubicacion" value="entidDoc.php">
                                             <button onclick="alertDelete('<?php echo $key['nombre'].' '.$key['apellido']; ?>', '<?php echo $key['id']; ?>')" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Eliminar" class="btn shadow btn-outline-primary border-3">
                                                 <img src="icons/delete.svg" style="width: 20px; height: 20px;">
                                             </button>
@@ -165,8 +193,8 @@
                                                         <?php if($key['status'] === 'reposo') { echo '(de Reposo 🟡)';} ?> 
                                                         <?php if($key['status'] === 'incapacitado') { echo '(Incapacitado(a) 🟠)';} ?> 
                                                         <?php if($key['status'] === 'renuncia') { echo '(Renuncia 🔴)';} ?> 
-                                                        <?php if($key['status'] === 'proceso_jub') { echo '(Activo(a) 🟠)';} ?> 
-                                                        <?php if($key['status'] === 'jubilado') { echo '(Activo(a) 🔵)';} ?> 
+                                                        <?php if($key['status'] === 'proceso_jub') { echo '(Proceso de Jubilación 🟠)';} ?> 
+                                                        <?php if($key['status'] === 'jubilado') { echo '(Jubilado(a) 🔵)';} ?> 
                                                     </p>
                                                 </div>
 
@@ -182,6 +210,10 @@
                                                     <div class="mb-3">
                                                         <label class="text-black fw-light">Correo Electrónico:</label>
                                                         <input type="text" class="text-center fw-light border border-secondary border-2 form-control" value="<?php echo $key['correo']; ?>" disabled readonly>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="text-black fw-light">Sección Asignada:</label>
+                                                        <input type="text" class="text-center fw-light border border-secondary border-2 form-control" value="<?php echo $key['seccion']; ?>" disabled readonly>
                                                     </div>
                                                 </div>
 
@@ -211,7 +243,7 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label class="text-black fw-light">Meses de Servicio:</label>
-                                                        <input type="text" class="text-center fw-light border border-secondary border-2 form-control" value="<?php echo $key['mesesServ']; ?>" disabled readonly>
+                                                        <input type="text" class="text-center fw-light border border-secondary border-2 form-control" value="<?= mesesServ($key['fechaIngre']) ?>" disabled readonly>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label class="text-black fw-light">Clasificación:</label>
@@ -263,45 +295,45 @@
                                                 <input onchange="mostrarVistaPrevia(event)" type="file" accept="image/*" multiple name="foto" id="inputFile" style="visibility: hidden; position:absolute" placeholder="usuario">
                                                 <label class="btn btn-outline-info border-2 col-7" for="inputFile">Cambiar Foto</label>
                                             </div>
+
+                                            <div class="justify-content-center mx-2 col-md-4">
+
+                                                <div class="form-floating mb-4">
+                                                    <input  value="<?php echo $datosEdit["nombre"] ; ?>" type="text" name="nombre" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                                    <label class="text-dark" for="floatingInput">Nombre</label>
+                                                </div>
+
+                                                <div class="form-floating mb-4">
+                                                    <input value="<?php echo $datosEdit["apellido"] ; ?>" type="text" name="apellido" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                                    <label class="text-dark">Apellido</label>
+                                                </div>
+
+                                                <div class="form-floating mb-4">
+                                                    <input value="<?php echo $datosEdit["cedula"] ; ?>" type="text" name="cedula" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                                    <label class="text-dark" for="floatingInput">Numero de Cédula</label>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="justify-content-center mx-2 col-md-4">
+
+                                                <div class="form-floating mb-4">
+                                                    <input value="<?php echo $datosEdit["fechaNac"] ; ?>" type="date" name="fechaNac" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                                    <label class="text-dark" for="floatingInput">Fecha de Nacimiento</label>
+                                                </div>
+
+                                                <div class="form-floating mb-4">
+                                                    <input value="<?php echo $datosEdit["correo"] ; ?>" type="email" name="correo" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                                    <label class="text-dark">Correo Electrónico</label>
+                                                </div>
+
+                                                <div class="form-floating mb-4">
+                                                    <input value="<?php echo $datosEdit["telefono"] ; ?>" type="text" name="telefono" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
+                                                    <label class="text-dark" for="floatingInput">Numero de Teléfono</label>
+                                                </div>
+
+                                            </div>
                                             
-                                        </div>
-
-                                        <div class="container-fluid d-md-flex justify-content-center">
-
-                                            <div class="form-floating mb-4 mx-2 col-md-4">
-                                                <input  value="<?php echo $datosEdit["nombre"] ; ?>" type="text" name="nombre" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
-                                                <label class="text-dark" for="floatingInput">Nombre</label>
-                                            </div>
-
-                                            <div class="form-floating mb-4 mx-2 col-md-4">
-                                                <input value="<?php echo $datosEdit["apellido"] ; ?>" type="text" name="apellido" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
-                                                <label class="text-dark">Apellido</label>
-                                            </div>
-
-                                            <div class="form-floating mb-4 mx-2 col-md-4">
-                                                <input value="<?php echo $datosEdit["cedula"] ; ?>" type="text" name="cedula" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
-                                                <label class="text-dark" for="floatingInput">Numero de Cédula</label>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="container-fluid d-md-flex justify-content-center">
-
-                                            <div class="form-floating mb-4 mx-2 col-md-4">
-                                                <input value="<?php echo $datosEdit["fechaNac"] ; ?>" type="date" name="fechaNac" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
-                                                <label class="text-dark" for="floatingInput">Fecha de Nacimiento</label>
-                                            </div>
-
-                                            <div class="form-floating mb-4 mx-2 col-md-4">
-                                                <input value="<?php echo $datosEdit["correo"] ; ?>" type="email" name="correo" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
-                                                <label class="text-dark">Correo Electrónico</label>
-                                            </div>
-
-                                            <div class="form-floating mb-4 mx-2 col-md-4">
-                                                <input value="<?php echo $datosEdit["telefono"] ; ?>" type="text" name="telefono" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
-                                                <label class="text-dark" for="floatingInput">Numero de Teléfono</label>
-                                            </div>
-
                                         </div>
 
                                         <div class="container-fluid d-md-flex justify-content-center">
@@ -326,28 +358,37 @@
                                         <div class="container-fluid d-md-flex justify-content-center">
 
                                             <div class="form-floating mb-4 mx-2 col-md-4">
-                                                <input value="<?php echo $datosEdit["seccion"] ; ?>" type="text" name="seccion" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
-                                                <label class="text-dark" for="floatingInput">Sección</label>
+                                                <select class="form-control me-1 border border-2 border-primary" name="seccion">
+                                                    <option value="A" <?= 'A' === $datosEdit["seccion"] ? 'selected' : '' ?>>A</option>
+                                                    <option value="B" <?= 'B' === $datosEdit["seccion"] ? 'selected' : '' ?>>B</option>
+                                                    <option value="C" <?= 'C' === $datosEdit["seccion"] ? 'selected' : '' ?>>C</option>
+                                                    <option value="D" <?= 'D' === $datosEdit["seccion"] ? 'selected' : '' ?>>D</option>
+                                                    <option value="E" <?= 'E' === $datosEdit["seccion"] ? 'selected' : '' ?>>E</option>
+                                                    <option value="F" <?= 'F' === $datosEdit["seccion"] ? 'selected' : '' ?>>F</option>
+                                                </select>
+                                                <label class="text-dark">Sección</label>
                                             </div>
 
                                             <div class="form-floating mb-4 mx-2 col-md-4">
-                                                <input value="<?php echo $datosEdit["clasif"] ; ?>" type="text" name="clasif" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                                <select class="form-control me-1 border border-2 border-primary" name="clasif" required>
+                                                    <option value="Doc/I" <?= $datosEdit['clasif'] === 'Doc/I' ? 'selected' : '' ?> >Doc/I</option>
+                                                    <option value="Doc/II" <?= $datosEdit['clasif'] === 'Doc/II' ? 'selected' : '' ?> >Doc/II</option>
+                                                    <option value="Doc/III" <?= $datosEdit['clasif'] === 'Doc/III' ? 'selected' : '' ?> >Doc/III</option>
+                                                    <option value="Doc/IV" <?= $datosEdit['clasif'] === 'Doc/IV' ? 'selected' : '' ?> >Doc/IV</option>
+                                                    <option value="Doc/V" <?= $datosEdit['clasif'] === 'Doc/V' ? 'selected' : '' ?> >Doc/V</option>
+                                                    <option value="Doc/VI" <?= $datosEdit['clasif'] === 'Doc/VI' ? 'selected' : '' ?> >Doc/VI</option>
+                                                </select>
                                                 <label class="text-dark">Clasificación</label>
                                             </div>
-
-                                            <div class="form-floating mb-4 mx-2 col-md-4">
-                                                <input value="<?php echo $datosEdit["mesesServ"] ; ?>" type="text" name="mesesServ" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
-                                                <label class="text-dark">Meses de Servicio</label>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="container-fluid d-md-flex justify-content-center">
 
                                             <div class="form-floating mb-4 mx-2 col-md-4">
                                                 <input value="<?php echo $datosEdit["horas"] ; ?>" type="text" name="horas" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario" required>
                                                 <label class="text-dark" for="floatingInput">Horas de Trabajo</label>
                                             </div>
+
+                                        </div>
+
+                                        <div class="container-fluid d-md-flex justify-content-center">
 
                                             <div class="form-floating mb-4 mx-2 col-md-4">
                                                 <select class="form-control me-1 border border-2 border-primary" name="areaForm" required>
@@ -363,10 +404,6 @@
                                                 <input value="<?php echo $datosEdit["matricula"] ; ?>" type="text" name="matricula" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
                                                 <label class="text-dark">Matrícula</label>
                                             </div>
-
-                                        </div>
-
-                                        <div class="container-fluid d-md-flex justify-content-center">
 
                                             <div class="form-floating mb-4 mx-2 col-md-4">
                                                 <select class="form-control me-1 border border-2 border-primary" name="status">
@@ -506,8 +543,15 @@
                                         </div>
 
                                         <div class="form-floating mb-4 mx-2 col-md-4">
-                                            <input type="number" name="mesesServ" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
-                                            <label class="text-dark">Meses de Servicio</label>
+                                            <select class="form-control me-1 border border-2 border-primary" name="status">
+                                                <option value="activo">Activo(a)</option>
+                                                <option value="reposo">de Reposo</option>
+                                                <option value="incapacitado">Incapacitado(a)</option>
+                                                <option value="renuncia">Renuncia</option>
+                                                <option value="proceso_jub">en Proceso de jubilación</option>
+                                                <option value="jubilado">Jubilado(a)</option>
+                                            </select>
+                                            <label class="text-dark">Status</label>
                                         </div>
 
                                     </div>
@@ -537,18 +581,6 @@
                                     </div>
 
                                     <div class="container-fluid d-md-flex justify-content-center">
-
-                                        <div class="form-floating mb-4 mx-2 col-md-4">
-                                            <select class="form-control me-1 border border-2 border-primary" name="status">
-                                                <option value="activo">Activo(a)</option>
-                                                <option value="reposo">de Reposo</option>
-                                                <option value="incapacitado">Incapacitado(a)</option>
-                                                <option value="renuncia">Renuncia</option>
-                                                <option value="proceso_jub">en Proceso de jubilación</option>
-                                                <option value="jubilado">Jubilado(a)</option>
-                                            </select>
-                                            <label class="text-dark">Status</label>
-                                        </div>
 
                                         <div class="form-floating mb-4 mx-2 col-md-4">
                                             <input type="file" accept="image/*" multiple name="foto" id="floatingInput" class="border border-primary border-2 form-control form-control-lg" placeholder="usuario">
@@ -609,48 +641,69 @@
         }
      </script>
 
-    <!-- Mensajes Presentes -->
+                <!-- Mensajes Presentes -->
 
-        <!-- Eliminado -->
-        <?php if (!empty($mensajeEliminar)) :?>
-            <script>
-                window.onload = function mensaje(){
-                    swal.fire({
-                            title: "Registro Eliminado",
-                            icon: "success",
-                            showConfirmButton: false,
-                            timer: 1300
-                    });
-                };
-            </script>
-        <?php endif; ?>
+    <!-- Eliminado -->
+    <?php if (!empty($mensajeEliminar)) :?>
+        <script>
+            window.onload = function mensaje(){
+                swal.fire({
+                        title: "Registro Eliminado",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 1300
+                });
+            };
+        </script>
+    <?php endif; ?>
 
-        <!-- Editado -->
-        <?php if (!empty($mensajeEdit)) : ?>
-            <script>
-                window.onload = function mensajeEdit(){
-                    swal.fire({
-                            title: "Registro Editado",
-                            icon: "success",
-                            showConfirmButton: false,
-                            timer: 1300
-                    });
-                };
-            </script>
-        <?php endif; ?>
+    <!-- Editado -->
+    <?php if (!empty($mensajeEdit)) : ?>
+        <script>
+            window.onload = function mensajeEdit(){
+                swal.fire({
+                        title: "Registro Editado",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 1300
+                });
+            };
+        </script>
+    <?php endif; ?>
 
-        <!-- Registrado -->
-        <?php if (!empty($mensajeRegistro)) :?>
-            <script>
-                window.onload = function mensajeRegistro(){
-                    swal.fire({
-                            title: "Datos Registrados Exitosamente",
-                            icon: "success",
-                            showConfirmButton: false,
-                            timer: 1300
-                    });
-                };
-            </script>
-        <?php endif; ?>
+    <!-- Registrado -->
+    <?php if (!empty($mensajeRegistro)) :?>
+        <script>
+            window.onload = function mensajeRegistro(){
+                swal.fire({
+                        title: "Datos Registrados Exitosamente",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 1300
+                });
+            };
+        </script>
+    <?php endif; ?>
+
+    <!-- Registrado -->
+    <?php if (!empty($mensajeSeccion)) :?>
+        <script>
+            let seccion = '<?= $mensajeSeccion ?>';
+            window.onload = ()=>{
+                const swalWithBootstrapButtons = Swal.mixin({
+                    customClass: {
+                        confirmButton: "btn btn-primary"
+                    },
+                    buttonsStyling: false
+                });
+                swalWithBootstrapButtons.fire({
+                    title: "Registro Fallido❗",
+                    text: "⚠️ La sección '"+seccion+"', se encuentra asignada a un docente ⚠️",
+                    icon: "error"
+                });
+            }
+        </script>
+    <?php endif; ?>
+
     </body>
 </html>

@@ -173,3 +173,6 @@ nav{
 .bg-blur{
     backdrop-filter: blur(10px);
 }
+.transition{
+    transition: all .3s;
+}

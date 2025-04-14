@@ -37,16 +37,16 @@ if (isset($_FILES['foto']) && $_FILES['foto'] !== '') {
 $sql_insert = 'INSERT INTO alumnos VALUES (:id, :nombre, :apellido, :cedula, :lugar, 
                                             :fecha, :sexo, :entidad, :seccion, :foto )';
 $ejecutar_insert = $conn->prepare($sql_insert);
-$ejecutar_insert->bindParam('id', $id );
-$ejecutar_insert->bindParam('nombre',$nombre );
-$ejecutar_insert->bindParam('apellido',$apellido );
-$ejecutar_insert->bindParam('cedula', $cedula);
-$ejecutar_insert->bindParam('lugar', $lugarNac);
-$ejecutar_insert->bindParam('fecha', $fechaNac);
-$ejecutar_insert->bindParam('sexo', $sexo);
-$ejecutar_insert->bindParam('entidad', $entFed);
-$ejecutar_insert->bindParam('seccion', $seccion);
-$ejecutar_insert->bindParam('foto', $rutafoto);
+$ejecutar_insert->bindParam(':id', $id );
+$ejecutar_insert->bindParam(':nombre',$nombre );
+$ejecutar_insert->bindParam(':apellido',$apellido );
+$ejecutar_insert->bindParam(':cedula', $cedula);
+$ejecutar_insert->bindParam(':lugar', $lugarNac);
+$ejecutar_insert->bindParam(':fecha', $fechaNac);
+$ejecutar_insert->bindParam(':sexo', $sexo);
+$ejecutar_insert->bindParam(':entidad', $entFed);
+$ejecutar_insert->bindParam(':seccion', $seccion);
+$ejecutar_insert->bindParam(':foto', $rutafoto);
 $ejecutar_insert->execute();
 
 if ($ejecutar_insert) {

@@ -26,3 +26,63 @@
         </div>
     </footer>
 </div>
+
+
+
+    <!-- Modal Registro de Datos de Usuario por primera vez -->
+    <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="modal-nuevo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">REGISTRO DE USUARIO</h1>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="dataBase/editUser.php">
+                        <div class="d-sm-flex justify-content-center">
+                            <div class="form-floating mx-2 mb-3">
+                                <input type="text" name="nombre" class="transition border border-secondary border-2 form-control" placeholder="Ingresar nombre" required>
+                                <label class="text-secondary" for="floatingInput">Nombre</label>
+                            </div>
+                            <div class="form-floating mx-2 mb-3">
+                                <input type="text" name="apellido" placeholder="Ingresar Apellido" class="transition border border-secondary border-2 form-control" required>
+                                <label class="text-secondary">Apellido</label>
+                            </div>
+                        </div>
+                        <div class="form-floating mx-2 mb-3">
+                            <input type="mail" name="correo" placeholder="Ingresar Apellido" class="transition border border-secondary border-2 form-control" required>
+                            <label class="text-secondary">Correo Electrónico</label>
+                        </div>
+                        <div class="form-floating mx-2 mb-3">
+                            <input type="text" name="pgt1" placeholder="Ingresar Apellido" class="transition border border-secondary border-2 form-control" value="¿?" required>
+                            <label class="text-secondary">Pregunta de Seguridad 1</label>
+                        </div>
+                        <div class="form-floating mx-2 mb-3">
+                            <input type="text" name="pgt2" placeholder="Ingresar Apellido" class="transition border border-secondary border-2 form-control" value="¿?" required>
+                            <label class="text-secondary">Pregunta de Seguridad 2</label>
+                        </div>
+                        <div class="form-floating mx-2 mb-3">
+                            <input type="text" name="resp1" placeholder="Ingresar Apellido" class="transition border border-secondary border-2 form-control" required>
+                            <label class="text-secondary">Respuesta Pregunta 1</label>
+                        </div>
+                        <div class="form-floating mx-2 mb-3">
+                            <input type="text" name="resp2" placeholder="Ingresar Apellido" class="transition border border-secondary border-2 form-control" required>
+                            <label class="text-secondary">Respuesta Pregunta 2</label>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-center">
+                            <input type="hidden" name="id" value="<?php echo $_SESSION['idUser']; ?>">
+                            <button type="submit" class="btn btn-2 shadow border-2 btn-outline-success">Registrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mensaje de Bienvenida al Iniciar Sesion -->
+    <?php if(!empty($primerIngre)){ ?> 
+        <script>
+            window.onload = ()=> {
+                $('#modal-nuevo').modal('show');
+            }
+        </script>
+    <?php  } ?>

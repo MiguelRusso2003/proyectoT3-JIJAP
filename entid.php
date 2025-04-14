@@ -10,6 +10,11 @@
     }else{
         header("location:login.php");
     }
+    $primerIngre = '';
+
+    if (isset($_SESSION['primer-ingreso'])) {
+        $primerIngre = 'no vacio';
+    }
 
     $pagAct = basename($_SERVER['PHP_SELF']);
 ?>
@@ -58,7 +63,7 @@
                         <img src="icons/pizzarron-user.svg"  style="width: 70px; height:70px">
                     </a>
                 </div>
-
+<!-- 
                 <hr class="vr shadow" style="color: white;">
 
                 <div class="items-hover mx-auto bg-trans-items">
@@ -66,7 +71,7 @@
                         <h3 class="pe-md-4">Personal |</h3>
                         <img src="icons/personal.svg"  style="width: 70px; height:70px">
                     </a>
-                </div>
+                </div> -->
 
             </div>
 

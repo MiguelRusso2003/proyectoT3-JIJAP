@@ -13,18 +13,28 @@
 
     $usuario = $resultado->fetch(PDO::FETCH_ASSOC);
 
-    if ($clave === $usuario['pass']) {
+    if ($clave === $usuario['pass']  && $usuario['nombre'] === null ) {
+        
+        session_start();
+        $_SESSION['mensaje'] = "de Usuario";
+        $_SESSION['idUser'] = $usuario['id'];
+        $_SESSION['bienvenido'] = $usuario['nombre'];
+        $_SESSION['primer-ingreso'] = 'primer-ingreso';
+
+        header('location:../admin.php');
+
+    }elseif ($clave === $usuario['pass'] && $usuario['nombre'] !== null) {
 
         if ($usuario['usertype'] == 'Administrador') {
             session_start();
-            $_SESSION['mensaje'] = $usuario['nombre'] . " | Admin.";
+            $_SESSION['mensaje'] = "de Administrador";
             $_SESSION['idUser'] = $usuario['id'];
             $_SESSION['bienvenido'] = $usuario['nombre'];
 
             header('location:../admin.php');
         }elseif ($usuario['usertype'] == 'Usuario') {
             session_start();
-            $_SESSION['mensaje'] = $usuario['nombre'] . " | Usuarios";
+            $_SESSION['mensaje'] = "de Usuario";
             $_SESSION['idUser'] = $usuario['id'];
             $_SESSION['bienvenido'] = $usuario['nombre'];
 

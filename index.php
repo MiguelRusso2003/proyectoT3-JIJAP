@@ -66,6 +66,7 @@
         </div>
     </nav>
     
+    <!-- inicio -->
     <section id="hero" class="vh-100 h-100" style="background-image: url(img/hero-2.png); 
                                          background-size:cover; 
                                          background-repeat:no-repeat;">
@@ -98,6 +99,7 @@
 
     </section>
 
+    <!-- informacion acerca de la institucion  -->
     <section id="sobre_nosotros" class="my-md-5 pt-md-0 pt-2 my-2 mx-3">
 
         <div class="text-center px-4 mt-2 pt-1">
@@ -210,6 +212,7 @@
         </div>
     </section>
 
+    <!-- seccion mensaje lema o de reflexion -->
     <section class="pt-2 mt-2">
         <div class="my-3"></div>
             <div class="p-0 m-0 h-100" style="background-attachment:fixed;
@@ -232,6 +235,7 @@
         <div class="my-3"></div>
     </section>
 
+    <!-- seccion cualidades de la institucion -->
     <section id="eligenos" class="pt-1 mt-1 pt-md-4 mt-md-4 rounded">
 
         <div class="text-center rounded container-fluid ps-4 pt-1 pe-4">
@@ -285,6 +289,7 @@
         </div>
     </section>
 
+    <!-- seccion equipo de docentes -->
     <section id="equipo" class="pt-1 mt-1 pt-md-3 mt-md-3">
         <div class="my-3">
             <div class="text-center rounded container-fluid ps-4 pt-1 pe-4 h-100">
@@ -313,6 +318,7 @@
         </div>
     </section>
 
+    <!-- seccion contactos -->
     <section id="contacto" class="text-center rounded container-fluid px-2 px-md-5 pt-1 mt-1 pt-md-4 mt-md-4">
         <div class="my-4">
             <br>
@@ -337,8 +343,8 @@
                                 <input type="text" class="visually-hidden" name="apellido">
                                 
                                 <div class="col-md-6 form-floating">
-                                    <input type="text" placeholder="nombre" class="form-control border-2 border-primary" required name="correo">
-                                    <label>(Correo, Teléfono o WhatsApp)</label>
+                                    <input type="email" placeholder="nombre" class="form-control border-2 border-primary" required name="correo">
+                                    <label>Correo Electrónico</label>
                                 </div>
                                 
                                 <div class="col-md-12 form-floating control-group">
@@ -362,6 +368,7 @@
 
     </section>
 
+    <!-- footer -->
     <div class="d-flex justify-content-center w-100 mt-4">
         <p><a href="#"><img src="icons/chevron-double-up.svg" class="fa-bounce" width="50" height="50"></a></p>
     </div>

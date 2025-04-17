@@ -153,7 +153,7 @@
                             <tr>
                                 <td> <?php echo $key['nombre'].' '.$key['apellido'] ?> </td>
                                 <td class="text-start"> <?php echo $key['cedula']; ?> </td>
-                                <td> <?php echo $key['seccion']; ?> </td>
+                                <td class="seccion"> <?php echo $key['seccion']; ?> </td>
                                 <td class="text-start align-items-center">
 
                                     <?php if($key['sexo'] === 'm') : ?> 
@@ -559,66 +559,71 @@
     <script src="js/fontawesome.min.js"></script>
     <script src="js/js.js"></script>
     <script src="js/sweetalert2.js"></script>
+
     <!-- Tooltips -->
     <script>
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
+
     <!-- Modal Editar -->
     <script>
         window.onload = function verModal(){
             $('#modal').modal('show');
         }
     </script>
+
     <!-- Modal Ver -->
-     <script>
-        function modalVer(idModal) {
-            $('#modalVer'+idModal).modal('show');
-        }
-     </script>
+    <script>
+    function modalVer(idModal) {
+        $('#modalVer'+idModal).modal('show');
+    }
+    </script>
 
             <!-- Mensajes Presentes -->
 
-<!-- Eliminado -->
-<?php if (!empty($mensajeEliminar)) :?>
-    <script>
-        window.onload = function mensaje(){
-            swal.fire({
-                    title: "Registro Eliminado",
-                    icon: "success",
-                    showConfirmButton: false,
-                    timer: 1300
-            });
-        };
-    </script>
-<?php endif; ?>
+    <!-- Eliminado -->
+    <?php if (!empty($mensajeEliminar)) :?>
+        <script>
+            window.onload = function mensaje(){
+                swal.fire({
+                        title: "Registro Eliminado",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 1300
+                });
+            };
+        </script>
+    <?php endif; ?>
 
-<!-- Editado -->
-<?php if (!empty($mensajeEdit)) : ?>
-    <script>
-        window.onload = function mensajeEdit(){
-            swal.fire({
-                    title: "Registro Editado",
-                    icon: "success",
-                    showConfirmButton: false,
-                    timer: 1300
-            });
-        };
-    </script>
-<?php endif; ?>
+    <!-- Editado -->
+    <?php if (!empty($mensajeEdit)) : ?>
+        <script>
+            window.onload = function mensajeEdit(){
+                swal.fire({
+                        title: "Registro Editado",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 1300
+                });
+            };
+        </script>
+    <?php endif; ?>
 
-<!-- Registrado -->
-<?php if (!empty($mensajeRegistro)) :?>
-    <script>
-        window.onload = function mensajeRegistro(){
-            swal.fire({
-                    title: "Datos Registrados Exitosamente",
-                    icon: "success",
-                    showConfirmButton: false,
-                    timer: 1300
-            });
-        };
-    </script>
-<?php endif; ?>
+    <!-- Registrado -->
+    <?php if (!empty($mensajeRegistro)) :?>
+        <script>
+            window.onload = function mensajeRegistro(){
+                swal.fire({
+                        title: "Datos Registrados Exitosamente",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 1300
+                });
+            };
+        </script>
+    <?php endif; ?>
+
+
 </body>
 </html>

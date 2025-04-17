@@ -228,6 +228,8 @@
         })
         }
     </script>
+
+    <!-- script ver o desaparecer contenido del input password -->
     <script>
         const Pass1 = document.getElementById("pass1");
         const Pass2 = document.getElementById("pass2");

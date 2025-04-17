@@ -76,6 +76,8 @@
         return $meses;
     }
 
+    
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -213,7 +215,7 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label class="text-black fw-light">Sección Asignada:</label>
-                                                        <input type="text" class="text-center fw-light border border-secondary border-2 form-control" value="<?php echo $key['seccion']; ?>" disabled readonly>
+                                                        <input type="text" class="text-center fw-light border border-secondary border-2 form-control" value="<?= $key['seccion'] === '-' ? 'Administrativo' : $key['seccion'] ?>" disabled readonly>
                                                     </div>
                                                 </div>
 
@@ -260,7 +262,7 @@
                                                 </div>
                                                 <div class="mb-3 col-md-6 container">
                                                     <label class="text-black fw-light">Matrícula:</label>
-                                                    <input type="text" class="text-center fw-light border border-secondary border-2 form-control" value="<?php echo $key['matricula']; ?>" disabled readonly>
+                                                    <input type="text" class="text-center fw-light border border-secondary border-2 form-control" value="<?= $key['matricula'];?>" disabled readonly>
                                                 </div>
                                             </div>
                                             <div class="modal-footer d-flex justify-content-center">
@@ -365,6 +367,7 @@
                                                     <option value="D" <?= 'D' === $datosEdit["seccion"] ? 'selected' : '' ?>>D</option>
                                                     <option value="E" <?= 'E' === $datosEdit["seccion"] ? 'selected' : '' ?>>E</option>
                                                     <option value="F" <?= 'F' === $datosEdit["seccion"] ? 'selected' : '' ?>>F</option>
+                                                    <option value="-" <?= '-' === $datosEdit["seccion"] ? 'selected' : '' ?>>Administrativo</option>
                                                 </select>
                                                 <label class="text-dark">Sección</label>
                                             </div>
@@ -526,6 +529,7 @@
                                                 <option value="D">D</option>
                                                 <option value="E">E</option>
                                                 <option value="F">F</option>
+                                                <option value="-">Administrativo</option>
                                             </select>
                                             <label class="text-dark">Sección</label>
                                         </div>

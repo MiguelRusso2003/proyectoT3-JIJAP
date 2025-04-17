@@ -36,15 +36,15 @@ if ($_FILES['foto']['name'] !== '') {
 
     // obtener nombre original del archivo
     $nombreFoto = $_FILES['foto']['name'];
-	
+    
     // dar nombre y obtener solo la extension del archivo original
     $foto = $nombre.'_'.$apellido.'_'.$cedula.'_'.date('d-m-Y').'.'.pathinfo($nombreFoto, PATHINFO_EXTENSION);
 
     // guardar archivo en un directorio
     if ( move_uploaded_file($tmp_name, "../img/docentes/".$foto)) {
-	
+    
         //obtener ruta
-       $rutafoto = "img/docentes/".$foto;
+    $rutafoto = "img/docentes/".$foto;
     }
 
 }else{

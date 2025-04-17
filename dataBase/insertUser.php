@@ -25,7 +25,7 @@ if ($result) {
 
 }else{
     
-    $usertype = 'Usuario';
+    $usertype = $_POST['roll'];
 
     $sql_insert = 'INSERT INTO usuarios VALUES (null, :user, :pass, :usertype, null, null, null, null, null, null, null )';
 

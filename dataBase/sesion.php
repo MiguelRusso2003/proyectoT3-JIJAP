@@ -16,7 +16,7 @@
     if ($clave === $usuario['pass']  && $usuario['nombre'] === null ) {
         
         session_start();
-        $_SESSION['mensaje'] = "de Usuario";
+        $_SESSION['mensaje'] = $usuario['usertype'];
         $_SESSION['idUser'] = $usuario['id'];
         $_SESSION['bienvenido'] = $usuario['nombre'];
         $_SESSION['primer-ingreso'] = 'primer-ingreso';
@@ -27,14 +27,14 @@
 
         if ($usuario['usertype'] == 'Administrador') {
             session_start();
-            $_SESSION['mensaje'] = "de Administrador";
+            $_SESSION['mensaje'] = $usuario['usertype'];
             $_SESSION['idUser'] = $usuario['id'];
             $_SESSION['bienvenido'] = $usuario['nombre'];
 
             header('location:../admin.php');
         }elseif ($usuario['usertype'] == 'Usuario') {
             session_start();
-            $_SESSION['mensaje'] = "de Usuario";
+            $_SESSION['mensaje'] = $usuario['usertype'];
             $_SESSION['idUser'] = $usuario['id'];
             $_SESSION['bienvenido'] = $usuario['nombre'];
 

@@ -173,7 +173,7 @@
             <td><?= $alumno['lugarNac'] ?></td>
             <td><?= $alumno['entFed'] ?></td>
             <td><?= $alumno['sexo'] ?></td>
-            <td><?= $alumno['fechaNac'] ?></td>
+            <td><?= DateTime::createFromFormat('Y-m-d', $alumno['fechaNac'])->format('d-m-Y');  ?></td>
             <td><?= edadMeses($alumno['fechaNac']) < 12 ? 'X' : ''; ?></td>
             <td><?= edadMeses($alumno['fechaNac']) < 24 && edadMeses($alumno['fechaNac']) > 11  ? 'X' : ''; ?></td>
             <td><?= edadMeses($alumno['fechaNac']) < 36 && edadMeses($alumno['fechaNac']) > 23  ? 'X' : ''; ?></td>

@@ -38,11 +38,11 @@
                 <form method="POST" action="dataBase/editUser.php">
                     <div class="d-sm-flex justify-content-center">
                         <div class="form-floating mx-2 mb-3">
-                            <input type="text" name="nombre" class="transition border border-secondary border-2 form-control" placeholder="Ingresar nombre" required>
+                            <input type="text" name="nombre" pattern="[a-zA-Z0-9]+" class="transition border border-secondary border-2 form-control" placeholder="Ingresar nombre" required>
                             <label class="text-secondary" for="floatingInput">Primer Nombre</label>
                         </div>
                         <div class="form-floating mx-2 mb-3">
-                            <input type="text" name="apellido" placeholder="Ingresar Apellido" class="transition border border-secondary border-2 form-control" required>
+                            <input type="text" name="apellido" pattern="[a-zA-Z0-9]+" placeholder="Ingresar Apellido" class="transition border border-secondary border-2 form-control" required>
                             <label class="text-secondary">Primer Apellido</label>
                         </div>
                     </div>

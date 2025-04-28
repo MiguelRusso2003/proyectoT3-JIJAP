@@ -226,11 +226,11 @@
                                                 <div class="container-fluid col-md-6">
                                                     <div class="mb-3">
                                                         <label class="text-black fw-light">Fecha de Nacimiento:</label>
-                                                        <input type="text" class=" text-center fw-light border border-secondary border-2 form-control" value="<?php echo $key['fechaNac']; ?>" disabled readonly>
+                                                        <input type="text" class=" text-center fw-light border border-secondary border-2 form-control" value="<?php echo DateTime::createFromFormat('Y-m-d', $key['fechaNac'])->format('d-m-Y'); ?>" disabled readonly>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label class="text-black fw-light">Fecha de Ingreso:</label>
-                                                        <input type="text" class="text-center fw-light border border-secondary border-2 form-control" value="<?php echo $key['fechaIngre']; ?>" disabled readonly>
+                                                        <input type="text" class="text-center fw-light border border-secondary border-2 form-control" value="<?php echo DateTime::createFromFormat('Y-m-d', $key['fechaIngre'])->format('d-m-Y'); ?>" disabled readonly>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label class="text-black fw-light">Código de Dependencia:</label>
@@ -346,7 +346,7 @@
                                             </div>
 
                                             <div class="form-floating mb-4 mx-2 col-md-4">
-                                                <input value="<?php echo $datosEdit["codDep"] ; ?>" type="text" name="codDep" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                                <input value="<?php echo $datosEdit["codDep"] ; ?>" maxlength="11" type="number" name="codDep" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
                                                 <label class="text-dark">Código de Dependencia</label>
                                             </div>
 
@@ -508,7 +508,7 @@
                                         </div>
 
                                         <div class="form-floating mb-4 mx-2 col-md-4">
-                                            <input type="text" name="codDep" placeholder="Contraseña" class="border border-primary border-2 form-control form-control-lg" required>
+                                            <input type="number" name="codDep" placeholder="Contraseña" maxlength="11" class="border border-primary border-2 form-control form-control-lg" required>
                                             <label class="text-dark">Código de Dependencia</label>
                                         </div>
 

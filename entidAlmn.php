@@ -254,7 +254,7 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label class="text-black fw-light">Fecha de Nacimiento:</label>
-                                                        <input type="text" class=" text-center fw-light border border-secondary border-2 form-control" value="<?php echo $key['fechaNac']; ?>" disabled readonly>
+                                                        <input type="text" class=" text-center fw-light border border-secondary border-2 form-control" value="<?php echo DateTime::createFromFormat('Y-m-d', $key['fechaNac'])->format('d-m-Y'); ?>" disabled readonly>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label class="text-black fw-light">Lugar de Nacimiento:</label>

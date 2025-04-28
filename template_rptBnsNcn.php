@@ -100,7 +100,7 @@
 
     <div class="justify-content-between w-100 mx-5">
         <h5>Oficina de Bienes Públicos</h5>
-        <p>Fecha: <?= $fecha ?></p>
+        <p>Fecha: <?=  DateTime::createFromFormat('Y-m-d', $fecha)->format('d-m-Y');  ?></p>
     </div>
 
     <h4>Inventario de Bienes Nacinales</h4>
